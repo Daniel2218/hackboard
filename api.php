@@ -15,8 +15,6 @@ class Method {
         $_REQUEST = $this->_cleanInputs($_REQUEST);
         $request_url = $this->_cleanInputs($request_url);
 
-        var_dump($_REQUEST);
-
         switch($request_method) {
             case "GET":
                 break;
@@ -42,7 +40,7 @@ class Method {
                $clean_input[$k] = $this->_cleanInputs($v);
            }
        } else {
-           $clean_input = trim(strip_tags($data));
+           $clean_input = addslashes(trim(strip_tags($data)));
        }
        return $clean_input;
    }
@@ -93,12 +91,14 @@ class Endpoint {
 }
 
 // Sample endpoint definitions
+// $args: array of argruments passed by the request
+// $method: method
 new Endpoint(
     array(
-        new Method("GET", "login"),
-        new Method("POST", "login")
+        new Method("GET", "login")
+        // new Method("POST", "login")
     ),
-    function() {
+    function($args, $method) {
 
         $obj = array(
             'Success'=>'true'
@@ -117,10 +117,8 @@ new Endpoint(
 //     }
 // );
 
-
-
 // Called on page load, passes request to handlers. ALL! information an Endpoint
 // should ever need must be passed through this function. It helps when
 // debugging!
-echo Endpoint::call($_SERVER['REQUEST_METHOD'], $_REQUEST['request']);
+ Endpoint::call($_SERVER['REQUEST_METHOD'], $_REQUEST['request']);
 ?>
