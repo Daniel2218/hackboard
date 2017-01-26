@@ -12,10 +12,16 @@ class Method {
 
     public function __construct($request_method, $request_url) {
         $request_method = strtoupper($request_method);
+        $_REQUEST = $this->_cleanInputs($_REQUEST);
+        $request_url = $this->_cleanInputs($request_url);
+
+        var_dump($_REQUEST);
 
         switch($request_method) {
-            case "GET": break;
-            case "POST": break;
+            case "GET":
+                break;
+            case "POST":
+                break;
             case "DELETE": break;
             case "PUT": break;
             case "UPDATE": break;
@@ -28,6 +34,18 @@ class Method {
         $this->request_method = $request_method;
         $this->request_url    = $request_url;
     }
+
+    private function _cleanInputs($data) {
+       $clean_input = Array();
+       if (is_array($data)) {
+           foreach ($data as $k => $v) {
+               $clean_input[$k] = $this->_cleanInputs($v);
+           }
+       } else {
+           $clean_input = trim(strip_tags($data));
+       }
+       return $clean_input;
+   }
 }
 
 /**
@@ -77,10 +95,11 @@ class Endpoint {
 // Sample endpoint definitions
 new Endpoint(
     array(
-        // new Method("GET", "/"),
-        new Method("POST", "example")
+        new Method("GET", "login"),
+        new Method("POST", "login")
     ),
     function() {
+
         $obj = array(
             'Success'=>'true'
         );
@@ -97,6 +116,8 @@ new Endpoint(
 //         return "{'door':'chair'}";
 //     }
 // );
+
+
 
 // Called on page load, passes request to handlers. ALL! information an Endpoint
 // should ever need must be passed through this function. It helps when
