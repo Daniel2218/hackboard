@@ -17,7 +17,7 @@
                 </div>
             </div>
             <ul>
-                <li><a href="index.html"> <i class="fa fa-file" aria-hidden="true"></i> <span>Applications</span></a> </li>
+                <li><a href="applications.php"> <i class="fa fa-file" aria-hidden="true"></i> <span>Applications</span></a> </li>
                 <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedulec</span></a> </li>
                 <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
                 <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
@@ -35,7 +35,7 @@
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <div class ="dropdown">
+            <div class ="dropdown div-size-2">
                 <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
                 <div class="dropdown-content">
                     <a href="#">Link 1</a>
@@ -43,23 +43,13 @@
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <div class ="dropdown">
+            <div class ="dropdown div-size-1">
                 <li class = "dropbtn">
-                    <a href="default.asp"> <i class="fa fa-cog" aria-hidden="true"></i>Settings <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                    <a href="default.asp"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
                 </li>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
             </div>
-            <div class ="dropdown">
-                <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-undo" aria-hidden="true"></i> Logout <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+            <div class ="dropdown div-size-1">
+                <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-undo" aria-hidden="true"></i> Logout</a></li>
             </div>
         </ul>
     </body>

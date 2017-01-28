@@ -1,0 +1,55 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+#insideBlock {
+    position: absolute;
+    left:200px;
+    height: calc(100% - 40px);
+    width: calc(100% - 200px);
+}
+#pathheader {
+    padding: 12px 20px 11px 10px;
+    font-size: 11px;
+    background-color: white;
+}
+#i-space-1 { margin-right: 2px; }
+#i-space-2 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+#spn-grey { color: #666666; }
+#title {
+    font-size: 26px;
+    text-shadow: 0 1px 0 #ffffff;
+    color: #555555;
+    margin-bottom: 30px;
+}
+#outer {
+    background-color: #eeeeee;
+    padding: 30px 15px;
+    /*height: calc(100% - 90px);*/
+}
+table, th, td {
+    text-align: left;
+    border: 1px solid #cdcdcd;
+    padding: 10px;
+}
+th {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.tr-color {
+    background-color: #f9f9f9;
+}
+#tableHeader{
+    margin-top: 40px;
+    border: 1px solid #cdcdcd;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 12px;
+}
+#tableHeader > span {
+    float: left;
+    margin-right: 10px;
+}
