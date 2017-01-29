@@ -1,3 +1,5 @@
+<?php header("Cache-Control: no-cache, must-revalidate"); ?>
+
 <html>
     <head>
         <script src="https://use.fontawesome.com/8de37c3432.js"></script>
@@ -18,11 +20,11 @@
             </div>
             <ul>
                 <li><a href="applications.php"> <i class="fa fa-file" aria-hidden="true"></i> <span>Applications</span></a> </li>
-                <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedulec</span></a> </li>
-                <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
-                <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
-                <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Apps</span></a> </li>
-                <li><a href="index.html"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Rooms</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedulec</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Apps</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Rooms</span></a> </li>
             </ul>
         </div>
 

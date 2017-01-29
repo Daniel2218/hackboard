@@ -71,9 +71,15 @@ h1 {
 }
 #nav > ul > li {
     font-size: 12px;
-    padding: 15px;
+
     border-top: 1px solid #37414b;
     border-bottom: 1px solid #1f262d;
+}
+#nav > ul > li > a {
+    padding: 15px;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 a {
      text-decoration: none;
