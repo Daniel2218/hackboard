@@ -96,3 +96,14 @@ a > span { margin-left: 8px !important; }
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+/* Footer */
+#footer {
+    color: #666;
+    font-size: 12px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 145px);
+    /*left: 50%;*/
+    width: 290px;
+}

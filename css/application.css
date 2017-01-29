@@ -27,7 +27,7 @@ body {
 #outer {
     background-color: #eeeeee;
     padding: 30px 15px;
-    /*height: calc(100% - 90px);*/
+    height: calc(100% - 125px);
 }
 table, th, td {
     text-align: left;

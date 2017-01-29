@@ -1,4 +1,7 @@
-<?php include_once "nav.php"; ?>
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+include_once "nav.php";
+?>
 
 <html>
     <head>
@@ -49,64 +52,10 @@
                         <td>Smith</td>
                         <td>50</td>
                     </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
                 </table>
             <div>
         </div>
     </body>
 </html>
+
+<?php include_once "footer.php"; ?>
