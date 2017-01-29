@@ -16,9 +16,9 @@
                 <p> <span id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </span> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> Applications </p>
             </div>
             <div id = "outer">
-                <button id = "btn-skip"> Skip </button>
-                <button id = "btn-decline"> Decline </button>
-                <button id = "btn-accept"> Accept </button>
+                <button id = "btn-skip"> <i class="fa fa-rocket" aria-hidden="true"></i> Skip </button>
+                <button id = "btn-decline"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> Decline </button>
+                <button id = "btn-accept"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Accept </button>
                 <div id ="title">
                     <h1> Applicant: 1 </h1>
                 </div>

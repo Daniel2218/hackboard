@@ -3,6 +3,11 @@ button {
     padding: 6px;
     margin-left: 10px;
     width: 100px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: white;
 }
 #btn-accept {
 
@@ -11,5 +16,9 @@ button {
 
 }
 #btn-skip {
-
+    width: 80px;
+    margin-right: 20px;
+}
+button > i {
+    margin-right: 5px;
 }
