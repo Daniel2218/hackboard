@@ -34,14 +34,19 @@ table, th, td {
     border: 1px solid #cdcdcd;
     padding: 10px;
 }
+table tr td > a {
+    display:block;
+    height:100%;
+    width:100%;
+}
 th {
     font-size: 10px;
     font-weight: bold;
     text-align: center;
 }
-.tr-color {
-    background-color: #f9f9f9;
-}
+td > a { font-size: 12px; }
+tr:hover { background-color: #eeeeee; }
+.tr-color { background-color: #f9f9f9; }
 #tableHeader{
     margin-top: 40px;
     border: 1px solid #cdcdcd;

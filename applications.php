@@ -1,6 +1,6 @@
 <?php
-header("Cache-Control: no-cache, must-revalidate");
-include_once "nav.php";
+    header("Cache-Control: no-cache, must-revalidate");
+    include_once "nav.php";
 ?>
 
 <html>
@@ -32,25 +32,11 @@ include_once "nav.php";
                         <th>Pasword</th>
                     </tr>
                     <tr class="tr-color">
-                        <td>Jill</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr class="tr-color">
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>Smith</td>
-                        <td>50</td>
+                        <td><a href="applicant.php">Jill</a></td>
+                        <td><a href="applicant.php">Jill</a></td>
+                        <td><a href="applicant.php">Jill</a></td>
+                        <td><a href="applicant.php">Jill</a></td>
+                        <td><a href="applicant.php">Jill</a></td>
                     </tr>
                 </table>
             <div>
