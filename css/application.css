@@ -32,19 +32,22 @@ body {
 table, th, td {
     text-align: left;
     border: 1px solid #cdcdcd;
+}
+table, th {
     padding: 10px;
 }
-table tr td > a {
+td > a {
+    font-size: 12px;
     display:block;
     height:100%;
     width:100%;
+    padding: 10px;
 }
 th {
     font-size: 10px;
     font-weight: bold;
     text-align: center;
 }
-td > a { font-size: 12px; }
 tr:hover { background-color: #eeeeee; }
 .tr-color { background-color: #f9f9f9; }
 #tableHeader{
