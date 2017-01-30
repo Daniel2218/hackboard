@@ -6,7 +6,6 @@
 
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/navStyle.css">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <title>Dashboard</title>
     </head>
 
@@ -21,10 +20,8 @@
             <ul>
                 <li><a href="applications.php"> <i class="fa fa-file" aria-hidden="true"></i> <span>Applications</span></a> </li>
                 <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedulec</span></a> </li>
-                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
-                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
-                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Apps</span></a> </li>
-                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Rooms</span></a> </li>
+                <li><a href="users.php"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
+                <li><a href="sponsors.php"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
             </ul>
         </div>
 
