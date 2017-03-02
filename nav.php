@@ -19,9 +19,10 @@
             </div>
             <ul>
                 <li><a href="applications.php"> <i class="fa fa-file" aria-hidden="true"></i> <span>Applications</span></a> </li>
-                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedulec</span></a> </li>
                 <li><a href="users.php"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Users</span></a> </li>
                 <li><a href="sponsors.php"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
+                <li><a href="#"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Prizes</span></a> </li>
+                <li><a href="schedule.php"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Schedule</span></a> </li>
             </ul>
         </div>
 
