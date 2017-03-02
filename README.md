@@ -1,3 +1,3 @@
-# myHackathon
+# Frontend
 
-A application to service all hackathons
+This branch contains all the frontend for the application
