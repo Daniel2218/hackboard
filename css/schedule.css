@@ -100,11 +100,15 @@ td {
 }
 #i-left {
     float:left;
-    cursor: pointer;
 }
 #i-right {
     float:right;
+}
+.clickSpace {
+    width: 25px;
+    height: 25px;
     cursor: pointer;
+    display: inline-block;
 }
 button {
     width: 100px;
