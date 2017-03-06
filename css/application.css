@@ -1,11 +1,21 @@
+html {
+    height: 100%;
+}
 body {
     font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
+}
+#push {
+    position: relative;
+    left:200px;
+    width: calc(100% - 200px);
+    height: calc(100% - 35px);
 }
 #insideBlock {
     position: absolute;
-    left:200px;
-    height: calc(100% - 40px);
-    width: calc(100% - 200px);
+    width: 100%;
+    min-height: 100%;
+    background-color: #eeeeee;
 }
 #pathheader {
     padding: 12px 20px 11px 10px;

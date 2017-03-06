@@ -106,9 +106,10 @@ a > span { margin-left: 8px !important; }
 #footer {
     color: #666;
     font-size: 11px;
-    padding: 10px;
-    position: absolute;
+    padding: 10px 0px;
+    position: absolute;;
     bottom: 0px;
-    left: calc(50% - 145px);
-    width: 290px;
+    width: 100%;
+    background-color: #2e363f;
+    text-align: center;
 }
