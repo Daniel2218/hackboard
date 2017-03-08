@@ -7,7 +7,6 @@ window.onload = function () {
 
 var currentDate = new Date();
 var currentMonth = currentDate.getMonth();
-console.log (currentMonth);
 var currentYear = currentDate.getFullYear();
 
 function createSced(month, year) {
@@ -128,13 +127,23 @@ function getMonthText(month) {
         return "January";
     }
 }
+function displayPopUpBox(displayType) {
+    var popUpBox = document.getElementById("pop-up-box");
+    if (displayType != 'none') popUpBox.focus();
+    popUpBox.style.display = displayType;
+    document.getElementsByName('eventName')[0].value = "";
+    var entireScreen = document.getElementById("screen");
+    entireScreen.style.display = displayType;
+}
 function addEvent() {
+    var inputText = document.getElementsByName('eventName')[0].value;
+    displayPopUpBox("none");
     var div = document.createElement("div");
-    div.innerHTML = "Event 1";
+    div.innerHTML = inputText;
     div.style.background = "black";
     div.style.color = "white";
     div.style.display = "inline-block";
-    div.style.padding = "2px 4px";
+    div.style.padding = "4px 6px";
     div.style.fontSize = "12px";
     div.style.fontWeight = "bold";
     div.style.marginLeft = "5px";

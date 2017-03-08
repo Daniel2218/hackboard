@@ -9,13 +9,14 @@
         <link rel="stylesheet" type="text/css" href="css/application.css">
         <link rel="stylesheet" type="text/css" href="css/applicant.css">
         <link rel="stylesheet" type="text/css" href="css/schedule.css">
+        <link rel="stylesheet" type="text/css" href="css/popUpBox.css">
     </head>
 
     <body>
         <div id = "push">
             <div id ="insideBlock">
                 <div id ="pathheader">
-                    <p> <span id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </span> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> Applications </p>
+                    <p> <a href = "applications.php" id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </a> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="schedule.php"> Schedule </a></p>
                 </div>
                 <div id = "outer">
                     <div id ="title">
@@ -25,7 +26,7 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Schedule </h5>
-                        <button id ="add-spons" onclick="addEvent()"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
+                        <button id ="add-spons" onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
                     </div>
                     <div id = "left-justify"> Drag Events to the calender </div>
                     <div id = "eventContainer"> </div>
@@ -50,6 +51,7 @@
                 </div>
                 <?php include_once "footer.php"; ?>
             </div>
+            <?php include_once "popUpBox.php"; ?>
         </body>
     <script src = "schedule.js"> </script>
 </html>

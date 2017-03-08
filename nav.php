@@ -3,7 +3,6 @@
 <html>
     <head>
         <script src="https://use.fontawesome.com/8de37c3432.js"></script>
-
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/navStyle.css">
         <title>Dashboard</title>
@@ -30,17 +29,16 @@
             <div class ="dropdown">
                 <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-address-book" aria-hidden="true"></i> Welcome User <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <div> <a href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></div>
+                    <div> <a href="#"><i class="fa fa-level-up" aria-hidden="true"></i> Logout</a></div>
                 </div>
             </div>
             <div class ="dropdown div-size-2">
                 <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <div> <a href="#">Link 1</a> </div>
+                    <div> <a href="#">Link 2</a> </div>
+                    <div> <a href="#">Link 3</a> </div>
                 </div>
             </div>
             <div class ="dropdown div-size-1">
@@ -49,7 +47,7 @@
                 </li>
             </div>
             <div class ="dropdown div-size-1">
-                <li class = "dropbtn"><a href="default.asp"> <i class="fa fa-undo" aria-hidden="true"></i> Logout</a></li>
+                <li class = "dropbtn"><a href="default.asp"><i class="fa fa-level-up" aria-hidden="true"></i> Logout</a></li>
             </div>
         </ul>
     </body>

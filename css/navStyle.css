@@ -23,20 +23,33 @@ html, body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    top:35px;
+    background-color: white;
+    color: #666;
+    font-size: 12px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+.dropdown-content div {
+    padding: 3px 0px;
+    border-bottom: 1px solid #ccc;
+}
+.dropdown-content div > a {
+    padding: 5px 10px;
+    text-align: left;
     text-decoration: none;
     display: block;
 }
+.dropdown-content div > a:hover {
+    background-color: #666 !important;
+    color: white;
+}
+.dropdown-content div > a > i {
+    margin-right: 5px;
+}
 .div-size-1 { width: 50px; }
 .div-size-2 { width: 75px; }
-.dropdown-content a:hover {background-color: #f1f1f1}
 .dropdown:hover .dropdown-content { display: block; }
 .dropdown:hover { background-color: white; }
 .dropbtn > a {
@@ -71,7 +84,6 @@ h1 {
 }
 #nav > ul > li {
     font-size: 12px;
-
     border-top: 1px solid #37414b;
     border-bottom: 1px solid #1f262d;
 }

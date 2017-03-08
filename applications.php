@@ -13,7 +13,7 @@
         <div id = "push">
             <div id ="insideBlock">
                 <div id ="pathheader">
-                    <p> <span id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </span> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> Applications </p>
+                    <p> <a href = "applications.php" id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </a> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="applications.php"> Applications </a> </p>
                 </div>
                 <div id = "outer">
                     <div id ="title">
