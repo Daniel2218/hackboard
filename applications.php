@@ -16,6 +16,22 @@
                     <p> <a href = "applications.php" id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </a> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="applications.php"> Applications </a> </p>
                 </div>
                 <div id = "outer">
+                    <div id = "stat-box-1" class="hvr-grow statBox">
+                        <i class="fa fa-files-o fa-2x" aria-hidden="true"></i>
+                        Total: 10000
+                    </div>
+                    <div id = "stat-box-2" class="hvr-grow statBox">
+                        <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
+                        Accepted: 5000
+                    </div>
+                    <div id = "stat-box-3" class="hvr-grow statBox">
+                        <i class="fa fa-window-close fa-2x" aria-hidden="true"></i>
+                        Declined: 5000
+                    </div>
+                    <div id = "stat-box-4" class="hvr-grow statBox">
+                        <i class="fa fa-share fa-2x" aria-hidden="true"></i>
+                        Skipped: 0
+                    </div>
                     <div id ="title">
                         <h1> Applicants </h1>
                     </div>

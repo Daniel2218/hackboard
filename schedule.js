@@ -1,9 +1,9 @@
-window.onload = function () {
+addLoadEvent(function () {
     var date = new Date();
 	var month = date.getMonth();
 	var year = date.getFullYear();
     createSced(month, year);
-}
+});
 
 var currentDate = new Date();
 var currentMonth = currentDate.getMonth();
