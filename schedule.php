@@ -52,5 +52,5 @@
             </div>
             <?php include_once "popUpBox.php"; ?>
         </body>
-    <script src = "schedule.js"> </script>
+    <script src = "js/schedule.js"> </script>
 </html>

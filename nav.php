@@ -13,13 +13,7 @@
             <div id="top-half">
                 <div id="inner-top-half">
                     <a target="_blank" href="http://qhacks.io/"><img src="img/logo.png" alt="myHackathon logo" class="hvr-grow" ></a>
-                    <span id ="color1">Q</span>
-                    <span style="margin-left:-5px;">h</span>
-                    <span id ="color2">a</span>
-                    <span style="margin-left:-5px;">c</span>
-                    <span id="color3">k</span>
-                    <span style="margin-left:-5px;">s</span>
-                    <span style = "font-weight:bold"> Admin </span>
+                    Qhacks<span style = "font-weight:bold"> Admin </span>
                 </div>
             </div>
             <ul>
@@ -79,4 +73,5 @@
             li.id = "makeVisted";
         });
     </script>
+    <script src="js/table.js"></script>
 </html>
