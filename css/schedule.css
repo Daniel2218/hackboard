@@ -110,18 +110,3 @@ td {
     cursor: pointer;
     display: inline-block;
 }
-button {
-    width: 100px;
-    padding: 4px;
-    font-size: 10.5px;
-    background-color: #2e363f;
-    color: white;
-    text-align: center;
-}
-button > i {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-button:hover {
-    color: black;
-}

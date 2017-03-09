@@ -18,9 +18,6 @@
                     <p> <a href="applications.php" id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </a> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="users.php"> Users </a></p>
                 </div>
                 <div id = "outer">
-                    <input id = "input" type="text" name="email" placeholder="Email">
-                    <button id = "btn-send-req" onclick="displayInput();"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Request User</button>
-                    <button> <i class="fa fa-plus" aria-hidden="true"></i> Add User </button>
                     <div id ="title">
                         <h1> Users </h1>
                     </div>
@@ -28,6 +25,7 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Users </h5>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add user </button>
                     </div>
                     <table style="width:100%;">
                         <tr>

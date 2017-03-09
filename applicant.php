@@ -18,9 +18,6 @@
                     <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="applicant.php"> Applicants </a></p>
                 </div>
                 <div id = "outer">
-                    <button id = "btn-skip"> <i class="fa fa-rocket" aria-hidden="true"></i> Skip </button>
-                    <button id = "btn-decline"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> Decline </button>
-                    <button id = "btn-accept"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Accept </button>
                     <div id ="title">
                         <h1> Applicant: 1 </h1>
                     </div>
@@ -28,6 +25,9 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Applicant </h5>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Accept </button>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Decline </button>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Skip </button>
                     </div>
                     <table style="width:100%;">
                         <tr class="tr-color">

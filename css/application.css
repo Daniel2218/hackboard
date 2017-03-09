@@ -115,3 +115,29 @@ tr:hover { background-color: #eeeeee; }
     float: left;
     margin-right: 10px;
 }
+#tableHeader > button {
+    display: inline;
+}
+#tableHeader > h5 {
+    display: inline;
+}
+button {
+    float: right;
+    width: 100px;
+    padding: 4px;
+    font-size: 10.5px;
+    background-color: #2e363f;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+button > i {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+button:hover {
+    background-color: white;
+    color: black;
+}

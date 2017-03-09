@@ -18,7 +18,6 @@
                     <p> <a href="applications.php" id = "spn-grey"> <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home </a> <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> <a href="sponsors.php"> Sponsors </a></p>
                 </div>
                 <div id = "outer">
-                    <button id ="add-spons"> <i class="fa fa-plus" aria-hidden="true"></i> Add Sponser </button>
                     <div id ="title">
                         <h1> Sponsors </h1>
                     </div>
@@ -26,6 +25,7 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Sponsors </h5>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add sponsor </button>
                     </div>
                     <table style="width:100%;">
                         <tr>

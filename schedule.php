@@ -26,7 +26,7 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Schedule </h5>
-                        <button id ="add-spons" onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
                     </div>
                     <div id = "left-justify"> Drag Events to the calender </div>
                     <div id = "eventContainer"> </div>
