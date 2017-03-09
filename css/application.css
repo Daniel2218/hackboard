@@ -29,7 +29,7 @@ body {
     font-size: 14px;
     font-weight: lighter;
     padding: 10px 0px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .statBox > i {
@@ -39,18 +39,22 @@ body {
 #stat-box-1 {
     background-color: #27a9e3;
     width: 20%;
+    min-width: 120px;
 }
 #stat-box-2 {
     background-color: #28b779;
     width:15%;
+    min-width: 120px;
 }
 #stat-box-3 {
     background-color: #f74d4d;
     width:15%;
+    min-width: 120px;
 }
 #stat-box-4 {
     background-color: #2255a4;
     width:15%;
+    min-width: 120px;
 }
 #i-space-1 { margin-right: 2px; }
 #i-space-2 {
@@ -62,6 +66,7 @@ body {
     font-size: 22px;
     text-shadow: 0 1px 0 #ffffff;
     color: #555555;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 #outer {

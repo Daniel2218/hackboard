@@ -33,14 +33,14 @@
 
         <ul id = "header">
             <div class ="dropdown">
-                <li class = "dropbtn"> <i class="fa fa-address-book" aria-hidden="true"></i> Welcome User <i class="fa fa-angle-down" aria-hidden="true"></i></li>
+                <li class = "dropbtn"> <i class="fa fa-address-book" aria-hidden="true"></i> <span> Welcome User </span> <i class="fa fa-angle-down" aria-hidden="true"></i></li>
                 <div class="dropdown-content">
                     <div> <a href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></div>
                     <div> <a href="#"><i class="fa fa-level-up" aria-hidden="true"></i> Logout</a></div>
                 </div>
             </div>
             <div class ="dropdown div-size-2">
-                <li class = "dropbtn"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <i class="fa fa-angle-down" aria-hidden="true"></i> </li>
+                <li class = "dropbtn"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <span> Messages </span> <i class="fa fa-angle-down" aria-hidden="true"></i> </li>
                 <div class="dropdown-content">
                     <div> <a href="#">Link 1</a> </div>
                     <div> <a href="#">Link 2</a> </div>
@@ -49,11 +49,11 @@
             </div>
             <div class ="dropdown div-size-1">
                 <li class = "dropbtn">
-                    <a href="default.asp"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
+                    <a href="default.asp"> <i class="fa fa-cog" aria-hidden="true"></i><span> Settings </span> </a>
                 </li>
             </div>
             <div class ="dropdown div-size-1">
-                <li class = "dropbtn"><a href="default.asp"><i class="fa fa-level-up" aria-hidden="true"></i> Logout</a></li>
+                <li class = "dropbtn"><a href="default.asp"><i class="fa fa-level-up" aria-hidden="true"></i> <span> Logout </span> </a></li>
             </div>
         </ul>
     </body>
