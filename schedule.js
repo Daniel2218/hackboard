@@ -3,8 +3,21 @@ addLoadEvent(function () {
 	var month = date.getMonth();
 	var year = date.getFullYear();
     createSced(month, year);
+    setSize();
 });
 
+window.onresize = setSize;
+
+function setSize() {
+    var length = document.getElementsByTagName("td").length;
+    for (var i = 0; i < length; i++){
+        var td = document.getElementsByTagName("td")[i];
+        var width = td.offsetWidth;
+        td.style.height = width;
+        console.log(width);
+        console.log(td.offsetHeight);
+    }
+}
 var currentDate = new Date();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
