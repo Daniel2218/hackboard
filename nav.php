@@ -5,7 +5,7 @@
         <script src="https://use.fontawesome.com/8de37c3432.js"></script>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/navStyle.css">
-        <title>Dashboard</title>
+        <title>Dashboard</title
     </head>
 
     <body>

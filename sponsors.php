@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <p> Enter sponsors email name: </p>
-                    <input id = "pop-up-input" type="text" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
+                    <input id = "pop-up-input" type="email" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter sponsors phone number: </p>

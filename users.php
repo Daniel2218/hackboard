@@ -62,11 +62,11 @@
                 </div>
                 <div>
                     <p> Enter user email name: </p>
-                    <input id = "pop-up-input" type="text" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
+                    <input id = "pop-up-input" type="email" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter user phone number: </p>
-                    <input id = "pop-up-input" type="text" name="phone" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
+                    <input id = "pop-up-input" onkeydown = "phoneNo(event, this)" type="text" name="phone" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter user's position: </p>

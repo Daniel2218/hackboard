@@ -7,6 +7,13 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/application.css">
+        <meta charset="UTF-8" />
+        <meta name=viewport content='width=600'>
+        <meta name="description" content="A dashboard for hackathons to help executive with logictics and planning. Currently, it only has an application review system."/>
+        <meta name="keywords" content="Application Review System, Hackathon, Dashboard"/>
+        <meta name="author" content="Daniel Lucia" />
+        <meta name="copyright" content="Daniel Lucia" />
+        <meta http-equiv="cache-control" content="no-cache"/>
     </head>
 
     <body>
