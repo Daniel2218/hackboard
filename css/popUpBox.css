@@ -67,6 +67,10 @@
     width: 190px;
     margin-bottom: 25px;
 }
+textarea {
+    width: 90% !important;
+    height: 100px;
+}
 .pop-up-a {
     padding: 6px 8px;
     font-size: 12.5px;

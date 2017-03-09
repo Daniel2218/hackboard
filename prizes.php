@@ -52,8 +52,10 @@
                 <input id = "pop-up-input" type="text" name="pname" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize autofocus>
                 <p> Enter event prize is for: </p>
                 <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
+                <p> How do you get it? </p>
+                <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 <p> Enter description of prize: </p>
-                <input id = "pop-up-input" type="text" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
+                <textarea id = "pop-up-input" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize></textarea>
             </div>
             <div id = "bottom">
                 <div id = "positionLeft">

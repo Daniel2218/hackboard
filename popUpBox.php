@@ -4,8 +4,22 @@
         <i onclick="displayPopUpBox('none')" id = "floatRight" class="fa fa-times fa-lg" aria-hidden="true"></i>
     </div>
     <div id  = "middle">
-        <p> Enter event name: </p>
-         <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+        <div>
+            <p> Enter event name: </p>
+             <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+         </div>
+         <div>
+            <p> Start time: </p>
+            <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+        </div>
+        <div>
+            <p> End Time: </p>
+            <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+        </div>
+        <div>
+            <p> Location: </p>
+            <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+        </div>
     </div>
     <div id = "bottom">
         <div id = "positionLeft">
