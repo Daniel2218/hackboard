@@ -6,7 +6,7 @@
     border: 1px solid #cdcdcd;
     border-radius: 0px 0px 5px 5px;
     overflow: hidden;
-    top: 50px;
+    top: 30px;
     left: 350px;
     z-index: 3;
 }
@@ -26,7 +26,11 @@
     border-bottom: 1px solid #cdcdcd;
     background-color: white;
 }
-#middle > p {
+#middle > div {
+    display: inline-block;
+    margin-right: 50px;
+}
+#middle > div > p, #middle > p{
     margin-bottom: 15px;
     color: #666;
 }

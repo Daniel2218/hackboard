@@ -7,6 +7,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/application.css">
+        <link rel="stylesheet" type="text/css" href="css/popUpBox.css">
     </head>
 
     <body>
@@ -47,5 +48,49 @@
             </div>
             <?php include_once "footer.php"; ?>
         </div>
+        <div id ="pop-up-box" tabindex="1" onkeydown="if(event.keyCode == 27) displayPopUpBox('none');">
+            <div id = "top">
+                <p id = "makeInline"> Add a new Sponsor </p>
+                <i onclick="displayPopUpBox('none')" id = "floatRight" class="fa fa-times fa-lg" aria-hidden="true"></i>
+            </div>
+            <div id  = "middle">
+                <div>
+                    <p> Enter sponsor first name: </p>
+                    <input autofocus id = "pop-up-input" type="text" name="pname" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Enter sponsor last name: </p>
+                    <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Enter description of prize: </p>
+                    <input id = "pop-up-input" type="text" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Enter sponsors email name: </p>
+                    <input id = "pop-up-input" type="text" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Enter sponsors phone number: </p>
+                    <input id = "pop-up-input" type="text" name="phone" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Enter donation amount of sponsor: </p>
+                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+                <div>
+                    <p> Has donation been recieved: </p>
+                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                </div>
+            </div>
+            <div id = "bottom">
+                <div id = "positionLeft">
+                    <a class="pop-up-a" id = "add-event-btn" onclick="addTableEntry()" href="#"> Add Sponsor </a>
+                    <a class="pop-up-a" id = "cancel-btn" onclick="displayPopUpBox('none')" href="#"> Cancel </a>
+                </div>
+            </div>
+        </div>
+        <div id ="screen"> </div>
     </body>
+    <script src = "js/table.js"> </script>
 </html>

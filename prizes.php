@@ -7,6 +7,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/application.css">
+        <link rel="stylesheet" type="text/css" href="css/popUpBox.css">
     </head>
 
     <body>
@@ -23,7 +24,7 @@
                     <div id = "tableHeader">
                         <span> <i class="fa fa-th" aria-hidden="true"></i> </span>
                         <h5> Prizes </h5>
-                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
+                        <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new prize </button>
                     </div>
                     <table style="width:100%;">
                         <tr>
@@ -41,5 +42,27 @@
             </div>
             <?php include_once "footer.php"; ?>
         </div>
+        <div id ="pop-up-box" tabindex="1" onkeydown="if(event.keyCode == 27) displayPopUpBox('none');">
+            <div id = "top">
+                <p id = "makeInline"> Add a new prize </p>
+                <i onclick="displayPopUpBox('none')" id = "floatRight" class="fa fa-times fa-lg" aria-hidden="true"></i>
+            </div>
+            <div id  = "middle">
+                <p> Enter prize name: </p>
+                <input autofocus id = "pop-up-input" type="text" name="pname" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                <p> Enter event prize is for: </p>
+                <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                <p> Enter description of prize: </p>
+                <input id = "pop-up-input" type="text" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();">
+            </div>
+            <div id = "bottom">
+                <div id = "positionLeft">
+                    <a class="pop-up-a" id = "add-event-btn" onclick="addTableEntry()" href="#"> Add Prize </a>
+                    <a class="pop-up-a" id = "cancel-btn" onclick="displayPopUpBox('none')" href="#"> Cancel </a>
+                </div>
+            </div>
+        </div>
+        <div id ="screen"> </div>
     </body>
+    <script src = "js/table.js"> </script>
 </html>

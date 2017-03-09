@@ -5,7 +5,7 @@
     </div>
     <div id  = "middle">
         <p> Enter event name: </p>
-         <input id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
+         <input autofocus id = "pop-up-input" type="text" name="eventName" onkeydown="if(event.keyCode == 13) addEvent();">
     </div>
     <div id = "bottom">
         <div id = "positionLeft">
@@ -14,4 +14,4 @@
         </div>
     </div>
 </div>
-<div id ="screen"> </div>
+<div onclick="displayPopUpBox('none')"id ="screen"> </div>

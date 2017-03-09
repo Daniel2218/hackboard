@@ -14,8 +14,6 @@ function setSize() {
         var td = document.getElementsByTagName("td")[i];
         var width = td.offsetWidth;
         td.style.height = width;
-        console.log(width);
-        console.log(td.offsetHeight);
     }
 }
 var currentDate = new Date();
@@ -139,14 +137,6 @@ function getMonthText(month) {
     } else if (month === 0) {
         return "January";
     }
-}
-function displayPopUpBox(displayType) {
-    var popUpBox = document.getElementById("pop-up-box");
-    if (displayType != 'none') popUpBox.focus();
-    popUpBox.style.display = displayType;
-    document.getElementsByName('eventName')[0].value = "";
-    var entireScreen = document.getElementById("screen");
-    entireScreen.style.display = displayType;
 }
 function addEvent() {
     var inputText = document.getElementsByName('eventName')[0].value;
