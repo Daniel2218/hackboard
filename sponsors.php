@@ -56,31 +56,31 @@
             <div id  = "middle">
                 <div>
                     <p> Enter sponsor first name: </p>
-                    <input autofocus id = "pop-up-input" type="text" name="pname" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="pname" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize autofocus="">
                 </div>
                 <div>
                     <p> Enter sponsor last name: </p>
-                    <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="event" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter description of prize: </p>
-                    <input id = "pop-up-input" type="text" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="description" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter sponsors email name: </p>
-                    <input id = "pop-up-input" type="text" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="email" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter sponsors phone number: </p>
-                    <input id = "pop-up-input" type="text" name="phone" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="phone" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Enter donation amount of sponsor: </p>
-                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
                 <div>
                     <p> Has donation been recieved: </p>
-                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();">
+                    <input id = "pop-up-input" type="text" name="position" onkeydown="if(event.keyCode == 13) addTableEntry();" autocorrect autocapitalize>
                 </div>
             </div>
             <div id = "bottom">

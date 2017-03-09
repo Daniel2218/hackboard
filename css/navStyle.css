@@ -121,7 +121,7 @@ img { width: 40px; margin-right: 4px !important;}
     #nav > ul > li > a > span {
         display: none;
     }
-    #nav {
+    #nav > ul {
         width: 40px;
     }
     #push {
