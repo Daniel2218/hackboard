@@ -1,0 +1,12 @@
+getUsers()
+getSponsors()
+getApplicants();
+getApplicants(id)
+getPrizes()
+getStats()
+getEvents()
+addUsers()
+addSponsor()
+addPrize()
+addEvent()
+update()

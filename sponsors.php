@@ -36,12 +36,12 @@
                             <th>Donation Recieved</th>
                         </tr>
                         <tr class="tr-color">
-                            <td><a href="#">Daniel</a></td>
-                            <td><a href="#">Lucia</a></td>
-                            <td><a href="#">14dvl@queensu.ca</a></td>
-                            <td><a href="#">41666166498</a></td>
-                            <td><a href="#">100</a></td>
-                            <td><a href="#">false</a></td>
+                            <td contenteditable><a href="#">Daniel</a></td>
+                            <td contenteditable><a href="#">Lucia</a></td>
+                            <td contenteditable><a href="#">14dvl@queensu.ca</a></td>
+                            <td contenteditable><a href="#">41666166498</a></td>
+                            <td contenteditable><a href="#">100</a></td>
+                            <td contenteditable><a href="#">false</a></td>
                         </tr>
                     </table>
                 </div>

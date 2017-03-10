@@ -33,9 +33,9 @@
                             <th>Description</th>
                         </tr>
                         <tr class="tr-color">
-                            <td><a href="#">Google Cardboard</a></td>
-                            <td><a href="#">Googe Event</a></td>
-                            <td><a href="#">Win the 3rd place in google event to recieve this prize.</a></td>
+                            <td contenteditable><a href="#">Google Cardboard</a></td>
+                            <td contenteditable><a href="#">Googe Event</a></td>
+                            <td contenteditable><a href="#">Win the 3rd place in google event to recieve this prize.</a></td>
                         </tr>
                     </table>
                 </div>

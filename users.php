@@ -35,11 +35,11 @@
                             <th>Position</th>
                         </tr>
                         <tr class="tr-color">
-                            <td><a href="#">Daniel</a></td>
-                            <td><a href="#">Lucia</a></td>
-                            <td><a href="#">Email</a></td>
-                            <td><a href="#">4166166498</a></td>
-                            <td><a href="#">Backend IT Coordinator</a></td>
+                            <td contenteditable><a href="#">Daniel</a></td>
+                            <td contenteditable><a href="#">Lucia</a></td>
+                            <td contenteditable><a href="#">Email</a></td>
+                            <td contenteditable><a href="#">4166166498</a></td>
+                            <td contenteditable><a href="#">Backend IT Coordinator</a></td>
                         </tr>
                     </table>
                 </div>

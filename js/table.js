@@ -40,6 +40,7 @@ function addTableEntry() {
         a.href = "#";
         var textNode = document.createTextNode(value);
         a.appendChild(textNode);
+        td.setAttribute("contenteditable", true);
         td.appendChild(a);
         tr.appendChild(td);
     });

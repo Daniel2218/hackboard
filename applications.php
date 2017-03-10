@@ -58,11 +58,11 @@
                             <th>Pasword</th>
                         </tr>
                         <tr class="tr-color">
-                            <td><a href="applicant.php">Jill</a></td>
-                            <td><a href="applicant.php">Jill</a></td>
-                            <td><a href="applicant.php">Jill</a></td>
-                            <td><a href="applicant.php">Jill</a></td>
-                            <td><a href="applicant.php">Jill</a></td>
+                            <td contenteditable><a href="applicant.php">Jill</a></td>
+                            <td contenteditable><a href="applicant.php">Jill</a></td>
+                            <td contenteditable><a href="applicant.php">Jill</a></td>
+                            <td contenteditable><a href="applicant.php">Jill</a></td>
+                            <td contenteditable><a href="applicant.php">Jill</a></td>
                         </tr>
                     </table>
                 </div>
