@@ -5,22 +5,18 @@ body {
     font-family: 'Open Sans', sans-serif;
     min-height: 100%;
 }
-#push {
-    position: relative;
-    left:180px;
-    width: calc(100% - 180px);
-    height: calc(100% - 35px);
-}
 #insideBlock {
     position: absolute;
     width: 100%;
     min-height: 100%;
     background-color: #eeeeee;
 }
-#pathheader {
-    padding: 12px 20px 11px 10px;
-    font-size: 10px;
-    background-color: white;
+.tableSection {
+    background-color: #eeeeee;
+    margin-left: 200px;
+    padding-left: 10px;
+    min-height: calc(100% - 68px);
+    width: calc(100% - 210px);
 }
 .statBox {
     display: inline-block;
@@ -38,7 +34,7 @@ body {
 }
 #stat-box-1 {
     background-color: #27a9e3;
-    width: 20%;
+    width: 25%;
     min-width: 120px;
 }
 #stat-box-2 {
@@ -56,21 +52,16 @@ body {
     width:15%;
     min-width: 120px;
 }
-#i-space-1 { margin-right: 2px; }
-#i-space-2 {
-    margin-left: 4px;
-    margin-right: 4px;
-}
-#spn-grey { color: #666666; }
 #title {
     font-size: 22px;
     text-shadow: 0 1px 0 #ffffff;
     color: #555555;
+    padding-top: 30px;
 }
 #outer {
     background-color: #eeeeee;
-    padding: 30px 15px;
-    height: calc(100% - 125px);
+    padding-top: 30px;
+    padding-left: 225px;
 }
 table, th, td {
     text-align: left;
@@ -78,6 +69,9 @@ table, th, td {
 }
 table, th {
     padding: 10px;
+}
+table {
+    width: calc(100% - 10px);
 }
 table tr td > a {
     display:block;
@@ -108,6 +102,7 @@ tr:hover { background-color: #eeeeee; }
     padding: 12px;
     font-weight: bold;
     font-size: 12px;
+    width: calc(100% - 35px);
 }
 #tableHeader > span {
     float: left;

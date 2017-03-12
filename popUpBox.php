@@ -20,9 +20,11 @@
 
             $first = true;
             foreach ($tableHeaders as $header) {
+                echo "<div>";
                 echo "<p> Enter " . $header . ": </p>";
                 echo "<input autofocus='$first' id = 'pop-up-input' type='text'
                              onkeydown='if(event.keyCode == 13) $onclickFunc'>";
+                echo "</div>";
                 $first = false;
             }
         ?>

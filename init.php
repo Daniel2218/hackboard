@@ -7,4 +7,10 @@
     spl_autoload_register(function($class) {
     	include_once "classes/$class.php";
     });
-?>
+
+    $manager = new PageManager();
+    $page = $manager->findPage(Page::getFullName());
+    $name = $page::getStrippedName();
+    $shortName = $page::getShortName();
+    $tableHeaders = $page::getTableHeaders();
+ ?>

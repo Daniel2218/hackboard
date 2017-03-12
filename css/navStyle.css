@@ -6,7 +6,7 @@ html, body {
 /* Header */
 #header {
     width: 100%;
-    height: 35px;
+    height: 70px;
     background-color: #1f262d;
     color: white;
     font-size: 9px !important;
@@ -18,11 +18,8 @@ html, body {
     padding-left: 8px;
     padding-bottom: 14px;
     text-align: center;
-    border-left: 1px solid black;
-    margin-right: -3px; /* Makes size right up to border so hover doesn't look weird*/
-}
-.dropdown:last-child{
     border-right: 1px solid black;
+    margin-right: -3px; /* Makes size right up to border so hover doesn't look weird*/
 }
 .dropdown-content {
     display: none;
@@ -59,18 +56,35 @@ html, body {
 .dropbtn {
     margin-left: auto;
     margin-right: auto;
-    /*display: block;*/
 }
 .dropbtn, .dropbtn > a {
     color: #999;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
 }
-
+#pathheader {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+.fa-angle-right {
+    color: black;
+}
+#pathheader > a:first-child {
+    margin-left: 10px;
+}
+#spn-grey { color: #666666; }
+#i-space-1 { margin-right: 2px; }
+#i-space-2 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
 /* Side Bar */
 #nav {
     background-color: #2e363f;
     width:180px;
-    height:100%;
+    height:calc(100% - 70px);
     display: table;
     float: left;
 }
@@ -78,9 +92,10 @@ html, body {
     background-color: #1f262d;
     color:white;
     height: 70px;
-    width: 100%;
+    width: 200px;
     text-align: center;
     display: table;
+    float: left;
 }
 #inner-top-half {
     display: table-cell;
@@ -90,6 +105,9 @@ html, body {
 h1 {
     display: inline-block;
     font-size: 20px;
+}
+#nav > ul {
+    width: 200px;
 }
 #nav > ul > li {
     font-size: 11px;
@@ -121,8 +139,14 @@ img { width: 40px; margin-right: 4px !important;}
     #nav > ul > li > a > span {
         display: none;
     }
+
     #nav > ul {
-        width: 40px;
+        width: 50px;
+    }
+    #nav {
+        position: relative;
+        left: -200px;
+        width: 50px;
     }
     #push {
         left:40px !important;
@@ -137,9 +161,34 @@ img { width: 40px; margin-right: 4px !important;}
         padding-left: 25px;
         padding-bottom: 14px;
         width:170px;
+        height: 50px;
     }
     #inner-top-half > span {
         font-size: 18px;
+    }
+    #pathheader {
+        position: absolute;
+        left:45px;
+        width: calc(100% - 45px);
+    }
+    .tableSection {
+        position: absolute;
+        left: 45px;
+        margin: 0px !important;
+        width: calc(100% - 55px) !important;
+    }
+    #outer {
+        position: relative;
+        left: 45px;
+        padding-bottom: 100px;
+        width: calc(100%  - 270px);
+    }
+    #outer-inner {
+        position: absolute;
+        left: 45px;
+        z-index: 100;
+        width: 100%;
+        padding-left: 0px !important;
     }
 }
 @media screen and (max-width: 650px) {
@@ -155,17 +204,24 @@ img { width: 40px; margin-right: 4px !important;}
     .dropdown {
         width: 30px;
     }
+    #outer {
+        padding-bottom: 170px;
+
+    }
+    #outer-inner {
+        left: 10px;
+    }
     #stat-box-1 {
-        width: 49% !important;
+        width: 47.4% !important;
     }
     #stat-box-2 {
-        width: 49% !important;
+        width: 47.4% !important;
     }
     #stat-box-3 {
-        width: 49% !important;
+        width: 47.4% !important;
     }
     #stat-box-4 {
-        width: 49% !important;
+        width: 47.4% !important;
     }
 }
 .hvr-grow {
