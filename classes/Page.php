@@ -36,11 +36,16 @@
                     echo "<h1> Page does not exist </h1>";
                }
         }
+        function getShortName(){
+            if (substr($this->fullName, -1) == "s") {
+                return substr(basename($this->fullName, ".php"), 0, -1);
+            }
+            return basename($this->fullName, ".php");
+        }
 
         function getFullName() { return basename($this->fullName); }
         function getStrippedName() { return ucfirst(basename($this->fullName, ".php")); }
         function getStrippedNameLower() { return basename($this->fullName, ".php"); }
-        function getShortName(){ return substr(basename($this->fullName, ".php"), 0, -1);}
         function output($value) { return "<h1>" . $value . "</h1>"; }
     }
 ?>

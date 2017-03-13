@@ -26,9 +26,9 @@ function loadTable(keys, responce) {
 function addTableEntry() {
     var table = document.getElementsByTagName("table")[0];
     var inputs = document.querySelectorAll("#middle > input");
-    if (inputs.length == 0) {
-        inputs = document.querySelectorAll("#middle > div > input");
-    }
+
+    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
+
     var tbody = document.getElementsByTagName("tbody")[0];
     var tr = document.createElement("tr");
     tr.className = "tr-color";
@@ -54,9 +54,9 @@ function displayPopUpBox(displayType) {
     entireScreen.style.display = displayType;
     entireScreen.setAttribute("onclick", "displayPopUpBox('none')");
     var inputs = document.querySelectorAll("#middle > input");
-    if (inputs.length == 0) {
-        inputs = document.querySelectorAll("#middle > div > input");
-    }
+
+    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
+    
     inputs[0].focus();
     inputs.forEach(function(input) { input.value = ""; });
 }

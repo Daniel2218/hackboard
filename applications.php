@@ -39,5 +39,6 @@
             </div>
         </div>
         <?php include_once dirname(__FILE__) . "/table.php"; ?>
+        <?php include_once "footer.php"; ?>
     </body>
 </html>

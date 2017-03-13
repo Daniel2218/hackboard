@@ -45,6 +45,7 @@
             </div>
         </div>
         <?php include_once dirname(__FILE__) . "/popUpBox.php"; ?>
+        <?php include_once "footer.php"; ?>
     </body>
     <script src = "js/schedule.js"> </script>
 </html>

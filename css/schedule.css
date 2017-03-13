@@ -1,6 +1,4 @@
-html {
-  height: 100%;
-}
+html { height: 100%; }
 body {
     font-family: 'Open Sans', sans-serif;
     min-height: 100%;
@@ -16,12 +14,8 @@ body {
     text-shadow: 0 1px 0 #ffffff;
     font-weight: bold;
 }
-#tableHeader > button {
-    display: inline;
-}
-#tableHeader > h5 {
-    display: inline;
-}
+#tableHeader > button { display: inline; }
+#tableHeader > h5 { display: inline; }
 #eventContainer {
     height: 25px;
     padding: 12px;
@@ -56,9 +50,7 @@ body {
     border-left: 1px solid #D5D5D5;
     border-bottom: 1px solid #D5D5D5;
 }
-#viewPanel > div:last-child {
-    border-right: 1px solid #D5D5D5;
-}
+#viewPanel > div:last-child { border-right: 1px solid #D5D5D5; }
 #line {
     display: inline-block;
     width: calc(100% - 178px);
@@ -67,9 +59,7 @@ body {
     bottom: 0px;
     border-bottom: 1px solid #D5D5D5;
 }
-#noBottomBorder {
-    border-bottom: none !important;
-}
+#noBottomBorder { border-bottom: none !important; }
 #scheduleNav {
     text-align: center;
     padding: 20px;
@@ -98,12 +88,8 @@ td {
     text-align: right;
     padding: 6px 4px;
 }
-#i-left {
-    float:left;
-}
-#i-right {
-    float:right;
-}
+#i-left { float:left; }
+#i-right { float:right; }
 .clickSpace {
     width: 25px;
     height: 25px;
