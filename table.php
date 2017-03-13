@@ -8,9 +8,21 @@
         <h5> <?php echo $name;?> </h5>
         <?php
             if($name != "Applications") {
-                echo "<button onclick=\"displayPopUpBox('block')\">
-                        <i class='fa fa-plus' aria-hidden='true'></i> Add new ". $shortName .
-                    "</button>";
+                if($name == "Applicant") {
+                    echo "<button onclick=\"displayPopUpBox('block')\">
+                            <i class='fa fa-plus' aria-hidden='true'></i> Decline
+                          </button>";
+                    echo "<button onclick=\"displayPopUpBox('block')\">
+                            <i class='fa fa-plus' aria-hidden='true'></i> Skip
+                          </button>";
+                    echo "<button onclick=\"displayPopUpBox('block')\">
+                            <i class='fa fa-plus' aria-hidden='true'></i> Accept
+                          </button>";
+                } else {
+                    echo "<button onclick=\"displayPopUpBox('block')\">
+                            <i class='fa fa-plus' aria-hidden='true'></i> Add new ". $shortName .
+                        "</button>";
+                }
             }
         ?>
     </div>

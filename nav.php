@@ -1,5 +1,6 @@
 <?php
     header("Cache-Control: no-cache, must-revalidate");
+    include_once "init.php";
 ?>
 
 <html>
@@ -45,18 +46,26 @@
                 <a href="applications.php" id = "spn-grey">
                      <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home
                  </a>
+                 <?php
+                    if($previousPage != "") {
+                        echo '<i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>';
+                        echo "<a href='sponsors.php'> $previousPage </a>";
+                    }
+                 ?>
                  <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>
-                 <a href="sponsors.php"> Sponsors </a>
+                 <a href="sponsors.php"> <?php echo $name; ?> </a>
             </div>
         </ul>
     </body>
         <div id = "nav">
             <ul>
-                <li id ="applications"><a href="applications.php"> <i class="fa fa-files-o" aria-hidden="true"></i> <span>Applications</span></a> </li>
-                <li id ="users"><a href="users.php"> <i class="fa fa-users" aria-hidden="true"></i> <span>Users</span></a> </li>
-                <li id ="sponsors"><a href="sponsors.php"> <i class="fa fa-university" aria-hidden="true"></i> <span>Sponsors</span></a> </li>
-                <li id ="prizes"><a href="prizes.php"> <i class="fa fa-gift" aria-hidden="true"></i> <span>Prizes</span></a> </li>
-                <li id ="schedule"><a href="schedule.php"> <i class="fa fa-calendar" aria-hidden="true"></i> <span>Schedule</span></a> </li>
+                <?php
+                    foreach ($manager->pages as $doc) {
+                        if($doc->fullName != "applicant.php") {
+                            echo "<li id='$doc->lowerName'><a href='$doc->fullName'><i class='fa fa-$doc->iconName' aria-hidden='true'></i><span>$doc->strippedName</span></a></li>";
+                        }
+                    }
+                 ?>
             </ul>
         </div>
     <script>

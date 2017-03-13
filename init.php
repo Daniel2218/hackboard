@@ -9,8 +9,12 @@
     });
 
     $manager = new PageManager();
-    $page = $manager->findPage(Page::getFullName());
-    $name = $page::getStrippedName();
-    $shortName = $page::getShortName();
-    $tableHeaders = $page::getTableHeaders();
+    $page = $manager->findPage(basename($_SERVER['PHP_SELF']));
+    $fullName = $page->fullName;
+    $name = $page->getStrippedName();
+    $lowerName = $page->getStrippedNameLower();
+    $shortName = $page->getShortName();
+    $tableHeaders = $page->getTableHeaders();
+    $iconName = $page->iconName;
+    $previousPage = $page->previousPage;
  ?>

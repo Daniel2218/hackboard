@@ -4,12 +4,12 @@
         public $pages;
 
         function __construct() {
-            $applicationsPage = new Page("applications.php", "gift", "");
-            $applicantPage = new Page("applicant.php", "gift", "Applications");
+            $applicationsPage = new Page("applications.php", "files-o", "");
+            $applicantPage = new Page("applicant.php", "", "Applications");
             $prizePage = new Page("prizes.php", "gift", "");
-            $schedulePage = new Page("schedule.php", "gift", "");
-            $sponsorsPage = new Page("sponsors.php", "gift", "");
-            $usersPage = new Page("users.php", "gift", "");
+            $schedulePage = new Page("schedule.php", "calendar", "");
+            $sponsorsPage = new Page("sponsors.php", "university", "");
+            $usersPage = new Page("users.php", "users", "");
             $this->pages = array();
 
             array_push($this->pages, $applicationsPage);
@@ -18,6 +18,8 @@
             array_push($this->pages, $schedulePage);
             array_push($this->pages, $sponsorsPage);
             array_push($this->pages, $usersPage);
+            // echo "page manager contructor called";
+            // var_dump($this->pages);
         }
 
         function findPage($name) {
@@ -35,6 +37,10 @@
           echo '</script>';
         }
     }
-    $manager = new PageManager();
-    $manager->findPage("applications.php");
+    // $manager = new PageManager();
+    // $page = $manager->findPage("sponsors.php");
+    // var_dump($page);
+    // $name = $page::getStrippedName();
+    // $shortName = $page::getShortName();
+    // $tableHeaders = $page::getTableHeaders();
 ?>
