@@ -37,10 +37,11 @@
                }
         }
         function getShortName(){
-            if (substr($this->fullName, -1) == "s") {
-                return substr(basename($this->fullName, ".php"), 0, -1);
+            $shortName = basename($this->fullName, ".php");
+            if (substr($shortName, -1) == "s") {
+                return substr($shortName, 0, -1);
             }
-            return basename($this->fullName, ".php");
+            return $shortName;
         }
 
         function getFullName() { return basename($this->fullName); }

@@ -13,8 +13,8 @@
 
     <body>
         <?php include_once dirname(__FILE__) . "/table.php"; ?>
-        <?php //include_once "footer.php"; ?>
         <?php include_once dirname(__FILE__) . "/popUpBox.php"; ?>
+        <?php include_once "footer.php"; ?>
     </body>
     <script src = "js/table.js"> </script>
 </html>
