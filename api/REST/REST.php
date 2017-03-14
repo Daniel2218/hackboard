@@ -116,6 +116,35 @@ namespace REST {
             }
         }
 
+	private function find(&$vars, $tree_ptr, $endpoint) {
+	  if (isset($tree_ptr->children[$endpoint[0]])) {
+	    if (sizeof($endpoint) == 1) {
+	      return $tree_ptr->children[$endpoint[0]][0]->handler;
+	    }
+	    else {
+	      return $this->find($vars, $tree_ptr->children[$endpoint[0]][0], array_slice($endpoint,1));
+	    }
+	  }
+	  else {
+	    foreach ($tree_ptr->children as $key => $value) {
+	      if ($tree_ptr->children[$key][0]->is_var) {
+		if (sizeof($endpoint) == 1) {
+		  $vars[$tree_ptr->children[$key][0]->label] = $endpoint[0];
+		  return $tree_ptr->children[$key][0]->handler;
+		}
+		else {
+		  $handler = $this->find($vars, $tree_ptr->children[$key][0], array_slice($endpoint,1));
+		  if ($handler != false) {
+		    $vars[$tree_ptr->children[$key][0]->label] = $endpoint[0];
+		    return $handler;
+		  }
+		}
+	      }
+	    }
+	  }
+	  return false;
+	}
+
         /**
          * START
          * Main entry point for the class. Must be called from endpoint page.
@@ -140,54 +169,22 @@ namespace REST {
                         break;
                 }
 
-                echo "1<pre>";
-                var_dump($tree_ptr);
-                echo "</pre>";
+		if ($endpoint[0] == "")                     array_shift($endpoint);
+		if ($endpoint[sizeof($endpoint) - 1] == "") unset($endpoint[$sizeof($endpoint) - 1]);
+
+		var_dump($endpoint);
 
                 // Collect variable data
                 $vars = array();
+		$handler = $this->find($vars, $tree_ptr, $endpoint);
+	        
+		if ($handler == false)
+		    die("herpaderp");
 
-                // Parse tree through path
-                for ($i = 0; $i < sizeof($endpoint); ++$i) {
-                    // Check to see if the endpoint is there
-                    if (isset($tree_ptr->children[$endpoint[$i]]) &&
-                        $tree_ptr->children[$endpoint[$i]][0]->label == $endpoint[$i] &&
-                        $tree_ptr->children[$endpoint[$i]][0]->is_var == false) {
-
-                        $tree_ptr = $tree_ptr->children[$endpoint[$i]][0];
-                    }
-                    else {
-                        $is_var = false;
-
-                        // Check to see if there's a variable
-                        foreach ($tree_ptr->children as $node) {
-                            if ($node[0]->is_var == true) {
-                                $tree_ptr = $node[0];
-                                $vars[$tree_ptr->label] = $endpoint[$i];
-                                $is_var = true;
-                            }
-                        }
-
-                        // If there isn't then display error
-                        if ($is_var == false) {
-                            die("REST: Endpoint '" . $endpoint_string . "' cannot parse past " . $i . ": " . $endpoint[$i]);
-                        }
-                    }
-
-                    // If it's the last endpoint and the tree ptr is still valid
-                    // call the function
-                    if ($i == sizeof($endpoint) - 1) {
-                        if ($tree_ptr->handler == false) {
-                            die("REST: Endpoint '" . $endpoint_string . "' does not exist");
-                        }
-                        else {
-                            $req = new Request ($vars);
-                            $res = new Response();
-
-                            call_user_func_array($tree_ptr->handler, [$req, $res]);
-                        }
-                    }
-                }
+		$req = new Request ($vars);
+		$res = new Response();
+		
+                call_user_func_array($handler, [$req, $res]);
             }
             // The call is root
             else {
