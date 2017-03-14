@@ -30,8 +30,8 @@
                 <div id = "viewPanel">
                     <div id = "line"> </div>
                     <div class = "month" id = "noBottomBorder" onclick="changeView('month')"> <p> month </p> </div>
-                    <!-- <div class = "week" onclick="changeView('week')"> <p> week </p> </div>
-                    <div class = "day" onclick="changeView('day')"> <p> day </p> </div> -->
+                    <div class = "week" onclick="changeView('week')"> <p> week </p> </div>
+                    <div class = "day" onclick="changeView('day')"> <p> day </p> </div>
                 </div>
                 <div id = "scheduleNav">
                     <div class = "clickSpace" id = "i-left" onclick="arrow(true)">

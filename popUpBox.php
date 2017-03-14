@@ -20,9 +20,11 @@
 
             $first = true;
             foreach ($tableHeaders as $header) {
+                $inputName = lcfirst(str_replace(' ', '', $header));
+
                 echo "<div>";
                 echo "<p> Enter " . $header . ": </p>";
-                echo "<input autofocus='$first' id = 'pop-up-input' type='text'
+                echo "<input autofocus='$first' name='$inputName' class = 'pop-up-input' type='text'
                              onkeydown='if(event.keyCode == 13) $onclickFunc'>";
                 echo "</div>";
                 $first = false;
@@ -32,7 +34,12 @@
     <div id = "bottom">
         <div id = "positionLeft">
             <a class="pop-up-a" id = "add-event-btn" onclick= <?php echo $onclickFunc; ?> href="#">
-                Add <?php echo $shortName?>
+                Add <?php
+                    if($fullName == "schedule.php") {
+                        echo " event";
+                    } else {
+                        echo $shortName;
+                    }?>
             </a>
             <a class="pop-up-a" id = "cancel-btn" onclick="displayPopUpBox('none')" href="#"> Cancel </a>
         </div>

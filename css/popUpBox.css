@@ -62,7 +62,7 @@
     text-shadow: 0 1px 0 #ffffff;
     margin-left: 10px;
 }
-#pop-up-input {
+.pop-up-input {
     padding: 3px 2px;
     width: 190px;
     margin-bottom: 25px;
