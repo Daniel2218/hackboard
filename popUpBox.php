@@ -7,7 +7,15 @@
 -->
 <div id ="pop-up-box" tabindex="1" onkeydown="if(event.keyCode == 27) displayPopUpBox('none');">
     <div id = "top">
-        <p id = "makeInline"> Add a new <?php echo $shortName; ?> </p>
+        <p id = "makeInline"> Add a new
+            <?php
+                if($shortName == "schedule") {
+                    echo "evemt";
+                } else {
+                    echo $shortName;
+                }
+            ?>
+        </p>
         <i onclick="displayPopUpBox('none')" id = "floatRight" class="fa fa-times fa-lg" aria-hidden="true"></i>
     </div>
     <div id  = "middle">

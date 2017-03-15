@@ -32,6 +32,8 @@
                     return array("Event Name", "Start Time", "End Time", "Location");
                 case "Applicant":
                     return array("First Name", "Last Name", "Age", "Email", "Password");
+                case "Judges":
+                    return array("First Name", "Last Name", "Age", "Email", "Password");
                 default:
                     echo "<h1> Page does not exist </h1>";
                }

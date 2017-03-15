@@ -10,6 +10,7 @@
             $schedulePage = new Page("schedule.php", "calendar", "");
             $sponsorsPage = new Page("sponsors.php", "university", "");
             $usersPage = new Page("users.php", "users", "");
+            $usersPage = new Page("judges.php", "users", "");
             $this->pages = array();
 
             array_push($this->pages, $applicationsPage);

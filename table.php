@@ -42,5 +42,40 @@
             <td contenteditable><a href="#">100</a></td>
             <td contenteditable><a href="#">false</a></td>
         </tr>
+
+        <?php
+        // switch($name) {
+        //     case "Applications":
+        //         addEntries(getRequest("applicants/"),false);
+        //     case "Users":
+        //         addEntries(getRequest("applicants/"),true);
+        //     case "Sponsors":
+        //         addEntries(getRequest("applicants/"),true);
+        //     case "Prizes":
+        //         addEntries(getRequest("applicants/"),true);
+        //     case "Schedule":
+        //         addEntries(getRequest("applicants/"),true);
+        //     case "Applicant":
+        //         addEntries(getRequest("applicants/"),true);
+        //     default:
+        //         echo "<h1> Page does not exist </h1>";
+        //    }
+        //     $applications = getRequest("applicants/");
+        //
+        //     function addEntries($rows, $edit) {
+        //         foreach($rows as $row) {
+        //             echo '<tr class="tr-color">';
+        //             foreach($row as $value) {
+        //                 echo "<td contenteditable='$edit'>";
+        //                 if(!$edit) {
+        //                     echo "<a href='applicant.php'>$value</a></td>";
+        //                 } else {
+        //                      echo "$value</td>";
+        //                  }
+        //             }
+        //             echo '</tr>';
+        //         }
+        //     }
+        ?>
     </table>
-</div>
+</div>1
