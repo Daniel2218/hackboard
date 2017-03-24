@@ -12,12 +12,18 @@ namespace REST {
     class App {
         private $TREE_ROOT_GET;
         private $TREE_ROOT_POST;
+        private $TREE_ROOT_PUT;
+        private $TREE_ROOT_DELETE;
+        private $TREE_ROOT_UPDATE;
         private $DB;
 
         public function __construct($host, $db, $user, $pass) {
             // Initialize the parse tree
-            $this->TREE_ROOT_GET  = new Tree("TREE_ROOT_GET");
-            $this->TREE_ROOT_POST = new Tree("TREE_ROOT_POST");
+            $this->TREE_ROOT_GET    = new Tree("TREE_ROOT_GET");
+            $this->TREE_ROOT_POST   = new Tree("TREE_ROOT_POST");
+            $this->TREE_ROOT_PUT    = new Tree("TREE_ROOT_PUT");
+            $this->TREE_ROOT_DELETE = new Tree("TREE_ROOT_DELETE");
+            $this->TREE_ROOT_UPDATE = new Tree("TREE_ROOT_UPDATE");
             $this->DB = new PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
         }
 
@@ -41,6 +47,18 @@ namespace REST {
 
         public function post($_endpoint, $_handler) {
             $this->register($this->TREE_ROOT_POST, $_endpoint, $_handler);
+        }
+
+        public function put($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_PUT, $_endpoint, $_handler);
+        }
+
+        public function delete($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_DELETE, $_endpoint, $_handler);
+        }
+
+        public function update($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_UPDATE, $_endpoint, $_handler);
         }
 
         private function register($_tree_root, $_endpoint, $_handler) {
@@ -174,6 +192,15 @@ namespace REST {
                         break;
                     case "POST":
                         $tree_ptr = $this->TREE_ROOT_POST;
+                        break;
+                    case "PUT":
+                        $tree_ptr = $this->TREE_ROOT_PUT;
+                        break;
+                    case "DELETE":
+                        $tree_ptr = $this->TREE_ROOT_DELETE;
+                        break;
+                    case "UPDATE":
+                        $tree_ptr = $this->TREE_ROOT_UPDATE;
                         break;
                     default:
                         die("REST: Unsupported request method " . $_SERVER["REQUEST_METHOD"]);
