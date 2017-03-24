@@ -8,12 +8,12 @@ function select(tableName){
 	return $sql;
 });
 
-$myapp->get("/applicants", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications", function(REST\Request $req, REST\Response $res) {
     $sql = select("applicants"); //Gathers all information of applicants
     
 });
 
-$myapp->get("/applicants?{aid}", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications?{aid}", function(REST\Request $req, REST\Response $res) {
     $sql = "SELECT * FROM applications where aid = {$req->body['aid']}"; //Gathers applicant by id
     
 });
@@ -38,18 +38,18 @@ $myapp->get("/prizes", function(REST\Request $req, REST\Response $res) {
     $sql = select("prizes"); //Gathers prizes
 });
 
-$myapp->get("/applicants/search?{name}", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications/search?{name}", function(REST\Request $req, REST\Response $res) {
 	// if ($req->body['column'] != "name" || $req->body['column'] != "email"){
 	// 	die("Invalid search" . $req->body['column']);
 	// }
     $sql = "SELECT * FROM applications WHERE name = {$req->body['name']}"; //Search applicants by name
 });
 
-$myapp->get("/applicants/search?{email}", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications/search?{email}", function(REST\Request $req, REST\Response $res) {
     $sql = "SELECT * FROM applications WHERE email = {$req->body['email']"; //Search applicants by email
 });
 
-$myapp->get("/applicants/stats", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications/stats", function(REST\Request $req, REST\Response $res) {
     $sql = "SELECT count(aid) as totalApplicants FROM applications GROUP BY aid";
     $sql .= "SELECT school, count(aid) as totalApplicants FROM applications GROUP BY school";]
     for($i=0;$i<2;$i++){
@@ -57,7 +57,7 @@ $myapp->get("/applicants/stats", function(REST\Request $req, REST\Response $res)
     }
 });
 
-$myapp->get("/applicants/sort?{hacks}", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications/sort?{hacks}", function(REST\Request $req, REST\Response $res) {
     $sql = "SELECT * FROM applications ORDER BY {$req->body['hacks']"; //Sort applications by # of hacks
 });
 /*
@@ -101,19 +101,19 @@ $myapp->post("/sponsors/delete", function(REST\Request $req, REST\Response $res)
 });
 
 $myapp->post("/prizes/delete", function(REST\Request $req, REST\Response $res) {
-    $sql ="DELETE FROM sponsors WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="DELETE FROM prizes WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
 });
 
 $myapp->post("/judges/delete", function(REST\Request $req, REST\Response $res) {
-    $sql ="DELETE FROM sponsors WHERE jid = {$req->body['id']}"; //adds a new judge with all corresponding values to the database 
+    $sql ="DELETE FROM judges WHERE jid = {$req->body['id']}"; //adds a new judge with all corresponding values to the database 
 });
 
 $myapp->post("/events/delete", function(REST\Request $req, REST\Response $res) {
-    $sql ="DELETE FROM sponsors WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database 
+    $sql ="DELETE FROM events WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database 
 });
 
 $myapp->post("/users/delete", function(REST\Request $req, REST\Response $res) {
-    $sql ="DELETE FROM sponsors WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database 
+    $sql ="DELETE FROM users WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database 
 });
 
 /*
@@ -122,27 +122,27 @@ EDITING TABLES:
 
 */
 $myapp->post("/users/edit", function(REST\Request $req, REST\Response $res) {
-    $sql ="UPDATE user SET {$req->body['columnName']} = {$req->body['value']} WHERE uid = {$req->body['id']}"; //edits the user table based on a column name and their id
+    $sql ="UPDATE users SET {$req->body['columnName']} = {$req->body['value']} WHERE uid = {$req->body['id']}"; //edits the user table based on a column name and their id
 });
 
 $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res) {
-    $sql ="UPDATE user SET {$req->body['columnName']} = {$req->body['value']} WHERE sid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="UPDATE sponsors SET {$req->body['columnName']} = {$req->body['value']} WHERE sid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
 });
 
 $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res) {
-    $sql ="UPDATE user SET {$req->body['columnName']} = {$req->body['value']} WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="UPDATE prizes SET {$req->body['columnName']} = {$req->body['value']} WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
 });
 
 $myapp->post("/events/edit", function(REST\Request $req, REST\Response $res) {
-    $sql ="UPDATE user SET {$req->body['columnName']} = {$req->body['value']} WHERE eid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="UPDATE events SET {$req->body['columnName']} = {$req->body['value']} WHERE eid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
 });
 
 $myapp->post("/judges/edit", function(REST\Request $req, REST\Response $res) {
-    $sql ="UPDATE user SET {$req->body['columnName']} = {$req->body['value']} WHERE jid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="UPDATE judges SET {$req->body['columnName']} = {$req->body['value']} WHERE jid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
     $res->json()
 });
 
-$myapp->get("/applicants/loginCheck", function(REST\Request $req, REST\Response $res) {
+$myapp->get("/applications/loginCheck", function(REST\Request $req, REST\Response $res) {
     $sql ="SELECT 1 FROM applications WHERE email={$req->body['email']} and password = {$req->body['password']}";//will gather email and password
     if ($sql && mysql_num_rows($sql)) {
     	echo "Valid email & password";
@@ -151,7 +151,7 @@ $myapp->get("/applicants/loginCheck", function(REST\Request $req, REST\Response 
     }
 });
 
-$myapp->post("/applicants/accept", function(REST\Request $req, REST\Response $res) {
+$myapp->post("/applications/accept", function(REST\Request $req, REST\Response $res) {
 	// if ($req->body['status'] != 0 || $req->body['status'] != 1 || $req->body['status'] != 2){
 	// 	die("Incorrect Status for update" . $req->body['status']);
 	// }
@@ -161,11 +161,11 @@ $myapp->post("/applicants/accept", function(REST\Request $req, REST\Response $re
     
 });
 
-$myapp->post("/applicants/decline", function(REST\Request $req, REST\Response $res) {
+$myapp->post("/applications/decline", function(REST\Request $req, REST\Response $res) {
 	$sql = "UPDATE applications SET status = 2 WHERE aid = {$req->body['id']}"; //change status of applicant to decline
 });
 
-$myapp->post("/applicants/skip", function(REST\Request $req, REST\Response $res) {
+$myapp->post("/applications/skip", function(REST\Request $req, REST\Response $res) {
 	$sql = "UPDATE applications SET status = 0 WHERE aid = {$req->body['id']}"; //change status of applicant to skip
 });
 
