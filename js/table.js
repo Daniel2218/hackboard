@@ -25,16 +25,16 @@ function loadTable(keys, responce) {
 
 function addTableEntry() {
     var table = document.getElementsByTagName("table")[0];
-    var inputs = document.querySelectorAll("#middle > input");
-
-    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
-
+    var inputs = document.querySelectorAll("#middle > div > input");
     var tbody = document.getElementsByTagName("tbody")[0];
     var tr = document.createElement("tr");
     tr.className = "tr-color";
+    var postData = new Object();
+    var i = 0;
 
     inputs.forEach(function(input){
         var value = input.value;
+        postData[i++] = input.value;
         var td = document.createElement("td");
         var a = document.createElement("a");
         a.href = "#";
@@ -46,6 +46,7 @@ function addTableEntry() {
     });
     tbody.appendChild(tr);
     displayPopUpBox("none");
+    // insertRequest(postData);
 }
 function displayPopUpBox(displayType) {
     var popUpBox = document.getElementById("pop-up-box");
@@ -56,7 +57,20 @@ function displayPopUpBox(displayType) {
     var inputs = document.querySelectorAll("#middle > input");
 
     if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
-    
+
     inputs[0].focus();
     inputs.forEach(function(input) { input.value = ""; });
+}
+
+function insertRequest(postData) {
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4);
+    // postData.push({"endpoint": document.URL.replace(/^.*[\\\/]/, '').slice(0,-4)})
+    $.ajax({
+        url:"requests.php",
+        data: {postData},
+        type: 'post',
+        success: function(data) {
+            alert(data);
+        }
+    });
 }

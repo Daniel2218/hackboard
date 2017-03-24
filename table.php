@@ -1,3 +1,6 @@
+<?php
+    // include_once dirname(__FILE__) . "/requests.php";
+?>
 <div class = "tableSection">
     <div id ="title">
         <h1> <?php echo $name;?> </h1>
@@ -9,13 +12,13 @@
         <?php
             if($name != "Applications") {
                 if($name == "Applicant") {
-                    echo "<button onclick=\"displayPopUpBox('block')\">
+                    echo "<button onclick=\"postRequest('applicants/decline', )\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Decline
                           </button>";
-                    echo "<button onclick=\"displayPopUpBox('block')\">
+                    echo "<button onclick=\"postRequest('applicants/skip', )\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Skip
                           </button>";
-                    echo "<button onclick=\"displayPopUpBox('block')\">
+                    echo "<button onclick=\"postRequest('applicants/accept', )\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Accept
                           </button>";
                 } else {
@@ -46,21 +49,19 @@
         <?php
         // switch($name) {
         //     case "Applications":
-        //         addEntries(getRequest("applicants/"),false);
+        //         $results = json_decode(getRequest("applicants/"), true);
+        //         addEntries($results,false);
         //     case "Users":
-        //         addEntries(getRequest("applicants/"),true);
+        //         addEntries(getRequest("users/"),true);
         //     case "Sponsors":
-        //         addEntries(getRequest("applicants/"),true);
+        //         addEntries(getRequest("sponsors/"),true);
         //     case "Prizes":
-        //         addEntries(getRequest("applicants/"),true);
-        //     case "Schedule":
-        //         addEntries(getRequest("applicants/"),true);
-        //     case "Applicant":
-        //         addEntries(getRequest("applicants/"),true);
+        //         addEntries(getRequest("prizes/"),true);
+        //     case "applicants":
+        //         addEntries(getRequest("applicants/id, false"))
         //     default:
-        //         echo "<h1> Page does not exist </h1>";
+        //
         //    }
-        //     $applications = getRequest("applicants/");
         //
         //     function addEntries($rows, $edit) {
         //         foreach($rows as $row) {
@@ -78,4 +79,4 @@
         //     }
         ?>
     </table>
-</div>1
+</div>

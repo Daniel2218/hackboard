@@ -2,6 +2,8 @@
     header("Cache-Control: no-cache, must-revalidate");
     include_once "nav.php";
     include_once "init.php";
+    // include_once "request.php";
+    // $stats = getRequest("applicants/stats");
 ?>
 
 <html>
