@@ -1,7 +1,6 @@
 <?php
 
 include_once("REST/REST.php");
-
 $myapp = new REST\app('localhost','hackboard','root','root');
 
 function select(tableName){

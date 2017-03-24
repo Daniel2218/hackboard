@@ -12,11 +12,28 @@ namespace REST {
     class App {
         private $TREE_ROOT_GET;
         private $TREE_ROOT_POST;
+        private $TREE_ROOT_PUT;
+        private $TREE_ROOT_DELETE;
+        private $TREE_ROOT_UPDATE;
+        private $DB;
 
-        public function __construct() {
+        public function __construct($host, $db, $user, $pass) {
             // Initialize the parse tree
-            $this->TREE_ROOT_GET  = new Tree("TREE_ROOT_GET");
-            $this->TREE_ROOT_POST = new Tree("TREE_ROOT_POST");
+            $this->TREE_ROOT_GET    = new Tree("TREE_ROOT_GET");
+            $this->TREE_ROOT_POST   = new Tree("TREE_ROOT_POST");
+            $this->TREE_ROOT_PUT    = new Tree("TREE_ROOT_PUT");
+            $this->TREE_ROOT_DELETE = new Tree("TREE_ROOT_DELETE");
+            $this->TREE_ROOT_UPDATE = new Tree("TREE_ROOT_UPDATE");
+            $this->DB = new PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
+        }
+
+        public function query($query_string) {
+            $result = array();
+            $result['string']   = $query_string;
+            $result['stmt']     = $this->DB->query($query_string);
+            $result['result']   = $result['stmt']->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
         }
 
         /**
@@ -30,6 +47,18 @@ namespace REST {
 
         public function post($_endpoint, $_handler) {
             $this->register($this->TREE_ROOT_POST, $_endpoint, $_handler);
+        }
+
+        public function put($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_PUT, $_endpoint, $_handler);
+        }
+
+        public function delete($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_DELETE, $_endpoint, $_handler);
+        }
+
+        public function update($_endpoint, $_handler) {
+            $this->register($this->TREE_ROOT_UPDATE, $_endpoint, $_handler);
         }
 
         private function register($_tree_root, $_endpoint, $_handler) {
@@ -116,6 +145,35 @@ namespace REST {
             }
         }
 
+	private function find(&$vars, $tree_ptr, $endpoint) {
+	  if (isset($tree_ptr->children[$endpoint[0]])) {
+	    if (sizeof($endpoint) == 1) {
+	      return $tree_ptr->children[$endpoint[0]][0]->handler;
+	    }
+	    else {
+	      return $this->find($vars, $tree_ptr->children[$endpoint[0]][0], array_slice($endpoint,1));
+	    }
+	  }
+	  else {
+	    foreach ($tree_ptr->children as $key => $value) {
+	      if ($tree_ptr->children[$key][0]->is_var) {
+		if (sizeof($endpoint) == 1) {
+		  $vars[$tree_ptr->children[$key][0]->label] = $endpoint[0];
+		  return $tree_ptr->children[$key][0]->handler;
+		}
+		else {
+		  $handler = $this->find($vars, $tree_ptr->children[$key][0], array_slice($endpoint,1));
+		  if ($handler != false) {
+		    $vars[$tree_ptr->children[$key][0]->label] = $endpoint[0];
+		    return $handler;
+		  }
+		}
+	      }
+	    }
+	  }
+	  return false;
+	}
+
         /**
          * START
          * Main entry point for the class. Must be called from endpoint page.
@@ -135,59 +193,38 @@ namespace REST {
                     case "POST":
                         $tree_ptr = $this->TREE_ROOT_POST;
                         break;
+                    case "PUT":
+                        $tree_ptr = $this->TREE_ROOT_PUT;
+                        break;
+                    case "DELETE":
+                        $tree_ptr = $this->TREE_ROOT_DELETE;
+                        break;
+                    case "UPDATE":
+                        $tree_ptr = $this->TREE_ROOT_UPDATE;
+                        break;
                     default:
                         die("REST: Unsupported request method " . $_SERVER["REQUEST_METHOD"]);
                         break;
                 }
 
-                echo "1<pre>";
-                var_dump($tree_ptr);
-                echo "</pre>";
+        		if ($endpoint[0] == "")                     array_shift($endpoint);
+        		if ($endpoint[sizeof($endpoint) - 1] == "") unset($endpoint[$sizeof($endpoint) - 1]);
 
                 // Collect variable data
                 $vars = array();
+        		$handler = $this->find($vars, $tree_ptr, $endpoint);
 
-                // Parse tree through path
-                for ($i = 0; $i < sizeof($endpoint); ++$i) {
-                    // Check to see if the endpoint is there
-                    if (isset($tree_ptr->children[$endpoint[$i]]) &&
-                        $tree_ptr->children[$endpoint[$i]][0]->label == $endpoint[$i] &&
-                        $tree_ptr->children[$endpoint[$i]][0]->is_var == false) {
+        		if ($handler == false)
+        		    die("Invalid endpoint");
 
-                        $tree_ptr = $tree_ptr->children[$endpoint[$i]][0];
-                    }
-                    else {
-                        $is_var = false;
+                unset($_GET["path"]);
 
-                        // Check to see if there's a variable
-                        foreach ($tree_ptr->children as $node) {
-                            if ($node[0]->is_var == true) {
-                                $tree_ptr = $node[0];
-                                $vars[$tree_ptr->label] = $endpoint[$i];
-                                $is_var = true;
-                            }
-                        }
+                $req = new Request ($vars);
+        		$res = new Response();
 
-                        // If there isn't then display error
-                        if ($is_var == false) {
-                            die("REST: Endpoint '" . $endpoint_string . "' cannot parse past " . $i . ": " . $endpoint[$i]);
-                        }
-                    }
+                call_user_func_array($handler, [$req, $res]);
 
-                    // If it's the last endpoint and the tree ptr is still valid
-                    // call the function
-                    if ($i == sizeof($endpoint) - 1) {
-                        if ($tree_ptr->handler == false) {
-                            die("REST: Endpoint '" . $endpoint_string . "' does not exist");
-                        }
-                        else {
-                            $req = new Request ($vars);
-                            $res = new Response();
-
-                            call_user_func_array($tree_ptr->handler, [$req, $res]);
-                        }
-                    }
-                }
+                $res->send();
             }
             // The call is root
             else {
