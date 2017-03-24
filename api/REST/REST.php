@@ -169,22 +169,24 @@ namespace REST {
                         break;
                 }
 
-		if ($endpoint[0] == "")                     array_shift($endpoint);
-		if ($endpoint[sizeof($endpoint) - 1] == "") unset($endpoint[$sizeof($endpoint) - 1]);
-
-		var_dump($endpoint);
+        		if ($endpoint[0] == "")                     array_shift($endpoint);
+        		if ($endpoint[sizeof($endpoint) - 1] == "") unset($endpoint[$sizeof($endpoint) - 1]);
 
                 // Collect variable data
                 $vars = array();
-		$handler = $this->find($vars, $tree_ptr, $endpoint);
-	        
-		if ($handler == false)
-		    die("herpaderp");
+        		$handler = $this->find($vars, $tree_ptr, $endpoint);
 
-		$req = new Request ($vars);
-		$res = new Response();
-		
+        		if ($handler == false)
+        		    die("Invalid endpoint");
+
+                unset($_GET["path"]);
+
+                $req = new Request ($vars);
+        		$res = new Response();
+
                 call_user_func_array($handler, [$req, $res]);
+
+                $res->send();
             }
             // The call is root
             else {
