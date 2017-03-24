@@ -24,14 +24,14 @@ namespace REST {
             $this->TREE_ROOT_PUT    = new Tree("TREE_ROOT_PUT");
             $this->TREE_ROOT_DELETE = new Tree("TREE_ROOT_DELETE");
             $this->TREE_ROOT_UPDATE = new Tree("TREE_ROOT_UPDATE");
-            $this->DB = new PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
+            $this->DB = new \PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
         }
 
         public function query($query_string) {
             $result = array();
             $result['string']   = $query_string;
             $result['stmt']     = $this->DB->query($query_string);
-            $result['result']   = $result['stmt']->fetchAll(PDO::FETCH_ASSOC);
+            $result['result']   = $result['stmt']->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
         }
@@ -222,7 +222,7 @@ namespace REST {
                 $req = new Request ($vars);
         		$res = new Response();
 
-                call_user_func_array($handler, [$req, $res]);
+                call_user_func_array($handler, [$req, $res, $this]);
 
                 $res->send();
             }

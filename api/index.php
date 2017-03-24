@@ -1,15 +1,15 @@
 <?php
 
 include_once("REST/REST.php");
-$myapp = new REST\app('localhost','hackboard','root','root');
+$myapp = new REST\app('localhost','hackboard','root','');
 
-function select(tableName){
-	$sql = "SELECT * FROM {$tableName}";
-	return $sql;
-});
+// function select(tableName){
+// 	$sql = "SELECT * FROM {$tableName}";
+// 	return $sql;
+// });
 
 $myapp->get("/applications", function(REST\Request $req, REST\Response $res) {
-    $sql = select("applicants"); //Gathers all information of applicants
+    $sql = "SELECT * FROM applications"; //Gathers all information of applicants
     
 });
 
@@ -19,23 +19,30 @@ $myapp->get("/applications?{aid}", function(REST\Request $req, REST\Response $re
 });
 
 $myapp->get("/sponsors", function(REST\Request $req, REST\Response $res) {
-    $sql = select("sponsors"); //Gathers sponsors
+    $sql = "SELECT * FROM sponsors";  //Gathers sponsors
 });
 
 $myapp->get("/judges", function(REST\Request $req, REST\Response $res) {
-    $sql = select("judges"); //Gathers judges
+    $sql = "SELECT * FROM judges";  //Gathers judges
 });
 
-$myapp->get("/users", function(REST\Request $req, REST\Response $res) {
-    $sql = select("users"); //Gathers users
+$myapp->get("/users", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
+    $sql = "SELECT * FROM users";  //Gathers users
+    $result = $myapp->query($sql)["result"];
+    $json = array();
+    $json['status'] = true;
+    $json['message'] = "Success. Users have been retrieved successfully.";
+    $json['error'] = "";
+    $json['result'] = $result;
+    $res->json($json);
 });
 
 $myapp->get("/events", function(REST\Request $req, REST\Response $res) {
-    $sql = select("events"); //Gathers events
+    $sql = "SELECT * FROM events";  //Gathers events
 });
 
 $myapp->get("/prizes", function(REST\Request $req, REST\Response $res) {
-    $sql = select("prizes"); //Gathers prizes
+    $sql = "SELECT * FROM prizes";  //Gathers prizes
 });
 
 $myapp->get("/applications/search?{name}", function(REST\Request $req, REST\Response $res) {
@@ -46,19 +53,19 @@ $myapp->get("/applications/search?{name}", function(REST\Request $req, REST\Resp
 });
 
 $myapp->get("/applications/search?{email}", function(REST\Request $req, REST\Response $res) {
-    $sql = "SELECT * FROM applications WHERE email = {$req->body['email']"; //Search applicants by email
+    $sql = "SELECT * FROM applications WHERE email = {$req->body['email']}"; //Search applicants by email
 });
 
 $myapp->get("/applications/stats", function(REST\Request $req, REST\Response $res) {
     $sql = "SELECT count(aid) as totalApplicants FROM applications GROUP BY aid";
-    $sql .= "SELECT school, count(aid) as totalApplicants FROM applications GROUP BY school";]
+    $sql .= "SELECT school, count(aid) as totalApplicants FROM applications GROUP BY school";
     for($i=0;$i<2;$i++){
     	$sql.="SELECT * FROM `applications` WHERE status=$i";
     }
 });
 
 $myapp->get("/applications/sort?{hacks}", function(REST\Request $req, REST\Response $res) {
-    $sql = "SELECT * FROM applications ORDER BY {$req->body['hacks']"; //Sort applications by # of hacks
+    $sql = "SELECT * FROM applications ORDER BY {$req->body['hacks']}"; //Sort applications by # of hacks
 });
 /*
 A LOT OF DUPLICATE CODE AHEAD
@@ -72,23 +79,23 @@ CREATE FUNCTION TO FOR SQL WITH PARAMS GIVEN
 ADDING new elements to the following tables: sponsors, prizes, judges, events, users.
 */
 $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res) {
-    $sql ="INSERT INTO sponsors VALUES ".implode(",", $req->body)""; //adds a new sponsor with all corresponding values to the database 
+    $sql ="INSERT INTO sponsors VALUES ".implode(",", $req->body); //adds a new sponsor with all corresponding values to the database 
 });
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res) {
-    $sql ="INSERT INTO prizes VALUES ".implode(",", $req->body)""; //adds a new prize with all corresponding values to the database 
+    $sql ="INSERT INTO prizes VALUES ".implode(",", $req->body); //adds a new prize with all corresponding values to the database 
 });
 
 $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res) {
-    $sql ="INSERT INTO judges VALUES ".implode(",", $req->body)""; //adds a new judge with all corresponding values to the database 
+    $sql ="INSERT INTO judges VALUES ".implode(",", $req->body); //adds a new judge with all corresponding values to the database 
 });
 
 $myapp->post("/events/add", function(REST\Request $req, REST\Response $res) {
-    $sql ="INSERT INTO events VALUES ".implode(",", $req->body)""; //adds a new event with all corresponding values to the database 
+    $sql ="INSERT INTO events VALUES ".implode(",", $req->body); //adds a new event with all corresponding values to the database 
 });
 
 $myapp->post("/users/add", function(REST\Request $req, REST\Response $res) {
-    $sql ="INSERT INTO users VALUES ".implode(",", $req->body)""; //adds a new user with all corresponding values to the database 
+    $sql ="INSERT INTO users VALUES ".implode(",", $req->body); //adds a new user with all corresponding values to the database 
 });
 
 /*
@@ -139,7 +146,7 @@ $myapp->post("/events/edit", function(REST\Request $req, REST\Response $res) {
 
 $myapp->post("/judges/edit", function(REST\Request $req, REST\Response $res) {
     $sql ="UPDATE judges SET {$req->body['columnName']} = {$req->body['value']} WHERE jid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
-    $res->json()
+    $res->json();
 });
 
 $myapp->get("/applications/loginCheck", function(REST\Request $req, REST\Response $res) {
