@@ -12,11 +12,22 @@ namespace REST {
     class App {
         private $TREE_ROOT_GET;
         private $TREE_ROOT_POST;
+        private $DB;
 
-        public function __construct() {
+        public function __construct($host, $db, $user, $pass) {
             // Initialize the parse tree
             $this->TREE_ROOT_GET  = new Tree("TREE_ROOT_GET");
             $this->TREE_ROOT_POST = new Tree("TREE_ROOT_POST");
+            $this->DB = new PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
+        }
+
+        public function query($query_string) {
+            $result = array();
+            $result['string']   = $query_string;
+            $result['stmt']     = $stmt = $db->query($query_string);
+            $result['result']   = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
         }
 
         /**

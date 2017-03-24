@@ -14,6 +14,8 @@ $myapp->get("/test/{1}/{2}", function(REST\Request $req, REST\Response $res) {
     echo "</pre>";
 });
 $myapp->post("/test2", function(REST\Request $req, REST\Response $res) {
+    $req->body["columnName"];
+
     $res->json($req->body);
 });
 $myapp->start();
