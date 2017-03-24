@@ -24,8 +24,8 @@ namespace REST {
         public function query($query_string) {
             $result = array();
             $result['string']   = $query_string;
-            $result['stmt']     = $stmt = $this->DB->query($query_string);
-            $result['result']   = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result['stmt']     = $this->DB->query($query_string);
+            $result['result']   = $result['stmt']->fetchAll(PDO::FETCH_ASSOC);
 
             return $result;
         }
