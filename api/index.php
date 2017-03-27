@@ -204,7 +204,7 @@ $myapp->get("/applications/totalSchool", function(REST\Request $req, REST\Respon
 });
 
 $myapp->get("/applications/accepted", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='0'";
+    $sql ="SELECT * FROM `applications` WHERE status='1'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -222,7 +222,7 @@ $myapp->get("/applications/accepted", function(REST\Request $req, REST\Response 
 });
 
 $myapp->get("/applications/declined", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='1'";
+    $sql ="SELECT * FROM `applications` WHERE status='2'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -240,7 +240,7 @@ $myapp->get("/applications/declined", function(REST\Request $req, REST\Response 
 });
 
 $myapp->get("/applications/skipped", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='2'";
+    $sql ="SELECT * FROM `applications` WHERE status='0'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -365,7 +365,7 @@ $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/users/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO users VALUES ({$var})"; //adds a new user with all corresponding values to the database 
+    $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES ({$var})"; //adds a new user with all corresponding values to the database 
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -407,18 +407,80 @@ $myapp->post("/sponsors/delete", function(REST\Request $req, REST\Response $res,
 
 $myapp->post("/prizes/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM prizes WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $json = array();
+    $result = $myapp->postQuery($sql);
+    $json['string'] = $result['string'];
+    $json['error'] = $result['error'];
+
+    if($result['error'][0]!="00000"){
+        $json['status'] = false;
+        $json['message'] = "Failure. Prize has not been deleted.";
+        $res->json($json); 
+    }else{
+        $json['status'] = true;
+        $json['message'] = "Success. Prize has been deleted successfully.";
+        $res->json($json);
+    }
 });
 
 $myapp->post("/judges/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM judges WHERE jid = {$req->body['id']}"; //adds a new judge with all corresponding values to the database 
+    $json = array();
+    $result = $myapp->postQuery($sql);
+    $json['string'] = $result['string'];
+    $json['error'] = $result['error'];
+
+    if($result['error'][0]!="00000"){
+        $json['status'] = false;
+        $json['message'] = "Failure. Judge has not been deleted.";
+        $res->json($json); 
+    }else{
+        $json['status'] = true;
+        $json['message'] = "Success. Judge has been deleted successfully.";
+        $res->json($json);
+    }
 });
 
 $myapp->post("/events/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM events WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database 
+    $json = array();
+    $result = $myapp->postQuery($sql);
+    $json['string'] = $result['string'];
+    $json['error'] = $result['error'];
+
+    if($result['error'][0]!="00000"){
+        $json['status'] = false;
+        $json['message'] = "Failure. Event has not been deleted.";
+        $res->json($json); 
+    }else{
+        $json['status'] = true;
+        $json['message'] = "Success. Event has been deleted successfully.";
+        $res->json($json);
+    }
 });
 
 $myapp->post("/users/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+    $sql ="SET foreign_key_checks = 0";
+    $result = $myapp->postQuery($sql);
     $sql ="DELETE FROM users WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database 
+    $json = array();
+    $result = $myapp->postQuery($sql);
+    $json['string'] = $result['string'];
+    $json['error'] = $result['error'];
+
+    if($result['error'][0]!="00000"){
+        $json['status'] = false;
+        $json['message'] = "Failure. User has not been deleted.";
+        $res->json($json); 
+    }else{
+        $json['status'] = true;
+        $json['message'] = "Success. User has been deleted successfully.";
+        $res->json($json);
+    }
+    $sql ="SET foreign_key_checks = 1";
+    $result = $myapp->postQuery($sql);
+    $json['error2'] = $result['error'];
+    $res->json($json);
 });
 
 /*
@@ -538,18 +600,59 @@ $myapp->post("/applications/accept", function(REST\Request $req, REST\Response $
 	// if ($req->body['status'] != 0 || $req->body['status'] != 1 || $req->body['status'] != 2){
 	// 	die("Incorrect Status for update" . $req->body['status']);
 	// }
+    echo $req->body['id'];
 	$sql = "UPDATE applications SET status = 1 WHERE aid = {$req->body['id']}"; //change status of applicant to accepted
+    $json = array();
+    $result = $myapp->getQuery($sql);
+    $json['result']=$result['result'];
+    $json['error'] = $result['error'];
 
-    //$sql = "UPDATE applications SET status = . $req->body['status'] . WHERE aid = '.$req->body['aid']'"; //change status of applicant
+    if ($result['error'][0]!="00000") {
+        $json['status'] = false;
+        $json['message'] = "Failure. Accept procedure failed."; 
+        $res->json($json);
+    } else{
+        $json['status'] = true;   
+        $json['message'] = "Success. Accept procedure succeeded.";
+        $res->json($json);
+    }
     
 });
 
 $myapp->post("/applications/decline", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
 	$sql = "UPDATE applications SET status = 2 WHERE aid = {$req->body['id']}"; //change status of applicant to decline
+    $json = array();
+    $result = $myapp->getQuery($sql);
+    $json['result']=$result['result'];
+    $json['error'] = $result['error'];
+
+    if ($result['error'][0]!="00000") {
+        $json['status'] = false;
+        $json['message'] = "Failure. Decline procedure failed."; 
+        $res->json($json);
+    } else{
+        $json['status'] = true;   
+        $json['message'] = "Success. Decline procedure succeeded.";
+        $res->json($json);
+    }
 });
 
 $myapp->post("/applications/skip", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
 	$sql = "UPDATE applications SET status = 0 WHERE aid = {$req->body['id']}"; //change status of applicant to skip
+    $json = array();
+    $result = $myapp->getQuery($sql);
+    $json['result']=$result['result'];
+    $json['error'] = $result['error'];
+
+    if ($result['error'][0]!="00000") {
+        $json['status'] = false;
+        $json['message'] = "Failure. Skip procedure failed."; 
+        $res->json($json);
+    } else{
+        $json['status'] = true;   
+        $json['message'] = "Success. Skip procedure succeeded.";
+        $res->json($json);
+    }
 });
 
 
