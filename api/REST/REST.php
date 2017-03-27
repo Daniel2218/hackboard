@@ -27,11 +27,21 @@ namespace REST {
             $this->DB = new \PDO('mysql:host='. $host .';dbname='. $db .';charset=utf8mb4', $user, $pass);
         }
 
-        public function query($query_string) {
+        public function getQuery($query_string) {
             $result = array();
             $result['string']   = $query_string;
             $result['stmt']     = $this->DB->query($query_string);
+            $result['error']    = $this->DB->errorinfo();
             $result['result']   = $result['stmt']->fetchAll(\PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
+        public function postQuery($query_string) {
+            $result = array();
+            $result['string']   = $query_string;
+            $result['stmt']     = $this->DB->query($query_string);
+            $result['error'] = $this->DB->errorinfo();
 
             return $result;
         }
