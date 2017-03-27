@@ -1,0 +1,942 @@
+{
+	"variables": [],
+	"info": {
+		"name": "myHackathon",
+		"_postman_id": "dde10993-3a0f-b34c-7fae-021f2d8df457",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getApplicants",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all applicants\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getApplicantsById",
+			"request": {
+				"url": "http://localhost/myHackathon/api/IDapplications?aid=6",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets applicatn by id\n\nReturns:\n{\n\tstatus: true\n\tmessage: \"Success. Applicant has been retrieved successfully.\"\n\terror: \"\"\n\tapplicant: {\n\t\tid:1\n\t\tfname: Daniel\n\t\tlname:\n\t\t.\n\t\t.\n\t\t.\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getSponsors",
+			"request": {
+				"url": "http://localhost/myHackathon/api/sponsors",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all sponsors\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Sponsors have been retrieved successfully.\"\n\terror: \"\"\n\tsponsors: {\n\t\t[\n\t\t\tsid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getJudges",
+			"request": {
+				"url": "http://localhost/myHackathon/api/judges",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all judges\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tjugdes: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"url": "http://localhost/myHackathon/api/users",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "URL Request to recieve all applicants\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have retrieved suc\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t\n\t\t]\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"endfonao\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getEvents",
+			"request": {
+				"url": "http://localhost/myHackathon/api/events",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "$req.variables = [aid,status];\nGives the aid and the updated status\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getPrizes",
+			"request": {
+				"url": "http://localhost/myHackathon/api/prizes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "$req.variables = [aid,status];\nGives the aid and the updated status\n"
+			},
+			"response": []
+		},
+		{
+			"name": "searchApplicantByName",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/searchName?name=\"daniel\"",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Matches Found\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n\n{\n\tstatus: true\n\tmessage: \"Success. No Matches Found\"\n\terror: \"\"\n\tapplicants: { }\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"dfad\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "searchApplicantByEmail",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/searchEmail?email=\"daniel_lucia22@hotmail.com\"",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Matches Found\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n\n{\n\tstatus: true\n\tmessage: \"Success. No Matches Found\"\n\terror: \"\"\n\tapplicants: { }\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"dfad\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getAccepted",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/stats",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returns stats for applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n\taccepted: int\n\tdeclined: int\n\tskipped: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getDeclined",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/declined",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returns stats for declined applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\tdeclined: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getSkipped",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/skipped",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returns stats for skipped applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\tskipped: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getTotal",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/total",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returns stats for total applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getTotalSchool",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/totalSchool",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returns stats for total applicants by school.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "sortApplicants",
+			"request": {
+				"url": "http://localhost/myHackathon/api/applications/sort?sorting=hacks",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "columnName",
+							"value": "array of values",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Get applicants orderby hacks (greatest to least)\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "addSponsor",
+			"request": {
+				"url": "http://localhost/myHackathon/api/sponsors/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sid",
+							"value": "21",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "fname",
+							"value": "\"Rob\"",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "lname",
+							"value": "\"John\"",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "email",
+							"value": "\"robjohn@gmail.com\"",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "phone",
+							"value": "1111111111",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "donationAmount",
+							"value": "100",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "donationRecieved",
+							"value": "0",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Add sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "addPrize",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/prizes/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "sid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "pname",
+							"value": "'gift card'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "description",
+							"value": "'money'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "obtain",
+							"value": "'win'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "addJudge",
+			"request": {
+				"url": "http://localhost/myHackathon/api/judges/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "jid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "jname",
+							"value": "'judy'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "addEvent",
+			"request": {
+				"url": "http://localhost/myHackathon/api/events/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "sid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "ename",
+							"value": "'coding'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "description",
+							"value": "'code stuff'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "timestart",
+							"value": "'2017-02-15 00:00:00'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "timeend",
+							"value": "'2017-02-16 00:00:00'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "'stauffer'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"url": "http://localhost/myHackathon/api/users/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uid",
+							"value": "2",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "fname",
+							"value": "'rob'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "lname",
+							"value": "'bob'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "email",
+							"value": "'bobby@gmail.com'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "phone",
+							"value": "1231231234",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "position",
+							"value": "'cool guy'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "editUser",
+			"request": {
+				"url": "http://localhost/myHackathon/api/users/edit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "columnName",
+							"value": "fname",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "value",
+							"value": "'mikey'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "editSponsor",
+			"request": {
+				"url": "http://localhost/myHackathon/api/sponsors/edit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "columnName",
+							"value": "fname",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "value",
+							"value": "'Matt'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "editPrize",
+			"request": {
+				"url": "http://localhost/myHackathon/api/prizes/edit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "columnName",
+							"value": "pname",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "value",
+							"value": "'Google Cardboard!'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "editEvent",
+			"request": {
+				"url": "http://localhost/myHackathon/api/events/edit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "columnName",
+							"value": "ename",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "value",
+							"value": "'Google Challenge'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "editJudge",
+			"request": {
+				"url": "http://localhost/myHackathon/api/judges/edit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "columnName",
+							"value": "jname",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "value",
+							"value": "'judy'",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "checkLogin",
+			"request": {
+				"url": "http://localhost/myHackathon/api/users/loginCheck?email=\"bobby@gmail.com\"&password=1234",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "'bobby@gmail.com'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "124123",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Check to see if user\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Is a user\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"Failure. Not a user\"\n\terror: \"\"\n}\n"
+			},
+			"response": []
+		},
+		{
+			"name": "acceptApplicant",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/applications/accept",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Accept Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Accepted\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "declineApplicant",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/applications/decline",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Accept Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Declined\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "skipApplicant",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/applications/skip",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "124123",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Skip Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Skipped\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSponsor",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/sponsors/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/users/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deletePrize",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/prizes/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEvent",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/events/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteJudge",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php/judges/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"url": "https://localhost/myHackathon/api/index.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Logout user\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Logout\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		}
+	]
+}
