@@ -1,34 +1,105 @@
-.grandParentContaniner {
-    display: -webkit-flex;
-    display: flex;
-    height: 100%;
+#pop-up-box {
+    display: none;
+    position: fixed;
+    font-family: 'Open Sans', sans-serif;
+    width: 500px;
+    border: 1px solid #cdcdcd;
+    border-radius: 0px 0px 5px 5px;
+    overflow: hidden;
+    top: 10%;
+    left: calc(50% - 250px);
+    z-index: 3;
 }
-.parentContainer{
-   width: 200px;
-   height: 260px;
-   margin: auto;
-   z-index: 1;
-   padding: 20px;
-   background-color: #27a9e3;
+#top {
+    background-color: #efefef;
+    font-weight: bold;
+    font-size: 11px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 100%;
+    border-bottom: 1px solid #cdcdcd;
 }
-h1 {
-    font-size: 18px;
+#middle {
+    font-size: 11px;
+    padding: 20px 10px;
+    width: 100%;
+    border-bottom: 1px solid #cdcdcd;
+    background-color: white;
 }
-input {
-    display: block;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    width: 200px;
-    padding: 3px;
-    padding-left: 8px;
-    font-size: 14px;
+#middle > div {
+    display: inline-block;
+    margin-right: 50px;
 }
-input[type="submit"] {
-    background-color: #1da1f2;
+#middle > div > p, #middle > p{
+    margin-bottom: 15px;
+    color: #666;
+}
+#bottom {
+    background-color: #efefef;
+    padding: 12px 10px;
+    height: 25px;
+}
+#add-event-btn {
+    background-color: #006dcc;
     color: white;
-    font-size: 14px;
 }
-input[type="submit"]:hover{
-    background-color:  #cc0000;
+#cancel-btn {
+    color: #333;
+    background-color: #f5f5f5;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+}
+#floatRight {
+    float: right;
+    margin-right: 10px;
+    cursor:pointer;
+    opacity: 0.2;
+}
+#floatRight:hover {
+    opacity: 0.5;
+}
+#makeInline {
+    display: inline-block;
+    text-shadow: 0 1px 0 #ffffff;
+    margin-left: 10px;
+}
+.pop-up-input {
+    padding: 3px 2px;
+    width: 190px;
+    margin-bottom: 25px;
+}
+textarea {
+    width: 90% !important;
+    height: 100px;
+}
+.pop-up-a {
+    padding: 6px 8px;
+    font-size: 12.5px;
+    margin-left: 5px;
+    float: right;
+    border: 1px solid #cdcdcd;
+    text-decoration: none;
+}
+#screen {
+    position: fixed;
+    top:0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #000;
+    opacity: 0.8;
+    display: none;
+    z-index: 2;
+}
+@media screen and (max-width: 550px), screen and (max-height: 500px) {
+    #pop-up-box {
+        top:0px !important;
+        bottom: 0px !important;
+        left: 0px !important;
+        right:0px !important;
+        width: 100%;
+        overflow-y: auto;
+    }
+    #middle {
+        min-height: calc(100% - 132px);
+    }
 }
