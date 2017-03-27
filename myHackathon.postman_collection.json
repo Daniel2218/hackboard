@@ -109,7 +109,7 @@
 		{
 			"name": "getAccepted",
 			"request": {
-				"url": "http://localhost/myHackathon/api/applications/stats",
+				"url": "http://localhost/myHackathon/api/applications/accepted",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -260,7 +260,7 @@
 		{
 			"name": "addPrize",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/prizes/add",
+				"url": "http://localhost/myHackathon/api/prizes/add",
 				"method": "POST",
 				"header": [
 					{
@@ -274,7 +274,7 @@
 					"urlencoded": [
 						{
 							"key": "pid",
-							"value": "1",
+							"value": "4",
 							"type": "text",
 							"enabled": true
 						},
@@ -358,7 +358,7 @@
 					"urlencoded": [
 						{
 							"key": "eid",
-							"value": "1",
+							"value": "4",
 							"type": "text",
 							"enabled": true
 						},
@@ -421,13 +421,13 @@
 					"urlencoded": [
 						{
 							"key": "uid",
-							"value": "2",
+							"value": "1",
 							"type": "text",
 							"enabled": true
 						},
 						{
 							"key": "fname",
-							"value": "'rob'",
+							"value": "'Matt'",
 							"type": "text",
 							"enabled": true
 						},
@@ -452,6 +452,12 @@
 						{
 							"key": "position",
 							"value": "'cool guy'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "1234",
 							"type": "text",
 							"enabled": true
 						}
@@ -692,7 +698,7 @@
 		{
 			"name": "acceptApplicant",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/applications/accept",
+				"url": "http://localhost/myHackathon/api/applications/accept",
 				"method": "POST",
 				"header": [
 					{
@@ -706,7 +712,7 @@
 					"urlencoded": [
 						{
 							"key": "id",
-							"value": "1",
+							"value": "3",
 							"type": "text",
 							"enabled": true
 						}
@@ -719,7 +725,7 @@
 		{
 			"name": "declineApplicant",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/applications/decline",
+				"url": "http://localhost/myHackathon/api/applications/decline",
 				"method": "POST",
 				"header": [
 					{
@@ -733,7 +739,7 @@
 					"urlencoded": [
 						{
 							"key": "id",
-							"value": "1",
+							"value": "3",
 							"type": "text",
 							"enabled": true
 						}
@@ -746,40 +752,7 @@
 		{
 			"name": "skipApplicant",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/applications/skip",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "email",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "password",
-							"value": "124123",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": "Skip Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Skipped\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
-			},
-			"response": []
-		},
-		{
-			"name": "deleteSponsor",
-			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/sponsors/delete",
+				"url": "http://localhost/myHackathon/api/applications/skip",
 				"method": "POST",
 				"header": [
 					{
@@ -799,6 +772,33 @@
 						}
 					]
 				},
+				"description": "Skip Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Skipped\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSponsor",
+			"request": {
+				"url": "http://localhost/myHackathon/api/sponsors/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
 				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
@@ -806,12 +806,12 @@
 		{
 			"name": "deleteUser",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/users/delete",
+				"url": "http://localhost/myHackathon/api/users/delete",
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
+						"key": "id",
+						"value": "1",
 						"description": ""
 					}
 				],
@@ -833,7 +833,7 @@
 		{
 			"name": "deletePrize",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/prizes/delete",
+				"url": "http://localhost/myHackathon/api/prizes/delete",
 				"method": "POST",
 				"header": [
 					{
@@ -887,7 +887,7 @@
 		{
 			"name": "deleteJudge",
 			"request": {
-				"url": "https://localhost/myHackathon/api/index.php/judges/delete",
+				"url": "http://localhost/myHackathon/api/judges/delete",
 				"method": "POST",
 				"header": [
 					{
