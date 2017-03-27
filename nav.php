@@ -84,7 +84,7 @@
             }
         }
         addLoadEvent(function () {
-            var fileName = location.pathname.replace("/myhackathon/", "");
+            var fileName = location.pathname.replace("/myHackathon/", "");
             fileName = fileName.replace(".php", "");
             var li = document.getElementById(fileName);
             li.id = "makeVisted";

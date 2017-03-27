@@ -10,7 +10,7 @@
             $schedulePage = new Page("schedule.php", "calendar", "");
             $sponsorsPage = new Page("sponsors.php", "university", "");
             $usersPage = new Page("users.php", "users", "");
-            $usersPage = new Page("judges.php", "users", "");
+            $jugdesPage = new Page("judges.php", "users", "");
             $this->pages = array();
 
             array_push($this->pages, $applicationsPage);
@@ -19,6 +19,7 @@
             array_push($this->pages, $schedulePage);
             array_push($this->pages, $sponsorsPage);
             array_push($this->pages, $usersPage);
+            array_push($this->pages, $jugdesPage);
             // echo "page manager contructor called";
             // var_dump($this->pages);
         }
