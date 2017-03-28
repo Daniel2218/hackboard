@@ -1,5 +1,5 @@
 <?php
-    // include_once dirname(__FILE__) . "/requests.php";
+    include_once dirname(__FILE__) . "/requests.php";
 ?>
 <div class = "tableSection">
     <div id ="title">
@@ -37,46 +37,51 @@
                 }
             ?>
         </tr>
-        <tr class="tr-color">
+        <!-- <tr class="tr-color">
             <td contenteditable><a href="#">Daniel</a></td>
             <td contenteditable><a href="#">Lucia</a></td>
             <td contenteditable><a href="#">14dvl@queensu.ca</a></td>
             <td contenteditable><a href="#">41666166498</a></td>
             <td contenteditable><a href="#">100</a></td>
             <td contenteditable><a href="#">false</a></td>
-        </tr>
+        </tr> -->
 
         <?php
-        // switch($name) {
-        //     case "Applications":
-        //         $results = json_decode(getRequest("applicants/"), true);
-        //         addEntries($results,false);
-        //     case "Users":
-        //         addEntries(getRequest("users/"),true);
-        //     case "Sponsors":
-        //         addEntries(getRequest("sponsors/"),true);
-        //     case "Prizes":
-        //         addEntries(getRequest("prizes/"),true);
-        //     case "applicants":
-        //         addEntries(getRequest("applicants/id, false"))
-        //     default:
-        //
-        //    }
-        //
-        //     function addEntries($rows, $edit) {
-        //         foreach($rows as $row) {
-        //             echo '<tr class="tr-color">';
-        //             foreach($row as $value) {
-        //                 echo "<td contenteditable='$edit'>";
-        //                 if(!$edit) {
-        //                     echo "<a href='applicant.php'>$value</a></td>";
-        //                 } else {
-        //                      echo "$value</td>";
-        //                  }
-        //             }
-        //             echo '</tr>';
-        //         }
-        //     }
+        switch($name) {
+            case "Applications":
+                $results = json_decode(getRequest("applications"), true);
+                addEntries($results,false);
+                break;
+            case "Users":
+                $results = json_decode(getRequest("users"),true);
+                addEntries($results,true);
+                break;
+            case "Sponsors":
+                $results = json_decode(getRequest("sponsors"),true);
+                addEntries($results,true);
+                break;
+            case "Prizes":
+                $results = json_decode(getRequest("prizes"),true);
+                addEntries($results,true);
+                break;
+            case "applicants":
+                $results = json_decode(getRequest(""),true);
+                addEntries($results,true);
+                break;
+            default:
+                echo "Page does not exist";
+        }
+
+        function addEntries($rows, $edit) {
+            foreach($rows["result"] as $row) {
+                echo '<tr class="tr-color">';
+                foreach($row as $value) {
+                    if ($edit) { echo "<td contenteditable><a href='#'>$value</a></td>"; }
+                    else { echo "<td><a href='applicant.php'>$value</a></td>"; }
+                }
+                echo '</tr>';
+            }
+        }
         ?>
     </table>
 </div>

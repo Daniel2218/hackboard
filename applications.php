@@ -2,8 +2,13 @@
     header("Cache-Control: no-cache, must-revalidate");
     include_once "nav.php";
     include_once "init.php";
-    // include_once "request.php";
-    // $stats = getRequest("applicants/stats");
+    include_once dirname(__FILE__) . "/requests.php";
+
+    $total = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    $accepted = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    $declined = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    $skipped = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
 ?>
 
 <html>
@@ -24,7 +29,7 @@
             <div id = "outer-inner">
                 <div id = "stat-box-1" class="hvr-grow statBox">
                     <i class="fa fa-files-o fa-2x" aria-hidden="true"></i>
-                    Total: 10000
+                    Total: <?php echo $total; ?>
                 </div>
                 <div id = "stat-box-2" class="hvr-grow statBox">
                     <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
