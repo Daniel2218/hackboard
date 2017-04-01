@@ -40,7 +40,7 @@ $myapp->get("/IDapplications", function(REST\Request $req, REST\Response $res, R
 });
 
 $myapp->get("/sponsors", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT fname, lname, email, phone, donationAmount, donationRecieved FROM sponsors";  //Gathers sponsors
+    $sql = "SELECT sid, fname, lname, email, phone, donationAmount, donationRecieved FROM sponsors";  //Gathers sponsors
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -534,27 +534,18 @@ $myapp->post("/users/edit", function(REST\Request $req, REST\Response $res, REST
 });
 
 $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * from sponsors WHERE sid = {$req->body['id']}";
-    $result = $myapp->getQuery($sql);
     $json = array();
+    $sql ="UPDATE sponsors SET fname={$req->body['fname']}, lname={$req->body['lname']}, email={$req->body['email']}, phone={$req->body['phone']}, donationAmount={$req->body['amount']},donationRecieved={$req->body['recieved']} WHERE sid = {$req->body['sid']}"; //adds a new prize with all corresponding values to the database
+    $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    if (empty($result['result'])){
-        $json['status'] = false;
-        $json['message'] = "Failure. This sponsor does not exist.";
-    }else{
-        $sql ="UPDATE sponsors SET {$req->body['columnName']} = {$req->body['value']} WHERE sid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
-        $result = $myapp->postQuery($sql);
-        $json['string'] = $result['string'];
-        $json['error'] = $result['error'];
 
-        if($result['error'][0]!="00000"){
-            $json['status'] = false;
-            $json['message'] = "Failure. A sponsor has not been edited.";
-        }else{
-            $json['status'] = true;
-            $json['message'] = "Success. A sponsor has been edited successfully.";
-        }
+    if($result['error'][0]!="00000"){
+        $json['status'] = false;
+        $json['message'] = "Failure. A sponsor has not been edited.";
+    }else{
+        $json['status'] = true;
+        $json['message'] = "Success. A sponsor has been edited successfully.";
     }
     $res->json($json);
 });
