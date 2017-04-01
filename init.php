@@ -5,7 +5,9 @@
     mb_internal_encoding("UTF-8");
 
     // do login check here
-    
+    if (isset($_SESSION["email"]) == false) {
+        header('location: /myHackathon/login.html');
+    }
 
     spl_autoload_register(function($class) {
     	include_once "classes/$class.php";
