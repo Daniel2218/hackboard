@@ -14,18 +14,18 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Gets all applicants\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+				"description": "Gets all applicants\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Applicants to be retrieved.\"\n}\n\n{\n\t\"result\":[]\n\t\"error\": \n\t\"status\": false\n\t\"message\": \"Failure. Applicants have not been retrieved.\"\n\t\n}"
 			},
 			"response": []
 		},
 		{
 			"name": "getApplicantsById",
 			"request": {
-				"url": "http://localhost/myHackathon/api/IDapplications?aid=6",
+				"url": "http://localhost/myHackathon/api/IDapplications?aid=3",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Gets applicatn by id\n\nReturns:\n{\n\tstatus: true\n\tmessage: \"Success. Applicant has been retrieved successfully.\"\n\terror: \"\"\n\tapplicant: {\n\t\tid:1\n\t\tfname: Daniel\n\t\tlname:\n\t\t.\n\t\t.\n\t\t.\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+				"description": "Gets applicatn by id\n\nReturns:\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant 3 has been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant 2 was not found.\"\n}"
 			},
 			"response": []
 		},
@@ -36,7 +36,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Gets all sponsors\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Sponsors have been retrieved successfully.\"\n\terror: \"\"\n\tsponsors: {\n\t\t[\n\t\t\tsid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+				"description": "Gets all sponsors\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"sid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"Pollack\",\n      \"email\": \"matt.email@gmail.com\",\n      \"phone\": \"4754754485\",\n      \"donationAmount\": \"10\",\n      \"donationRecieved\": \"0\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Sponsors have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Sponsors to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -58,7 +58,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "URL Request to recieve all applicants\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have retrieved suc\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t\n\t\t]\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"endfonao\"\n}"
+				"description": "URL Request to recieve all applicants\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Users have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Users to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -69,7 +69,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "$req.variables = [aid,status];\nGives the aid and the updated status\n"
+				"description": "{\n  \"result\": [\n    {\n      \"eid\": \"1\",\n      \"pid\": \"1\",\n      \"sid\": \"1\",\n      \"ename\": \"Google Challenge\",\n      \"description\": \"Code hello world in any language in 10 seconds.\",\n      \"timestart\": \"2017-02-15 00:00:00\",\n      \"timeend\": \"2017-02-15 00:00:00\",\n      \"location\": \"Jeffery Hall 201\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Events have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Events to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -80,7 +80,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "$req.variables = [aid,status];\nGives the aid and the updated status\n"
+				"description": "{\n  \"result\": [\n    {\n      \"pid\": \"1\",\n      \"sid\": \"1\",\n      \"pname\": \"Google Cardboard!\",\n      \"description\": \"A virtual reality device.\",\n      \"obtain\": \"You can obtain this by winning the google time challenge event.\"\n    },\n    {\n      \"pid\": \"4\",\n      \"sid\": \"1\",\n      \"pname\": \"gift card\",\n      \"description\": \"money\",\n      \"obtain\": \"win\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Prizes have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Prizes to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -91,7 +91,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Matches Found\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n\n{\n\tstatus: true\n\tmessage: \"Success. No Matches Found\"\n\terror: \"\"\n\tapplicants: { }\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"dfad\"\n}"
+				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by name successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
 			},
 			"response": []
 		},
@@ -102,7 +102,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Matches Found\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n\n{\n\tstatus: true\n\tmessage: \"Success. No Matches Found\"\n\terror: \"\"\n\tapplicants: { }\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"dfad\"\n}"
+				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by email successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
 			},
 			"response": []
 		},
@@ -113,7 +113,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "returns stats for applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n\taccepted: int\n\tdeclined: int\n\tskipped: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+				"description": "returns stats for applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"1\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accepted applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No accepted applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -124,7 +124,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "returns stats for declined applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\tdeclined: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+				"description": "returns stats for declined applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Declined applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No declined applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -135,7 +135,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "returns stats for skipped applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\tskipped: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+				"description": "returns stats for skipped applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skipped applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No skipped applicants.\"\n}\n"
 			},
 			"response": []
 		},
@@ -146,7 +146,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "returns stats for total applicants.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+				"description": "returns stats for total applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"overallApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}\n"
 			},
 			"response": []
 		},
@@ -157,7 +157,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "returns stats for total applicants by school.\n\nReturns:\n\n{\n\tsuccess: true\n\tmessage: \"Success. Statics found.\"\n\terror: \"\"\n\ttotal: int\n}\n\n{\n\tsuccess: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}\n"
+				"description": "returns stats for total applicants by school.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"school\": \"Queen's University\",\n      \"schoolApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved and grouped by school successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -190,7 +190,40 @@
 						}
 					]
 				},
-				"description": "Get applicants orderby hacks (greatest to least)\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tapplicants: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+				"description": "Get applicants orderby hacks (greatest to least)\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been sorted successfully.\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "checkLogin",
+			"request": {
+				"url": "http://localhost/myHackathon/api/users/loginCheck?email=\"bobby@gmail.com\"&password=123",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "'bobby@gmail.com'",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "124123",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Check to see if user\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    },\n    {\n      \"uid\": \"2\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Login Check succeeded.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Login Check failed.\"\n}\n"
 			},
 			"response": []
 		},
@@ -253,7 +286,7 @@
 						}
 					]
 				},
-				"description": "Add sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Add sponsor\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new sponsor has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '21' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new sponsor has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -274,7 +307,7 @@
 					"urlencoded": [
 						{
 							"key": "pid",
-							"value": "4",
+							"value": "2",
 							"type": "text",
 							"enabled": true
 						},
@@ -304,7 +337,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO prizes VALUES (2, 1, 'gift card', 'money', 'win')\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new prize has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO prizes VALUES (4, 1, 'gift card', 'money', 'win')\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '4' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new prize has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -363,6 +396,12 @@
 							"enabled": true
 						},
 						{
+							"key": "pid",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						},
+						{
 							"key": "sid",
 							"value": "1",
 							"type": "text",
@@ -400,7 +439,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO events VALUES (4, 1, 1, 'coding', 'code stuff', '2017-02-15 00:00:00', '2017-02-16 00:00:00', 'stauffer')\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new event has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO events VALUES (4, 1, 1, 'coding', 'code stuff', '2017-02-15 00:00:00', '2017-02-16 00:00:00', 'stauffer')\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '4' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new event has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -421,7 +460,7 @@
 					"urlencoded": [
 						{
 							"key": "uid",
-							"value": "1",
+							"value": "2",
 							"type": "text",
 							"enabled": true
 						},
@@ -463,7 +502,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (2, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new user has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (1, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '1' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new user has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -496,13 +535,13 @@
 						},
 						{
 							"key": "value",
-							"value": "'mikey'",
+							"value": "'mike'",
 							"type": "text",
 							"enabled": true
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"UPDATE users SET fname = 'mike' WHERE uid = 1\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A user has been edited successfully.\"\n}"
 			},
 			"response": []
 		},
@@ -663,39 +702,6 @@
 			"response": []
 		},
 		{
-			"name": "checkLogin",
-			"request": {
-				"url": "http://localhost/myHackathon/api/users/loginCheck?email=\"bobby@gmail.com\"&password=1234",
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "'bobby@gmail.com'",
-							"type": "text",
-							"enabled": true
-						},
-						{
-							"key": "password",
-							"value": "124123",
-							"type": "text",
-							"enabled": true
-						}
-					]
-				},
-				"description": "Check to see if user\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Is a user\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"Failure. Not a user\"\n\terror: \"\"\n}\n"
-			},
-			"response": []
-		},
-		{
 			"name": "acceptApplicant",
 			"request": {
 				"url": "http://localhost/myHackathon/api/applications/accept",
@@ -718,7 +724,7 @@
 						}
 					]
 				},
-				"description": "Accept Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Accepted\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Accept Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accept procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -745,7 +751,7 @@
 						}
 					]
 				},
-				"description": "Accept Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Declined\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Accept Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Decline procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -766,13 +772,13 @@
 					"urlencoded": [
 						{
 							"key": "id",
-							"value": "1",
+							"value": "2",
 							"type": "text",
 							"enabled": true
 						}
 					]
 				},
-				"description": "Skip Applicatn\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Applicant Skipped\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Skip Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skip procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
