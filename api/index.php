@@ -288,45 +288,64 @@ CREATE FUNCTION TO FOR SQL WITH PARAMS GIVEN
 *
 *
 */
-/*
+/*(
 ADDING new elements to the following tables: sponsors, prizes, judges, events, users.
 */
 $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode("','", $req->body);
-    $var = "'" . $var . "'";
-    $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database
-
+    $sql = "SELECT * FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
+    $result = $myapp->getQuery($sql);
     $json = array();
-    $result = $myapp->postQuery($sql);
-    $json['string'] = $result['string'];
-    $json['error'] = $result['error'];
+    if(empty($result['result'])){
+        $var = implode("','", $req->body);
+        $var = "'" . $var . "'";
+        $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database
+        $result = $myapp->postQuery($sql);
+        $json['string'] = $result['string'];
+        $json['error'] = $result['error'];
 
-    if($result['error'][0]!="00000"){
-        $json['status'] = false;
-        $json['message'] = "Failure. A new sponsor has not been addded.";
+        if($result['error'][0]!="00000"){
+            $json['status'] = false;
+            $json['message'] = "Failure. A new sponsor has not been addded.";
+        }else{
+            $json['status'] = true;
+            $json['message'] = "Success. A new sponsor has been added successfully.";
+        }
     }else{
-        $json['status'] = true;
-        $json['message'] = "Success. A new sponsor has been added successfully.";
+        $json['string'] = $result['string'];
+        $json['error'] = $result['error'];
+        $json['status'] = false;
+        $json['message'] = "Failure. Sponsor already exists.";
     }
     $res->json($json);
 });
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode("','", $req->body);
-    $var = "'" . $var . "'";
-
-    $sql ="INSERT INTO prizes VALUES (NULL, {$var})"; //adds a new prize with all corresponding values to the database
+    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
+    $result = $myapp->getQuery($sql);
     $json = array();
-    $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-
-    if($result['error'][0]!="00000"){
+    if(empty($result['result'])){
         $json['status'] = false;
-        $json['message'] = "Failure. A new prize has not been addded.";
-    }else{
-        $json['status'] = true;
-        $json['message'] = "Success. A new prize has been added successfully.";
+        $json['message'] = "Failure. Sponsor does not exist.";
+    }else{ 
+        array_pop($req->body);
+        array_pop($req->body);
+        $var = implode("','", $req->body);
+        $var = "'" . $var . "'";
+
+        $sql ="INSERT INTO prizes VALUES (NULL, '{$result['result'][0]['sid']}',{$var})"; //adds a new prize with all corresponding values to the database
+        $result = $myapp->postQuery($sql);
+        $json['string'] = $result['string'];
+        $json['error'] = $result['error'];
+
+        if($result['error'][0]!="00000"){
+            $json['status'] = false;
+            $json['message'] = "Failure. A new prize has not been addded.";
+        }else{
+            $json['status'] = true;
+            $json['message'] = "Success. A new prize has been added successfully.";
+        }
     }
     $res->json($json);
 });
@@ -540,16 +559,16 @@ $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, R
 });
 
 $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * from prizes WHERE pid = {$req->body['id']}";
+    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    if (empty($result['result'])){
+    if(empty($result['result'])){
         $json['status'] = false;
-        $json['message'] = "Failure. This prize does not exist.";
-    }else{
-        $sql ="UPDATE prizes SET {$req->body['columnName']} = {$req->body['value']} WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
+        $json['message'] = "Failure. Sponsor does not exist.";
+    }else{ 
+        $sql ="UPDATE prizes SET sid = '{$result['result'][0]['sid']}', pname = '{$req->body['pname']}', description = '{$req->body['description']}', obtain='{$req->body['obtain']}'  WHERE pid = {$req->body['pid']}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
