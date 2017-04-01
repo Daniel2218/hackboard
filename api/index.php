@@ -5,7 +5,7 @@ $myapp = new REST\app('localhost','hackboard','root','');
 
 
 $myapp->get("/applications", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
-    $sql = "SELECT * FROM applications"; //Gathers all information of applicants
+    $sql = "SELECT aid, firstname, lastname, applications.uid, fname, lname FROM applications INNER JOIN users ON applications.uid=users.uid"; //Gathers all information of applicants
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -483,20 +483,26 @@ EDITING TABLES:
 
 */
 $myapp->post("/users/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    // $sql ="SELECT * from users WHERE uid = {$req->body['id']}";
-    // $result = $myapp->postQuery($sql);
-    // $json = array();
-    $sql ="UPDATE users SET {$req->body['columnName']} = {$req->body['value']} WHERE uid = {$req->body['id']}"; //edits the user table based on a column name and their id
-    $result = $myapp->postQuery($sql);
-    $json['string'] = $result['string'];
-    $json['error'] = $result['error'];
-
-    if($result['error'][0]!="00000"){
+    $sql ="SELECT * from users WHERE uid = {$req->body['id']}";
+    $result = $myapp->getQuery($sql);
+    $json = array();
+    if (empty($result['result'])){
+        $json['string'] = $result['string'];
+        $json['error'] = $result['error'];
         $json['status'] = false;
-        $json['message'] = "Failure. A user has not been edited.";
+        $json['message'] = "Failure. This user does not exist.";
     }else{
-        $json['status'] = true;
-        $json['message'] = "Success. A user has been edited successfully.";
+        $sql ="UPDATE users SET {$req->body['columnName']} = {$req->body['value']} WHERE uid = {$req->body['id']}"; //edits the user table based on a column name and their id
+        $result = $myapp->postQuery($sql);
+        $json['string'] = $result['string'];
+        $json['error'] = $result['error'];
+        if($result['error'][0]!="00000"){
+            $json['status'] = false;
+            $json['message'] = "Failure. A user has not been edited.";
+        }else{
+            $json['status'] = true;
+            $json['message'] = "Success. A user has been edited successfully.";
+        }
     }
     $res->json($json);
 });
