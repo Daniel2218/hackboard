@@ -4,6 +4,7 @@
         $postData = $_POST["postData"];
         $endpoint = $postData["endpoint"];
         unset($postData["endpoint"]);
+        var_dump($postData);
         echo postRequest($endpoint, $postData);
     } else if ($_SERVER["REQUEST_METHOD"] == "GET"){
         if(!empty($_GET["endpoint"])) {
@@ -34,7 +35,7 @@
         curl_close($ch);
         return $output;
     }
-    
+
     function store() {
         session_start();
         $_SESSION["applicant"] = json_decode($_GET["data"], true);

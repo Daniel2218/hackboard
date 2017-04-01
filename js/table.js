@@ -34,7 +34,7 @@ function addTableEntry() {
 
     inputs.forEach(function(input){
         var value = input.value;
-        postData[i++] = input.value;
+        postData[i++] = Input.value;
         var td = document.createElement("td");
         var a = document.createElement("a");
         a.href = "#";
