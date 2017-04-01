@@ -293,7 +293,7 @@ ADDING new elements to the following tables: sponsors, prizes, judges, events, u
 */
 $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO sponsors VALUES ({$var})";//adds a new sponsor with all corresponding values to the database 
+    $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database 
     
     $json = array();
     $result = $myapp->postQuery($sql);
@@ -312,7 +312,7 @@ $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, RE
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO prizes VALUES ({$var})"; //adds a new prize with all corresponding values to the database 
+    $sql ="INSERT INTO prizes VALUES (NULL, {$var})"; //adds a new prize with all corresponding values to the database 
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -330,7 +330,7 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO judges VALUES ({$var})"; //adds a new judge with all corresponding values to the database 
+    $sql ="INSERT INTO judges VALUES (NULL, {$var})"; //adds a new judge with all corresponding values to the database 
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -348,7 +348,7 @@ $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO events VALUES ({$var})"; //adds a new event with all corresponding values to the database 
+    $sql ="INSERT INTO events VALUES (NULL, {$var})"; //adds a new event with all corresponding values to the database 
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -366,7 +366,7 @@ $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/users/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES ({$var})"; //adds a new user with all corresponding values to the database 
+    $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (NULL, {$var})"; //adds a new user with all corresponding values to the database 
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
