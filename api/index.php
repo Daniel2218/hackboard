@@ -40,7 +40,7 @@ $myapp->get("/IDapplications", function(REST\Request $req, REST\Response $res, R
 });
 
 $myapp->get("/sponsors", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT * FROM sponsors";  //Gathers sponsors
+    $sql = "SELECT fname, lname, email, phone, donationAmount, donationRecieved FROM sponsors";  //Gathers sponsors
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -74,7 +74,7 @@ $myapp->get("/judges", function(REST\Request $req, REST\Response $res, REST\ App
 });
 
 $myapp->get("/users", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
-    $sql = "SELECT * FROM users";  //Gathers users
+    $sql = "SELECT fname, lname, email, phone, position FROM users";  //Gathers users
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -91,7 +91,7 @@ $myapp->get("/users", function(REST\Request $req, REST\Response $res, REST\App $
 });
 
 $myapp->get("/events", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT * FROM events";  //Gathers events
+    $sql = "SELECT ename,description,timestart,timeend,location FROM events";  //Gathers events
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -108,7 +108,7 @@ $myapp->get("/events", function(REST\Request $req, REST\Response $res, REST\ App
 });
 
 $myapp->get("/prizes", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT * FROM prizes";  //Gathers prizes
+    $sql = "SELECT pname, description, obtain,fname,lname FROM prizes NATURAL JOIN sponsors";  //Gathers prizes
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -292,7 +292,8 @@ CREATE FUNCTION TO FOR SQL WITH PARAMS GIVEN
 ADDING new elements to the following tables: sponsors, prizes, judges, events, users.
 */
 $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode(", ", $req->body);
+    $var = implode("','", $req->body);
+    $var = "'" . $var . "'";
     $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database
 
     $json = array();
@@ -331,7 +332,8 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
 });
 
 $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode(", ", $req->body);
+    $var = implode("','", $req->body);
+    $var = "'" . $var . "'";
     $sql ="INSERT INTO judges VALUES (NULL, {$var})"; //adds a new judge with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
@@ -349,7 +351,8 @@ $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST
 });
 
 $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode(", ", $req->body);
+    $var = implode("','", $req->body);
+    $var = "'" . $var . "'";
     $sql ="INSERT INTO events VALUES (NULL, {$var})"; //adds a new event with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
@@ -367,7 +370,8 @@ $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST
 });
 
 $myapp->post("/users/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $var = implode(", ", $req->body);
+    $var = implode("','", $req->body);
+    $var = "'" . $var . "'";
     $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (NULL, {$var})"; //adds a new user with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
