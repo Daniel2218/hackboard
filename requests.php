@@ -14,7 +14,28 @@
                 "lname" =>$postData["values"][5]
             );
             echo postRequest($endpoint, http_build_query($fields));
-        } else {
+        } else if ($endpoint == "sponsors/edit") {
+            $fields = array (
+                "sid" => $postData["values"][0],
+                "fname" => $postData["values"][1],
+                "lname" => $postData["values"][2],
+                "email" => $postData["values"][3],
+                "phone" => $postData["values"][4],
+                "amount" => $postData["values"][5],
+                "recieved" =>$postData["values"][6]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else if ($endpoint == "users/edit") {
+            $fields = array (
+                "uid" => $postData["values"][0],
+                "fname" => $postData["values"][1],
+                "lname" => $postData["values"][2],
+                "email" => $postData["values"][3],
+                "phone" => $postData["values"][4],
+                "position" => $postData["values"][5]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        }else {
             unset($postData["endpoint"]);
             echo postRequest($endpoint, $postData);
         }
