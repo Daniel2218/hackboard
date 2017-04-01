@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "myHackathon",
-		"_postman_id": "dde10993-3a0f-b34c-7fae-021f2d8df457",
+		"_postman_id": "702ddba7-8ee4-a459-f528-aa1f8e637c3c",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -13,8 +13,11 @@
 				"url": "http://localhost/myHackathon/api/applications",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Gets all applicants\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Applicants to be retrieved.\"\n}\n\n{\n\t\"result\":[]\n\t\"error\": \n\t\"status\": false\n\t\"message\": \"Failure. Applicants have not been retrieved.\"\n\t\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Gets all applicants\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Applicants to be retrieved.\"\n}\n\n{\n\t\"result\":[]\n\t\"error\": \n\t\"status\": false\n\t\"message\": \"Failure. Applicants have not been retrieved.\"\n\t\n}"
 			},
 			"response": []
 		},
@@ -24,8 +27,11 @@
 				"url": "http://localhost/myHackathon/api/IDapplications?aid=3",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Gets applicatn by id\n\nReturns:\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant 3 has been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant 2 was not found.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Gets applicatn by id\n\nCompleted\n\nReturns:\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant 3 has been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant 2 was not found.\"\n}"
 			},
 			"response": []
 		},
@@ -35,8 +41,11 @@
 				"url": "http://localhost/myHackathon/api/sponsors",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Gets all sponsors\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"sid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"Pollack\",\n      \"email\": \"matt.email@gmail.com\",\n      \"phone\": \"4754754485\",\n      \"donationAmount\": \"10\",\n      \"donationRecieved\": \"0\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Sponsors have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Sponsors to be retrieved.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Gets all sponsors\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"sid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"Pollack\",\n      \"email\": \"matt.email@gmail.com\",\n      \"phone\": \"4754754485\",\n      \"donationAmount\": \"10\",\n      \"donationRecieved\": \"0\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Sponsors have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Sponsors to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -46,8 +55,11 @@
 				"url": "http://localhost/myHackathon/api/judges",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Gets all judges\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tjugdes: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Gets all judges\n\nIgnore\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Success. Applicants have been retrieved successfully.\"\n\terror: \"\"\n\tjugdes: {\n\t\t[\n\t\t\tid:1\n\t\t\tfname: Daniel\n\t\t\tlname:\n\t\t\t...\n\t\t] ...\n\t}\n}\n{\n\tstatus: false\n\tmessage: \"Failure.\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -57,8 +69,11 @@
 				"url": "http://localhost/myHackathon/api/users",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "URL Request to recieve all applicants\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Users have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Users to be retrieved.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "URL Request to recieve all applicants\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"Matt\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Users have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Users to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -68,7 +83,10 @@
 				"url": "http://localhost/myHackathon/api/events",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "{\n  \"result\": [\n    {\n      \"eid\": \"1\",\n      \"pid\": \"1\",\n      \"sid\": \"1\",\n      \"ename\": \"Google Challenge\",\n      \"description\": \"Code hello world in any language in 10 seconds.\",\n      \"timestart\": \"2017-02-15 00:00:00\",\n      \"timeend\": \"2017-02-15 00:00:00\",\n      \"location\": \"Jeffery Hall 201\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Events have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Events to be retrieved.\"\n}"
 			},
 			"response": []
@@ -79,8 +97,11 @@
 				"url": "http://localhost/myHackathon/api/prizes",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "{\n  \"result\": [\n    {\n      \"pid\": \"1\",\n      \"sid\": \"1\",\n      \"pname\": \"Google Cardboard!\",\n      \"description\": \"A virtual reality device.\",\n      \"obtain\": \"You can obtain this by winning the google time challenge event.\"\n    },\n    {\n      \"pid\": \"4\",\n      \"sid\": \"1\",\n      \"pname\": \"gift card\",\n      \"description\": \"money\",\n      \"obtain\": \"win\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Prizes have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Prizes to be retrieved.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Incomplete \n\n{\n  \"result\": [\n    {\n      \"pid\": \"1\",\n      \"sid\": \"1\",\n      \"pname\": \"Google Cardboard!\",\n      \"description\": \"A virtual reality device.\",\n      \"obtain\": \"You can obtain this by winning the google time challenge event.\"\n    },\n    {\n      \"pid\": \"4\",\n      \"sid\": \"1\",\n      \"pname\": \"gift card\",\n      \"description\": \"money\",\n      \"obtain\": \"win\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Prizes have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No Prizes to be retrieved.\"\n}"
 			},
 			"response": []
 		},
@@ -90,8 +111,11 @@
 				"url": "http://localhost/myHackathon/api/applications/searchName?name=\"daniel\"",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by name successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Searchs all applicants for name\n\nComplete\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by name successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
 			},
 			"response": []
 		},
@@ -101,8 +125,11 @@
 				"url": "http://localhost/myHackathon/api/applications/searchEmail?email=\"daniel_lucia22@hotmail.com\"",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "Searchs all applicants for name\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by email successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Searchs all applicants for name\n\nComplete\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicant has been retrieved by email successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Applicant does not exist.\"\n}"
 			},
 			"response": []
 		},
@@ -112,8 +139,11 @@
 				"url": "http://localhost/myHackathon/api/applications/accepted",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "returns stats for applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"1\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accepted applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No accepted applicants.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "returns stats for applicants.\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"1\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accepted applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No accepted applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -123,8 +153,11 @@
 				"url": "http://localhost/myHackathon/api/applications/declined",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "returns stats for declined applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Declined applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No declined applicants.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "returns stats for declined applicants.\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"2\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Declined applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No declined applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -134,8 +167,11 @@
 				"url": "http://localhost/myHackathon/api/applications/skipped",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "returns stats for skipped applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skipped applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No skipped applicants.\"\n}\n"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "returns stats for skipped applicants.\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skipped applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No skipped applicants.\"\n}\n"
 			},
 			"response": []
 		},
@@ -145,8 +181,11 @@
 				"url": "http://localhost/myHackathon/api/applications/total",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "returns stats for total applicants.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"overallApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}\n"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "returns stats for total applicants.\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"overallApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}\n"
 			},
 			"response": []
 		},
@@ -156,8 +195,11 @@
 				"url": "http://localhost/myHackathon/api/applications/totalSchool",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": "returns stats for total applicants by school.\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"school\": \"Queen's University\",\n      \"schoolApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved and grouped by school successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}"
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "returns stats for total applicants by school.\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"school\": \"Queen's University\",\n      \"schoolApplicants\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been retrieved and grouped by school successfully.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. No applicants.\"\n}"
 			},
 			"response": []
 		},
@@ -190,7 +232,7 @@
 						}
 					]
 				},
-				"description": "Get applicants orderby hacks (greatest to least)\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been sorted successfully.\"\n}"
+				"description": "Get applicants orderby hacks (greatest to least)\n\nCompleted\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"aid\": \"3\",\n      \"firstname\": \"Daniel\",\n      \"lastname\": \"Lucia\",\n      \"email\": \"daniel_lucia22@hotmail.com\",\n      \"phone\": \"4166166498\",\n      \"school\": \"Queen's University\",\n      \"age\": \"20\",\n      \"gender\": \"male\",\n      \"size\": \"3\",\n      \"major\": \"Computer Science\",\n      \"resume\": \"https://www.resume.ca/Daniel\",\n      \"website\": \"http://daniellucia.ca/\",\n      \"hacks\": \"3\",\n      \"status\": \"0\",\n      \"uid\": \"1\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Applicants have been sorted successfully.\"\n}"
 			},
 			"response": []
 		},
@@ -223,7 +265,7 @@
 						}
 					]
 				},
-				"description": "Check to see if user\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    },\n    {\n      \"uid\": \"2\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Login Check succeeded.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Login Check failed.\"\n}\n"
+				"description": "Check to see if user\n\nIncomplete\n\nReturns:\n\n{\n  \"result\": [\n    {\n      \"uid\": \"1\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    },\n    {\n      \"uid\": \"2\",\n      \"fname\": \"mike\",\n      \"lname\": \"bob\",\n      \"email\": \"bobby@gmail.com\",\n      \"phone\": \"1231231234\",\n      \"position\": \"cool guy\",\n      \"password\": \"1234\"\n    }\n  ],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Login Check succeeded.\"\n}\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": false,\n  \"message\": \"Failure. Login Check failed.\"\n}\n"
 			},
 			"response": []
 		},
@@ -286,7 +328,7 @@
 						}
 					]
 				},
-				"description": "Add sponsor\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new sponsor has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '21' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new sponsor has not been addded.\"\n}"
+				"description": "Add sponsor\n\nCompleted\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new sponsor has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO sponsors VALUES (21, \\\"Rob\\\", \\\"John\\\", \\\"robjohn@gmail.com\\\", 1111111111, 100, 0)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '21' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new sponsor has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -370,7 +412,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nIgnore\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -502,7 +544,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (2, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new user has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (1, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '1' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new user has not been addded.\"\n}"
+				"description": "Insert values in respected table in database.\n\nCompleted\n\nReturns:\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (2, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A new user has been added successfully.\"\n}\n\n{\n  \"string\": \"INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (1, 'Matt', 'bob', 'bobby@gmail.com', 1231231234, 'cool guy', 1234)\",\n  \"error\": [\n    \"23000\",\n    1062,\n    \"Duplicate entry '1' for key 'PRIMARY'\"\n  ],\n  \"status\": false,\n  \"message\": \"Failure. A new user has not been addded.\"\n}"
 			},
 			"response": []
 		},
@@ -541,7 +583,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n  \"string\": \"UPDATE users SET fname = 'mike' WHERE uid = 1\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A user has been edited successfully.\"\n}"
+				"description": "Insert values in respected table in database.\n\nCompleted\n\nReturns:\n\n{\n  \"string\": \"UPDATE users SET fname = 'mike' WHERE uid = 1\",\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. A user has been edited successfully.\"\n}"
 			},
 			"response": []
 		},
@@ -580,7 +622,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -619,7 +661,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -697,7 +739,7 @@
 						}
 					]
 				},
-				"description": "Insert values in respected table in database.\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Insert values in respected table in database.\n\nIgnore\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"\"\n\terror: \"\"\n}\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -724,7 +766,7 @@
 						}
 					]
 				},
-				"description": "Accept Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accept procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Accept Applicatn\n\nINcomplete\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Accept procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -751,7 +793,7 @@
 						}
 					]
 				},
-				"description": "Accept Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Decline procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Accept Applicatn\n\nIncomplete\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Decline procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -778,7 +820,7 @@
 						}
 					]
 				},
-				"description": "Skip Applicatn\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skip procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Skip Applicatn\n\nIncomplete\n\nReturns:\n\n{\n  \"result\": [],\n  \"error\": [\n    \"00000\",\n    null,\n    null\n  ],\n  \"status\": true,\n  \"message\": \"Success. Skip procedure succeeded.\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -805,7 +847,7 @@
 						}
 					]
 				},
-				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Delete Sponsor\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -832,7 +874,7 @@
 						}
 					]
 				},
-				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Delete Sponsor\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -859,7 +901,7 @@
 						}
 					]
 				},
-				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Delete Sponsor\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -886,7 +928,7 @@
 						}
 					]
 				},
-				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Delete Sponsor\n\nCompleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -913,7 +955,7 @@
 						}
 					]
 				},
-				"description": "Delete Sponsor\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Delete Sponsor\n\nCOmpleted\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Deleted Sponsor\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		},
@@ -940,7 +982,7 @@
 						}
 					]
 				},
-				"description": "Logout user\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Logout\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
+				"description": "Logout user\n\nIncomplete\n\nReturns:\n\n{\n\tstatus: true\n\tmessage: \"Sucess. Logout\"\n\terror: \"\"\n}\n\n{\n\tstatus: false\n\tmessage: \"\"\n\terror: \"\"\n}"
 			},
 			"response": []
 		}
