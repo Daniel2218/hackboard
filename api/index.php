@@ -5,7 +5,7 @@ $myapp = new REST\app('localhost','hackboard','root','');
 
 
 $myapp->get("/applications", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
-    $sql = "SELECT aid, firstname, lastname, applications.uid, fname, lname FROM applications INNER JOIN users ON applications.uid=users.uid"; //Gathers all information of applicants
+    $sql = "SELECT aid, firstname, lastname, fname, lname, status FROM applications INNER JOIN users ON applications.uid=users.uid"; //Gathers all information of applicants
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
