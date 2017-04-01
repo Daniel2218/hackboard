@@ -293,8 +293,8 @@ ADDING new elements to the following tables: sponsors, prizes, judges, events, u
 */
 $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database 
-    
+    $sql ="INSERT INTO sponsors VALUES (NULL, {$var})";//adds a new sponsor with all corresponding values to the database
+
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -309,22 +309,12 @@ $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, RE
     }
     $res->json($json);
 });
-function addQuotes($arr){
-    var_dump($arr);
-    for($i=0;$i<sizeof($arr);$i++){
-        $arr[$i] = "'" . $arr[$i] . "'";
-    }
-    return $arr;
-}
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    var_dump($req->body);
+    $var = implode("','", $req->body);
+    $var = "'" . $var . "'";
 
-    //$var = implode(", ", $req->body);
-    
-    $var = addQuotes($req->body);
-
-    $sql ="INSERT INTO prizes VALUES (NULL, {$var})"; //adds a new prize with all corresponding values to the database 
+    $sql ="INSERT INTO prizes VALUES (NULL, {$var})"; //adds a new prize with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -342,12 +332,12 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO judges VALUES (NULL, {$var})"; //adds a new judge with all corresponding values to the database 
+    $sql ="INSERT INTO judges VALUES (NULL, {$var})"; //adds a new judge with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    
+
     if($result['error'][0]!="00000"){
         $json['status'] = false;
         $json['message'] = "Failure. A new judge has not been addded.";
@@ -360,12 +350,12 @@ $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO events VALUES (NULL, {$var})"; //adds a new event with all corresponding values to the database 
+    $sql ="INSERT INTO events VALUES (NULL, {$var})"; //adds a new event with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    
+
     if($result['error'][0]!="00000"){
         $json['status'] = false;
         $json['message'] = "Failure. A new event has not been addded.";
@@ -378,12 +368,12 @@ $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST
 
 $myapp->post("/users/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode(", ", $req->body);
-    $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (NULL, {$var})"; //adds a new user with all corresponding values to the database 
+    $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (NULL, {$var})"; //adds a new user with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    
+
     if($result['error'][0]!="00000"){
         $json['status'] = false;
         $json['message'] = "Failure. A new user has not been addded.";
@@ -400,12 +390,12 @@ DELETING TABLES:
 
 */
 $myapp->post("/sponsors/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="DELETE FROM sponsors WHERE sid = {$req->body['id']}"; //adds a new sponsor with all corresponding values to the database 
+    $sql ="DELETE FROM sponsors WHERE sid = {$req->body['id']}"; //adds a new sponsor with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    
+
     if($result['error'][0]!="00000"){
         $json['status'] = false;
         $json['message'] = "Failure. A sponsor was not deleted.";
@@ -417,7 +407,7 @@ $myapp->post("/sponsors/delete", function(REST\Request $req, REST\Response $res,
 });
 
 $myapp->post("/prizes/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="DELETE FROM prizes WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+    $sql ="DELETE FROM prizes WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -434,7 +424,7 @@ $myapp->post("/prizes/delete", function(REST\Request $req, REST\Response $res, R
 });
 
 $myapp->post("/judges/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="DELETE FROM judges WHERE jid = {$req->body['id']}"; //adds a new judge with all corresponding values to the database 
+    $sql ="DELETE FROM judges WHERE jid = {$req->body['id']}"; //adds a new judge with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -451,7 +441,7 @@ $myapp->post("/judges/delete", function(REST\Request $req, REST\Response $res, R
 });
 
 $myapp->post("/events/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="DELETE FROM events WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database 
+    $sql ="DELETE FROM events WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -470,7 +460,7 @@ $myapp->post("/events/delete", function(REST\Request $req, REST\Response $res, R
 $myapp->post("/users/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="SET foreign_key_checks = 0";
     $result = $myapp->postQuery($sql);
-    $sql ="DELETE FROM users WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database 
+    $sql ="DELETE FROM users WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -529,7 +519,7 @@ $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, R
         $json['status'] = false;
         $json['message'] = "Failure. This sponsor does not exist.";
     }else{
-        $sql ="UPDATE sponsors SET {$req->body['columnName']} = {$req->body['value']} WHERE sid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+        $sql ="UPDATE sponsors SET {$req->body['columnName']} = {$req->body['value']} WHERE sid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
@@ -555,7 +545,7 @@ $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, RES
         $json['status'] = false;
         $json['message'] = "Failure. This prize does not exist.";
     }else{
-        $sql ="UPDATE prizes SET {$req->body['columnName']} = {$req->body['value']} WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+        $sql ="UPDATE prizes SET {$req->body['columnName']} = {$req->body['value']} WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
@@ -581,7 +571,7 @@ $myapp->post("/events/edit", function(REST\Request $req, REST\Response $res, RES
         $json['status'] = false;
         $json['message'] = "Failure. This event does not exist.";
     }else{
-        $sql ="UPDATE events SET {$req->body['columnName']} = {$req->body['value']} WHERE eid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+        $sql ="UPDATE events SET {$req->body['columnName']} = {$req->body['value']} WHERE eid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
@@ -607,7 +597,7 @@ $myapp->post("/judges/edit", function(REST\Request $req, REST\Response $res, RES
         $json['status'] = false;
         $json['message'] = "Failure. This judge does not exist.";
     }else{
-        $sql ="UPDATE judges SET {$req->body['columnName']} = {$req->body['value']} WHERE jid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database 
+        $sql ="UPDATE judges SET {$req->body['columnName']} = {$req->body['value']} WHERE jid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
@@ -632,9 +622,9 @@ $myapp->get("/users/loginCheck", function(REST\Request $req, REST\Response $res,
 
     if (empty($result['result'])) {
     	$json['status'] = false;
-        $json['message'] = "Failure. Login Check failed."; 
+        $json['message'] = "Failure. Login Check failed.";
     } else{
-        $json['status'] = true;   
+        $json['status'] = true;
         $json['message'] = "Success. Login Check succeeded.";
     }
     $res->json($json);
@@ -649,9 +639,9 @@ $myapp->post("/applications/accept", function(REST\Request $req, REST\Response $
 
     if ($result['error'][0]!="00000") {
         $json['status'] = false;
-        $json['message'] = "Failure. Accept procedure failed."; 
+        $json['message'] = "Failure. Accept procedure failed.";
     } else{
-        $json['status'] = true;   
+        $json['status'] = true;
         $json['message'] = "Success. Accept procedure succeeded.";
     }
     $res->json($json);
@@ -666,9 +656,9 @@ $myapp->post("/applications/decline", function(REST\Request $req, REST\Response 
 
     if ($result['error'][0]!="00000") {
         $json['status'] = false;
-        $json['message'] = "Failure. Decline procedure failed."; 
+        $json['message'] = "Failure. Decline procedure failed.";
     } else{
-        $json['status'] = true;   
+        $json['status'] = true;
         $json['message'] = "Success. Decline procedure succeeded.";
     }
     $res->json($json);
@@ -683,9 +673,9 @@ $myapp->post("/applications/skip", function(REST\Request $req, REST\Response $re
 
     if ($result['error'][0]!="00000") {
         $json['status'] = false;
-        $json['message'] = "Failure. Skip procedure failed."; 
+        $json['message'] = "Failure. Skip procedure failed.";
     } else{
-        $json['status'] = true;   
+        $json['status'] = true;
         $json['message'] = "Success. Skip procedure succeeded.";
     }
     $res->json($json);
