@@ -27,7 +27,7 @@
                 case "Sponsors":
                     return array("First Name", "Last Name", "Email", "Phone", "Donation Amount", "Donation Recieved");
                 case "Prizes":
-                    return array("Sponsor ID", "Prize Name", "Event", "Description");
+                    return array("ID", "Prize Name", "Description", "Obtained By",  "Sponsor First Name", "Sponsor Last Name");
                 case "Schedule":
                     return array("Event Name", "Start Time", "End Time", "Location");
                 case "Applicant":
