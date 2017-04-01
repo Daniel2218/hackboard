@@ -21,13 +21,13 @@
         function getTableHeaders(){
             switch($this->strippedName) {
                 case "Applications":
-                    return array("First Name", "Last Name", "Email", "Phone",  "School", "Age", "Gender",  "Size", "Major", "Resume", "Website", "Hacks", "Status");
+                    return array("Applicant ID", "First Name", "Last Name", "Reviewer First Name",  "Reviewer LastName", "Status");
                 case "Users":
                     return array("First Name", "Last Name", "Email", "Phone", "Position");
                 case "Sponsors":
                     return array("First Name", "Last Name", "Email", "Phone", "Donation Amount", "Donation Recieved");
                 case "Prizes":
-                    return array("Prize Name", "Event", "Description");
+                    return array("Prize Name", "Event", "Description", "Sponsor ID");
                 case "Schedule":
                     return array("Event Name", "Start Time", "End Time", "Location");
                 case "Applicant":

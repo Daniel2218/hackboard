@@ -5,9 +5,9 @@
     include_once dirname(__FILE__) . "/requests.php";
 
     $total = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $accepted = json_decode(getRequest("applications/accpeted"), true)["result"][0]["total"];
-    $declined = json_decode(getRequest("applications/declined"), true)["result"][0]["total"];
-    $skipped = json_decode(getRequest("applications/skipped"), true)["result"][0]["total"];
+    $accepted = json_decode(getRequest("applications/accepted"), true)["result"]["total"];
+    $declined = json_decode(getRequest("applications/declined"), true)["result"]["total"];
+    $skipped = json_decode(getRequest("applications/skipped"), true)["result"]["total"];
     // $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
 ?>
 
