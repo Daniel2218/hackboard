@@ -205,7 +205,7 @@ $myapp->get("/applications/accepted", function(REST\Request $req, REST\Response 
     $sql ="SELECT count(aid) as total FROM `applications` WHERE status='1'";
     $result = $myapp->getQuery($sql);
     $json = array();
-    $json['result'] = $result['result'];
+    $json['result'] = $result['result'][0];
     $json['error'] = $result['error'];
 
     if(empty($result['result'])){
@@ -225,7 +225,7 @@ $myapp->get("/applications/declined", function(REST\Request $req, REST\Response 
     $sql ="SELECT count(aid) as total FROM `applications` WHERE status='2'";
     $result = $myapp->getQuery($sql);
     $json = array();
-    $json['result'] = $result['result'];
+    $json['result'] = $result['result'][0];
     $json['error'] = $result['error'];
 
     if(empty($result['result'])){
@@ -245,7 +245,7 @@ $myapp->get("/applications/skipped", function(REST\Request $req, REST\Response $
     $sql ="SELECT count(aid) as total FROM `applications` WHERE status='0'";
     $result = $myapp->getQuery($sql);
     $json = array();
-    $json['result'] = $result['result'];
+    $json['result'] = $result['result'][0];
     $json['error'] = $result['error'];
 
     if(empty($result['result'])){
