@@ -7,7 +7,6 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/application.css">
-        <link rel="stylesheet" type="text/css" href="css/applicant.css">
     </head>
 
     <body>

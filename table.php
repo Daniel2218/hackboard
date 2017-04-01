@@ -26,6 +26,15 @@
                             <i class='fa fa-plus' aria-hidden='true'></i> Add new ". $shortName .
                         "</button>";
                 }
+            } else {
+                echo "<input type='text' name='name' placeholder='Name'
+                        onkeydown='if(event.keyCode == 13) {
+                            searchByName(document.getElementsByName(\"name\")[0].value);
+                        }'>";
+                echo "<input type='text' name='email' placeholder='Email'
+                        onkeydown='if(event.keyCode == 13) {
+                            searchByEmail(document.getElementsByName(\"email\")[0].value);
+                        }'>";
             }
         ?>
     </div>
@@ -68,16 +77,27 @@
                 $results = json_decode(getRequest(""),true);
                 addEntries($results,true);
                 break;
+            case "Applicant":
+                foreach ($_SESSION['applicant'] as $key => $value) {
+                    echo "<td><a href='#'>$value</a></td>";
+                }
+                break;
             default:
                 echo "Page does not exist";
         }
 
         function addEntries($rows, $edit) {
             foreach($rows["result"] as $row) {
+                $length = sizeof($row);
+                $i = 1;
                 echo '<tr class="tr-color">';
                 foreach($row as $value) {
-                    if ($edit) { echo "<td contenteditable><a href='#'>$value</a></td>"; }
-                    else { echo "<td><a href='applicant.php'>$value</a></td>"; }
+                    if ($edit) {
+                        echo "<td><a href='#'>$value</a>";
+                        if($i++ == $length) { echo "<div class = 'deleteBox'> <i onclick=\"updateRow(this);\" class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> <i onclick='deleteRow(this);' class=\"fa fa-trash\" aria-hidden=\"true\"></i></div>"; }
+                        echo "</td>";
+                    }
+                    else { echo "<td><a href='#' onclick='getApplicant(this)'>$value</a></td>"; }
                 }
                 echo '</tr>';
             }

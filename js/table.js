@@ -73,3 +73,81 @@ function insertRequest(postData) {
         }
     });
 }
+
+function deleteRow(row) {
+    var tr = row.parentElement.parentElement.parentElement;
+    var id = tr.childNodes[0].childNodes[0].innerHTML;
+    var postData = new Object();
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4) + "/delete";
+    postData.id = id;
+    tr.remove();
+
+    $.ajax({
+        url:"requests.php",
+        data: {postData},
+        type: 'post',
+        success: function(data) {
+            alert(data);
+        }
+    });
+}
+
+function updateRow(row) {
+    var tr = row.parentElement.parentElement.parentElement;
+    var id = tr.childNodes[0].childNodes[0].innerHTML;
+    var inputVals = new Array();
+
+    tr.childNodes.forEach(function(td){
+        var value = td.childNodes[0].innerHTML;
+        inputVals.push(value);
+        console.log(inputVals);
+    });
+
+    displayPopUpBox("block");
+    var button = document.getElementById("add-event-btn");
+    button.innerHTML = button.innerHTML.replace("Add", "Update");
+    var inputs = document.querySelectorAll("#middle > input");
+    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
+    var i = 0;
+
+    inputs.forEach(function(input){
+        input.value = inputVals[i++];
+        input.setAttribute("onkeydown", "if(event.keyCode == 13) updateRowInBackEnd(); ");
+    });
+    var cancelBtn = document.getElementById("cancel-btn");
+    cancel.setAttribute("onclick", "location.reload();");
+    var screen = document.getElementById("screen");
+    screen.setAttribute("onclick", "location.reload();");
+    var screen = document.getElementById("screen");
+    screen.setAttribute("onclick", "location.reload();");
+    var closeIcon = document.getElementsByClassName("fa-times")[0];
+    closeIcon.setAttribute("onclick", "location.reload();");
+    var popUpBox = document.getElementById("pop-up-box");
+    popUpBox.setAttribute("onclick", "location.reload();");
+    button.setAttribute("onclick", "updateRowInBackEnd();");
+}
+
+function updateRowInBackEnd() {
+    var postData = new Object();
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4) + "/edit";
+    postData.id = id;
+
+    var inputs = document.querySelectorAll("#middle > input");
+    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
+    var i = 0;
+    postData.values = new Array();
+    inputs.forEach(function(input){
+        postData.values.push(input.value);
+    });
+
+    $.ajax({
+        url:"requests.php",
+        data: {postData},
+        type: 'post',
+        success: function(data) {
+            alert(data);
+        }
+    });
+
+    location.reload();
+}

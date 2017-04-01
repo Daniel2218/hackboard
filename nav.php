@@ -1,6 +1,7 @@
 <?php
     header("Cache-Control: no-cache, must-revalidate");
     include_once "init.php";
+    session_start();
 ?>
 
 <html>

@@ -31,7 +31,7 @@
                 case "Schedule":
                     return array("Event Name", "Start Time", "End Time", "Location");
                 case "Applicant":
-                    return array("First Name", "Last Name", "Age", "Email", "Password");
+                    return array("First Name", "Last Name", "Email", "Phone",  "School", "Age", "Gender",  "Size", "Major", "Resume", "Website", "Hacks", "Status");
                 case "Judges":
                     return array("First Name", "Last Name", "Age", "Email", "Password");
                 default:

@@ -5,10 +5,10 @@
     include_once dirname(__FILE__) . "/requests.php";
 
     $total = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $accepted = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $declined = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $skipped = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    // $accepted = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    // $declined = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    // $skipped = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    // $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
 ?>
 
 <html>
@@ -48,4 +48,71 @@
         <?php include_once dirname(__FILE__) . "/table.php"; ?>
         <?php include_once "footer.php"; ?>
     </body>
+
+    <script>
+        function getApplicant(a){
+            var value = a.parentElement.parentElement.childNodes[0].childNodes[0].innerHTML;
+
+            $.ajax({
+                url:"requests.php?endpoint=IDapplications?aid=" + value,
+                type: 'get',
+                success: function(applicant) {
+                    applicant = JSON.parse(applicant);
+                    // console.log(applicant.result[0]);
+                    applicant = JSON.stringify(applicant.result[0]);
+                    $.ajax({
+                        url:"requests.php?endpoint=store&data=" + applicant,
+                        type: 'get',
+                        success: function(data) {
+                             alert(data);
+                             window.location.assign("http://localhost/myHackathon/applicant.php")
+                        }
+                    });
+                }
+            });
+        }
+
+        function searchByName(name) {
+            $.ajax({
+                url:"requests.php?endpoint=applications/searchName?name=\"" + name + "\"",
+                type: 'get',
+                success: function(data) {
+                    addRow(data);
+                }
+            });
+        }
+
+        function searchByEmail(email) {
+            $.ajax({
+                url:"requests.php?endpoint=applications/searchEmail?email=\"" + email + "\"",
+                type: 'get',
+                success: function(data) {
+                    addRow(data);
+                }
+            });
+        }
+
+        function addRow(data) {
+            var result = JSON.parse(data).result;
+            var table = document.getElementsByTagName("table")[0];
+            var tbody = document.getElementsByTagName("tbody")[0];
+
+            $('tr.tr-color').remove();
+
+            result.forEach(function(searchResult){
+                var tr = document.createElement("tr");
+                tr.setAttribute("class", "tr-color");
+                for (var property in searchResult) {
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "applicant.php";
+                    var textNode = document.createTextNode(searchResult[property]);
+                    a.appendChild(textNode);
+                    td.appendChild(a);
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
 </html>
