@@ -12,13 +12,13 @@
         <?php
             if($name != "Applications") {
                 if($name == "Applicant") {
-                    echo "<button onclick=\"postRequest('applicants/decline', )\">
+                    echo "<button onclick=\"set_status('decline')\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Decline
                           </button>";
-                    echo "<button onclick=\"postRequest('applicants/skip', )\">
+                    echo "<button onclick=\"set_status('skip')\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Skip
                           </button>";
-                    echo "<button onclick=\"postRequest('applicants/accept', )\">
+                    echo "<button onclick=\"set_status('accept')\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Accept
                           </button>";
                 } else {
@@ -38,6 +38,18 @@
             }
         ?>
     </div>
+    <script>
+    function set_status(action) {
+        $.ajax({
+            url:  "api/applications/" + action,
+            data: { id: <?php echo $_SESSION['applicant']['aid']; ?> },
+            type: 'post',
+            success: function(data) {
+                window.location.replace("applications.php");
+            }
+        });
+    }
+    </script>
     <table>
         <tr>
             <?php
