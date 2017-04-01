@@ -29,13 +29,14 @@
             $first = true;
             foreach ($tableHeaders as $header) {
                 $inputName = lcfirst(str_replace(' ', '', $header));
-
-                echo "<div>";
-                echo "<p> Enter " . $header . ": </p>";
-                echo "<input autofocus='$first' name='$inputName' class = 'pop-up-input' type='text'
-                             onkeydown='if(event.keyCode == 13) $onclickFunc'>";
-                echo "</div>";
-                $first = false;
+                // if($header != "ID") {
+                    echo "<div>";
+                    echo "<p> Enter " . $header . ": </p>";
+                    echo "<input autofocus='$first' name='$inputName' class = 'pop-up-input' type='text'
+                                 onkeydown='if(event.keyCode == 13) $onclickFunc'>";
+                    echo "</div>";
+                    $first = false;
+                // }
             }
         ?>
     </div>

@@ -5,7 +5,7 @@
     mb_internal_encoding("UTF-8");
 
     // do login check here
-    
+
 
     spl_autoload_register(function($class) {
     	include_once "classes/$class.php";

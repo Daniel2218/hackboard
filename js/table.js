@@ -31,10 +31,15 @@ function addTableEntry() {
     tr.className = "tr-color";
     var postData = new Object();
     var i = 0;
+    var arr = inputs;
+    if(document.URL.replace(/^.*[\\\/]/, '').slice(0,-5) == "prizes"){
+        var arr = Array.prototype.slice.call(inputs);
+        arr.shift();
+    }
 
-    inputs.forEach(function(input){
+    arr.forEach(function(input){
         var value = input.value;
-        postData[i++] = Input.value;
+        postData[i++] = input.value;
         var td = document.createElement("td");
         var a = document.createElement("a");
         a.href = "#";
@@ -100,7 +105,6 @@ function updateRow(row) {
     tr.childNodes.forEach(function(td){
         var value = td.childNodes[0].innerHTML;
         inputVals.push(value);
-        console.log(inputVals);
     });
 
     displayPopUpBox("block");
@@ -114,8 +118,8 @@ function updateRow(row) {
         input.value = inputVals[i++];
         input.setAttribute("onkeydown", "if(event.keyCode == 13) updateRowInBackEnd(); ");
     });
-    var cancelBtn = document.getElementById("cancel-btn");
-    cancel.setAttribute("onclick", "location.reload();");
+    // var cancelBtn = document.getElementById("cancel-btn");
+    // cancel.setAttribute("onclick", "location.reload();");
     var screen = document.getElementById("screen");
     screen.setAttribute("onclick", "location.reload();");
     var screen = document.getElementById("screen");
@@ -123,19 +127,18 @@ function updateRow(row) {
     var closeIcon = document.getElementsByClassName("fa-times")[0];
     closeIcon.setAttribute("onclick", "location.reload();");
     var popUpBox = document.getElementById("pop-up-box");
-    popUpBox.setAttribute("onclick", "location.reload();");
+    // popUpBox.setAttribute("onclick", "location.reload();");
     button.setAttribute("onclick", "updateRowInBackEnd();");
 }
 
 function updateRowInBackEnd() {
-    var postData = new Object();
-    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4) + "/edit";
-    postData.id = id;
+    var postData = {};
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-5) + "/edit";
 
     var inputs = document.querySelectorAll("#middle > input");
     if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
     var i = 0;
-    postData.values = new Array();
+    postData.values = [];
     inputs.forEach(function(input){
         postData.values.push(input.value);
     });
@@ -149,5 +152,5 @@ function updateRowInBackEnd() {
         }
     });
 
-    location.reload();
+    // location.reload();
 }

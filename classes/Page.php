@@ -38,6 +38,7 @@
                     echo "<h1> Page does not exist </h1>";
                }
         }
+
         function getShortName(){
             $shortName = basename($this->fullName, ".php");
             if (substr($shortName, -1) == "s") {

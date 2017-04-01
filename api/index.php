@@ -320,7 +320,8 @@ $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, RE
 });
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
+    // var_dump($req->body[3]);
+    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body[3]}' and lname = '{$req->body[4]}'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['string'] = $result['string'];
@@ -328,7 +329,7 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
     if(empty($result['result'])){
         $json['status'] = false;
         $json['message'] = "Failure. Sponsor does not exist.";
-    }else{ 
+    }else{
         array_pop($req->body);
         array_pop($req->body);
         $var = implode("','", $req->body);
@@ -567,8 +568,8 @@ $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, RES
     if(empty($result['result'])){
         $json['status'] = false;
         $json['message'] = "Failure. Sponsor does not exist.";
-    }else{ 
-        $sql ="UPDATE prizes SET sid = '{$result['result'][0]['sid']}', pname = '{$req->body['pname']}', description = '{$req->body['description']}', obtain='{$req->body['obtain']}'  WHERE pid = {$req->body['pid']}"; //adds a new prize with all corresponding values to the database
+    }else{
+        $sql ="UPDATE prizes SET sid = '{$result['result'][0]['sid']}', pname = '{$req->body["pname"]}', description = '{$req->body["description"]}', obtain='{$req->body["obtain"]}'  WHERE pid = {$req->body["pid"]}"; //adds a new prize with all corresponding values to the database
         $result = $myapp->postQuery($sql);
         $json['string'] = $result['string'];
         $json['error'] = $result['error'];
