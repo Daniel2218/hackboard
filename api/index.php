@@ -202,7 +202,7 @@ $myapp->get("/applications/totalSchool", function(REST\Request $req, REST\Respon
 });
 
 $myapp->get("/applications/accepted", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='1'";
+    $sql ="SELECT count(aid) as total FROM `applications` WHERE status='1'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -222,7 +222,7 @@ $myapp->get("/applications/accepted", function(REST\Request $req, REST\Response 
 });
 
 $myapp->get("/applications/declined", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='2'";
+    $sql ="SELECT count(aid) as total FROM `applications` WHERE status='2'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -242,7 +242,7 @@ $myapp->get("/applications/declined", function(REST\Request $req, REST\Response 
 });
 
 $myapp->get("/applications/skipped", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM `applications` WHERE status='0'";
+    $sql ="SELECT count(aid) as total FROM `applications` WHERE status='0'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
