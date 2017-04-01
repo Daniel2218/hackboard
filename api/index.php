@@ -108,7 +108,7 @@ $myapp->get("/events", function(REST\Request $req, REST\Response $res, REST\ App
 });
 
 $myapp->get("/prizes", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT pname, description, obtain,fname,lname FROM prizes NATURAL JOIN sponsors";  //Gathers prizes
+    $sql = "SELECT pid, pname, description, obtain,fname,lname FROM prizes NATURAL JOIN sponsors";  //Gathers prizes
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
