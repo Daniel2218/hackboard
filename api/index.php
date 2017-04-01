@@ -74,7 +74,7 @@ $myapp->get("/judges", function(REST\Request $req, REST\Response $res, REST\ App
 });
 
 $myapp->get("/users", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
-    $sql = "SELECT fname, lname, email, phone, position FROM users";  //Gathers users
+    $sql = "SELECT uid, fname, lname, email, phone, position FROM users";  //Gathers users
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -509,33 +509,24 @@ EDITING TABLES:
 
 */
 $myapp->post("/users/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * from users WHERE uid = {$req->body['id']}";
-    $result = $myapp->getQuery($sql);
-    $json = array();
+    $sql ="UPDATE users SET fname='{$req->body['fname']}', lname='{$req->body['lname']}', email='{$req->body['email']}', phone='{$req->body['phone']}', position='{$req->body['position']}' WHERE uid = {$req->body['uid']}"; //edits the user table based on a column name and their id
+    $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
-    if (empty($result['result'])){
+
+    if($result['error'][0]!="00000"){
         $json['status'] = false;
-        $json['message'] = "Failure. This user does not exist.";
+        $json['message'] = "Failure. A user has not been edited.";
     }else{
-        $sql ="UPDATE users SET {$req->body['columnName']} = {$req->body['value']} WHERE uid = {$req->body['id']}"; //edits the user table based on a column name and their id
-        $result = $myapp->postQuery($sql);
-        $json['string'] = $result['string'];
-        $json['error'] = $result['error'];
-        if($result['error'][0]!="00000"){
-            $json['status'] = false;
-            $json['message'] = "Failure. A user has not been edited.";
-        }else{
-            $json['status'] = true;
-            $json['message'] = "Success. A user has been edited successfully.";
-        }
+        $json['status'] = true;
+        $json['message'] = "Success. A user has been edited successfully.";
     }
     $res->json($json);
 });
 
 $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $json = array();
-    $sql ="UPDATE sponsors SET fname={$req->body['fname']}, lname={$req->body['lname']}, email={$req->body['email']}, phone={$req->body['phone']}, donationAmount={$req->body['amount']},donationRecieved={$req->body['recieved']} WHERE sid = {$req->body['sid']}"; //adds a new prize with all corresponding values to the database
+    $sql ="UPDATE sponsors SET fname='{$req->body['fname']}', lname='{$req->body['lname']}', email='{$req->body['email']}', phone='{$req->body['phone']}', donationAmount='{$req->body['amount']}',donationRecieved='{$req->body['recieved']}' WHERE sid = {$req->body['sid']}"; //adds a new prize with all corresponding values to the database
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
     $json['error'] = $result['error'];
@@ -577,7 +568,7 @@ $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, RES
 });
 
 $myapp->post("/events/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * from events WHERE eid = {$req->body['id']}";
+    $sql ="SELECT * from events WHERE eid = '{$req->body['id']}'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['string'] = $result['string'];
