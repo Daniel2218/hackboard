@@ -5,9 +5,9 @@
     include_once dirname(__FILE__) . "/requests.php";
 
     $total = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    // $accepted = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    // $declined = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    // $skipped = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
+    $accepted = json_decode(getRequest("applications/accpeted"), true)["result"][0]["total"];
+    $declined = json_decode(getRequest("applications/declined"), true)["result"][0]["total"];
+    $skipped = json_decode(getRequest("applications/skipped"), true)["result"][0]["total"];
     // $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
 ?>
 
@@ -33,15 +33,15 @@
                 </div>
                 <div id = "stat-box-2" class="hvr-grow statBox">
                     <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
-                    Accepted: 5000
+                    Accepted: <?php echo $accepted; ?>
                 </div>
                 <div id = "stat-box-3" class="hvr-grow statBox">
                     <i class="fa fa-window-close fa-2x" aria-hidden="true"></i>
-                    Declined: 5000
+                    Declined: <?php echo $declined; ?>
                 </div>
                 <div id = "stat-box-4" class="hvr-grow statBox">
                     <i class="fa fa-share fa-2x" aria-hidden="true"></i>
-                    Skipped: 0
+                    Skipped: <?php echo $skipped; ?>
                 </div>
             </div>
         </div>
