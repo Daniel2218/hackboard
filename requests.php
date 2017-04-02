@@ -1,5 +1,4 @@
 <?php
-    // var_dump($_REQUEST);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $postData = $_POST["postData"];
         $endpoint = $postData["endpoint"];
@@ -26,18 +25,21 @@
             );
             echo postRequest($endpoint, http_build_query($fields));
         } else if ($endpoint == "users/edit") {
+            echo "hello";
             $fields = array (
                 "uid" => $postData["values"][0],
                 "fname" => $postData["values"][1],
                 "lname" => $postData["values"][2],
                 "email" => $postData["values"][3],
                 "phone" => $postData["values"][4],
-                "position" => $postData["values"][5]
+                "position" => $postData["values"][5],
+                "password" => $postData["values"][6]
             );
             echo postRequest($endpoint, http_build_query($fields));
         }else {
             unset($postData["endpoint"]);
-            echo postRequest($endpoint, $postData);
+            var_dump($postData["values"]);
+            echo postRequest($endpoint, $postData["values"]);
         }
     } else if ($_SERVER["REQUEST_METHOD"] == "GET"){
         if(!empty($_GET["endpoint"])) {

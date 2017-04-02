@@ -23,13 +23,13 @@
                 case "Applications":
                     return array("Applicant ID", "First Name", "Last Name", "Reviewer First Name",  "Reviewer LastName", "Status");
                 case "Users":
-                    return array("First Name", "Last Name", "Email", "Phone", "Position");
+                    return array("ID", "First Name", "Last Name", "Email", "Phone", "Position", "Password");
                 case "Sponsors":
                     return array("ID","First Name", "Last Name", "Email", "Phone", "Donation Amount", "Donation Recieved");
                 case "Prizes":
                     return array("ID", "Prize Name", "Description", "Obtained By",  "Sponsor First Name", "Sponsor Last Name");
                 case "Schedule":
-                    return array("Event Name", "Start Time", "End Time", "Location");
+                    return array("pid", "sid", "Event Name", "Description", "Start Time", "End Time", "Location");
                 case "Applicant":
                     return array("First Name", "Last Name", "Email", "Phone",  "School", "Age", "Gender",  "Size", "Major", "Resume", "Website", "Hacks", "Status");
                 case "Judges":

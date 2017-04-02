@@ -139,6 +139,26 @@ function getMonthText(month) {
     }
 }
 function addEvent() {
+    var inputs = document.querySelectorAll("#middle > input");
+    if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
+    var postData = {};
+    postData.values = [];
+
+    inputs.forEach(function(input){
+        postData.values.push(input.value);
+    });
+
+    postData.endpoint = "events/add";
+
+    $.ajax({
+        url:"requests.php",
+        data: {postData},
+        type: 'post',
+        success: function(data) {
+            alert(data);
+        }
+    });
+
     var inputText = document.getElementsByName('eventName')[0].value;
     displayPopUpBox("none");
     var div = document.createElement("div");
