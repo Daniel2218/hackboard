@@ -24,7 +24,7 @@ $myapp->get("/applications", function(REST\Request $req, REST\Response $res, RES
 });
 
 $myapp->get("/IDapplications", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
-    $sql = "SELECT * FROM applications where aid = {$req->body['aid']}"; //Gathers applicant by id
+    $sql = "SELECT aid, firstname, lastname, email, phone, school, age, gender, size, major, resume, website, hacks, status FROM applications where aid = {$req->body['aid']}"; //Gathers applicant by id
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];

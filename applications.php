@@ -57,14 +57,14 @@
                 url:"requests.php?endpoint=IDapplications?aid=" + value,
                 type: 'get',
                 success: function(applicant) {
+                    // alert(applicant);
                     applicant = JSON.parse(applicant);
-                    // console.log(applicant.result[0]);
                     applicant = JSON.stringify(applicant.result[0]);
                     $.ajax({
                         url:"requests.php?endpoint=store&data=" + applicant,
                         type: 'get',
                         success: function(data) {
-                             alert(data);
+                            //  alert(data);
                              window.location.assign("http://localhost/myHackathon/applicant.php")
                         }
                     });

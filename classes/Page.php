@@ -31,7 +31,7 @@
                 case "Schedule":
                     return array("pid", "sid", "Event Name", "Description", "Start Time", "End Time", "Location");
                 case "Applicant":
-                    return array("First Name", "Last Name", "Email", "Phone",  "School", "Age", "Gender",  "Size", "Major", "Resume", "Website", "Hacks", "Status");
+                    return array("ID", "First Name", "Last Name", "Email", "Phone",  "School", "Age", "Gender",  "Size", "Major", "Resume", "Website", "Hacks", "Status");
                 // case "Judges":
                 //     return array("First Name", "Last Name", "Age", "Email", "Password");
                 default:

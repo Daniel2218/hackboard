@@ -19,6 +19,15 @@ function setSize() {
 var currentDate = new Date();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
+var events = [];
+
+$.ajax({
+    url:"requests.php?endpoint=events",
+    type: 'get',
+    success: function(data) {
+        events = JSON.parse(data).result;
+    }
+});
 
 function createSced(month, year) {
     var date = new Date();
@@ -70,6 +79,32 @@ function createSced(month, year) {
         td.appendChild(textNode);
         tr.appendChild(td);
 
+        var event1 = getEvent(days[i]);
+
+        if(!isEmpty(event1)) {
+            console.log("hello");
+            var inputText = event1.ename;
+            var div = document.createElement("div");
+            div.innerHTML = inputText;
+            div.style.color = "white";
+            div.style.fontSize = "12px";
+            div.style.fontFamily = "Open Sans, sans-serif";
+            div.style.background = "#fb7a2c";
+            div.style.fontSize = "12px";
+            div.style.display = "block";
+            div.style.width = "95%";
+            div.style.padding = "6px 4px";
+            div.style.marginTop = "2px";
+            div.style.marginLeft = "0";
+            div.style.marginBottom = "0";
+            div.style.textAlign = "left";
+            div.style.fontWeight = "normal";
+            div.draggable = "true";
+            div.addEventListener('dragstart', function() {drag(event)}, false);
+            div.id = "drag1";
+            td.appendChild(div);
+        }
+
         if((i + 1) % 7 == 0) {
             table.appendChild(tr);
             var tr = document.createElement("tr");
@@ -79,6 +114,30 @@ function createSced(month, year) {
     var scheduleContainer = document.getElementById("scheduleContainer");
     scheduleContainer.appendChild(table);
 }
+
+function getEvent(date) {
+    var e = {};
+    events.forEach(function(event){
+        var timeStart = event.timestart;
+        var eventDate = new Date(timeStart);
+
+        if (date.getDate() == eventDate.getDate() && date.getFullYear() == eventDate.getFullYear()
+                && date.getMonth() == eventDate.getMonth()) {
+                    // console.log(event);
+            e = event;
+        }
+    });
+    return e;
+}
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 function getDaysInMonth(month, year) {
      var date = new Date(year, month, 1);
      var days = [];
@@ -185,6 +244,7 @@ function drag(ev) {
 }
 function drop(ev) {
     ev.preventDefault();
+    console.log("hello");
     var data = ev.dataTransfer.getData("text");
     var element = document.getElementById(data);
     element.style.background = "#fb7a2c";
