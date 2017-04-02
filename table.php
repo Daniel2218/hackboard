@@ -21,7 +21,11 @@
                     echo "<button onclick=\"set_status('accept')\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Accept
                           </button>";
-                } else {
+                } if ($name == "Sponsors") {
+                    echo "<button style='width:125px;' onclick=\"displayPopUpBox('block')\">
+                            <i class='fa fa-plus' aria-hidden='true'></i> Add new ". $shortName .
+                        "</button>";
+                }else {
                     echo "<button onclick=\"displayPopUpBox('block')\">
                             <i class='fa fa-plus' aria-hidden='true'></i> Add new ". $shortName .
                         "</button>";
@@ -99,10 +103,16 @@
         }
 
         function addEntries($rows, $edit) {
+            global $name;
             foreach($rows["result"] as $row) {
                 $length = sizeof($row);
                 $i = 1;
                 echo '<tr class="tr-color">';
+
+                if($name == "Users") {
+                    array_push($row, "**********");
+                }
+                
                 foreach($row as $value) {
                     if ($edit) {
                         echo "<td><a href='#'>$value</a>";
