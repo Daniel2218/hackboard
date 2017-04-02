@@ -620,7 +620,7 @@ $myapp->post("/judges/edit", function(REST\Request $req, REST\Response $res, RES
 });
 
 $myapp->get("/users/loginCheck", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql ="SELECT * FROM users WHERE email={$req->body['email']} AND password = {$req->body['password']}";//will gather email and password
+    $sql = "SELECT * FROM users WHERE email='{$req->body['email']}' AND password='{$req->body['password']}'";//will gather email and password
     $json = array();
     $result = $myapp->getQuery($sql);
     $json['result']=$result['result'];
