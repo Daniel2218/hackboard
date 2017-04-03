@@ -319,7 +319,7 @@ $myapp->post("/sponsor/add", function(REST\Request $req, REST\Response $res, RES
     $res->json($json);
 });
 
-$myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/prize/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     // var_dump($req->body[3]);
     $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body["fname"]}' and lname = '{$req->body["lname"]}'";
     $result = $myapp->getQuery($sql);
@@ -330,7 +330,6 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
         $json['status'] = false;
         $json['message'] = "Failure. Sponsor does not exist.";
     }else{
-        var_dump($req->body);
         array_pop($req->body);
         array_pop($req->body);
         $var = implode("','", $req->body);
@@ -431,7 +430,7 @@ $myapp->post("/sponsor/delete", function(REST\Request $req, REST\Response $res, 
     $res->json($json);
 });
 
-$myapp->post("/prizes/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/prize/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM prizes WHERE pid = {$req->body['id']}"; //adds a new prize with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);

@@ -40,16 +40,16 @@
                 "id" => $postData["id"]
             );
             echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "prizes/add") {
+        } else if($endpoint == "prize/add") {
             $fields = array (
-                "pname" => $postData[0],
-                "desc" => $postData[1],
-                "obtain" => $postData[2],
-                "fname" => $postData[3],
-                "lname" => $postData[4],
+                "pname" => $postData[1],
+                "desc" => $postData[2],
+                "obtain" => $postData[3],
+                "fname" => $postData[4],
+                "lname" => $postData[5],
             );
             echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "prizes/delete") {
+        } else if($endpoint == "prize/delete") {
             $fields = array (
                 "id" => $postData["id"]
             );
