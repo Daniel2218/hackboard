@@ -371,7 +371,7 @@ $myapp->post("/judges/add", function(REST\Request $req, REST\Response $res, REST
     $res->json($json);
 });
 
-$myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/event/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode("','", $req->body);
     $var = "'" . $var . "'";
     $sql ="INSERT INTO events VALUES (NULL, {$var})"; //adds a new event with all corresponding values to the database
@@ -465,7 +465,7 @@ $myapp->post("/judges/delete", function(REST\Request $req, REST\Response $res, R
     $res->json($json);
 });
 
-$myapp->post("/events/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/event/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM events WHERE eid = {$req->body['id']}"; //adds a new event with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);
@@ -509,7 +509,7 @@ EDITING TABLES:
 
 
 */
-$myapp->post("/users/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/user/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="UPDATE users SET fname='{$req->body['fname']}', lname='{$req->body['lname']}', email='{$req->body['email']}', phone='{$req->body['phone']}', position='{$req->body['position']}' WHERE uid = {$req->body['uid']}"; //edits the user table based on a column name and their id
     $result = $myapp->postQuery($sql);
     $json['string'] = $result['string'];
@@ -525,7 +525,7 @@ $myapp->post("/users/edit", function(REST\Request $req, REST\Response $res, REST
     $res->json($json);
 });
 
-$myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/sponsor/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $json = array();
     $sql ="UPDATE sponsors SET fname='{$req->body['fname']}', lname='{$req->body['lname']}', email='{$req->body['email']}', phone='{$req->body['phone']}', donationAmount='{$req->body['amount']}',donationRecieved='{$req->body['recieved']}' WHERE sid = {$req->body['sid']}"; //adds a new prize with all corresponding values to the database
     $result = $myapp->postQuery($sql);
@@ -542,7 +542,7 @@ $myapp->post("/sponsors/edit", function(REST\Request $req, REST\Response $res, R
     $res->json($json);
 });
 
-$myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/prize/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
     $result = $myapp->getQuery($sql);
     $json = array();
@@ -568,7 +568,7 @@ $myapp->post("/prizes/edit", function(REST\Request $req, REST\Response $res, RES
     $res->json($json);
 });
 
-$myapp->post("/events/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/event/edit", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="SELECT * from events WHERE eid = '{$req->body['id']}'";
     $result = $myapp->getQuery($sql);
     $json = array();

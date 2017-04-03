@@ -75,8 +75,8 @@ function insertRequest(postData) {
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
-            location.reload();
+            alert(data);
+            // location.reload();
         }
     });
 }
@@ -93,9 +93,9 @@ function deleteRow(row) {
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
+            alert(data);
             // tr.remove();
-            location.reload();
+            // location.reload();
         }
     });
 }
@@ -137,7 +137,7 @@ function updateRow(row) {
 function updateRowInBackEnd() {
     var postData = {};
     postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-5) + "/edit";
-
+    console.log(postData.endpoint);
     var inputs = document.querySelectorAll("#middle > input");
     if (inputs.length == 0) { inputs = document.querySelectorAll("#middle > div > input"); }
     var i = 0;
@@ -151,9 +151,10 @@ function updateRowInBackEnd() {
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
-            location.reload();
-            location.reload();
+            alert(data);
+            // location.reload();
+            // location.reload();
         }
     });
+
 }

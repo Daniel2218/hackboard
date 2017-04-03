@@ -13,7 +13,6 @@ function setSize() {
     for (var i = 0; i < length; i++){
         var td = document.getElementsByTagName("td")[i];
         var height = td.offsetHeight;
-        console.log(height);
         // var width = td.offsetWidth;
         td.style.width = height;
     }
@@ -253,14 +252,14 @@ function addEvent() {
         postData.values.push(input.value);
     });
 
-    postData.endpoint = "events/add";
+    postData.endpoint = "event/add";
 
     $.ajax({
         url:"requests.php",
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
+            alert(data);
             location.reload();
             location.reload();
         }

@@ -3,7 +3,7 @@
         $postData = $_POST["postData"];
         $endpoint = $postData["endpoint"];
 
-        if ($endpoint == "prizes/edit") {
+        if ($endpoint == "prizes/edit" || $endpoint == "prize/edit") {
             $fields = array (
                 "pid" => $postData["values"][0],
                 "pname" => $postData["values"][1],
@@ -12,8 +12,8 @@
                 "fname" => $postData["values"][4],
                 "lname" =>$postData["values"][5]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if ($endpoint == "sponsors/edit") {
+            echo postRequest("prize/edit", http_build_query($fields));
+        } else if ($endpoint == "sponsors/edit" || $endpoint == "sponsor/edit") {
             $fields = array (
                 "sid" => $postData["values"][0],
                 "fname" => $postData["values"][1],
@@ -23,8 +23,8 @@
                 "amount" => $postData["values"][5],
                 "recieved" =>$postData["values"][6]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if ($endpoint == "users/edit") {
+            echo postRequest("sponsor/edit", http_build_query($fields));
+        } else if ($endpoint == "users/edit" || $endpoint == "user/edit") {
             $fields = array (
                 "uid" => $postData["values"][0],
                 "fname" => $postData["values"][1],
@@ -34,13 +34,25 @@
                 "position" => $postData["values"][5],
                 "password" => $postData["values"][6]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if ($endpoint == "events/delete") {
+            echo postRequest("user/edit", http_build_query($fields));
+        } else if ($endpoint == "event/delete" || $endpoint == "events/delete") {
             $fields = array (
                 "id" => $postData["id"]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "prize/add") {
+            echo postRequest("event/delete", http_build_query($fields));
+        } else if ($endpoint == "event/add" || $endpoint == "events/add") {
+            var_dump($postData);
+            $fields = array (
+                "pid" => $postData["values"][0],
+                "sid" => $postData["values"][1],
+                "ename" => $postData["values"][2],
+                "desc" => $postData["values"][3],
+                "timestart" => $postData["values"][4],
+                "timeend" => $postData["values"][5],
+                "loca" => $postData["values"][6]
+            );
+            echo postRequest("event/add", http_build_query($fields));
+        } else if($endpoint == "prize/add" || $endpoint == "prizes/add") {
             $fields = array (
                 "pname" => $postData[1],
                 "desc" => $postData[2],
@@ -48,13 +60,13 @@
                 "fname" => $postData[4],
                 "lname" => $postData[5],
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "prize/delete") {
+            echo postRequest("prize/add", http_build_query($fields));
+        } else if($endpoint == "prize/delete" || $endpoint == "prizes/delete" ) {
             $fields = array (
                 "id" => $postData["id"]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "sponsor/add") {
+            echo postRequest("prize/delete", http_build_query($fields));
+        } else if($endpoint == "sponsor/add" || $endpoint == "sponsors/add") {
             $fields = array (
                 "fname" => $postData[1],
                 "lname" => $postData[2],
@@ -63,13 +75,14 @@
                 "amount" => $postData[5],
                 "rec" => $postData[6]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "sponsor/delete") {
+            echo postRequest("sponsor/add", http_build_query($fields));
+        } else if($endpoint == "sponsor/delete" || $endpoint == "sponsors/delete") {
             $fields = array (
                 "id" => $postData["id"]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        }  else if($endpoint == "user/add") {
+            var_dump($endpoint);
+            echo postRequest("sponsor/delete", http_build_query($fields));
+        }  else if($endpoint == "user/add" || $endpoint == "users/add") {
             $fields = array (
                 "fname" => $postData[1],
                 "lname" => $postData[2],
@@ -78,12 +91,12 @@
                 "pos" => $postData[5],
                 "pass" => $postData[6]
             );
-            echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "user/delete") {
+            echo postRequest("user/add", http_build_query($fields));
+        } else if($endpoint == "user/delete" || $endpoint == "users/delete") {
             $fields = array (
                 "id" => $postData["id"]
             );
-            echo postRequest($endpoint, http_build_query($fields));
+            echo postRequest("user/delete", http_build_query($fields));
         } else {
             unset($postData["endpoint"]);
             var_dump($postData["values"]);
