@@ -91,7 +91,7 @@ $myapp->get("/users", function(REST\Request $req, REST\Response $res, REST\App $
 });
 
 $myapp->get("/events", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT ename,description,timestart,timeend,location FROM events";  //Gathers events
+    $sql = "SELECT eid, ename,description,timestart,timeend,location FROM events";  //Gathers events
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];

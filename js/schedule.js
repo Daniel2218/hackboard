@@ -82,8 +82,16 @@ function createSced(month, year) {
         var event1 = getEvent(days[i]);
 
         if(!isEmpty(event1)) {
-            console.log("hello");
             var inputText = event1.ename;
+            var itag = document.createElement("i");
+            itag.setAttribute("class", "fa fa-times");
+            itag.setAttribute("aria-hidden", "true");
+            itag.setAttribute("onclick", "deleteEvent(this)");
+            itag.style.float= "right";
+            itag.style.cursor= "pointer";
+
+            // console.log(i);
+
             var div = document.createElement("div");
             div.innerHTML = inputText;
             div.style.color = "white";
@@ -102,6 +110,7 @@ function createSced(month, year) {
             div.draggable = "true";
             div.addEventListener('dragstart', function() {drag(event)}, false);
             div.id = "drag1";
+            div.appendChild(itag);
             td.appendChild(div);
         }
 
@@ -128,6 +137,41 @@ function getEvent(date) {
         }
     });
     return e;
+}
+
+function deleteEvent(eventItem) {
+    var div = eventItem.parentElement;
+    var postData = {};
+    var eventItems = [];
+    var id;
+
+    $.ajax({
+        url:"requests.php?endpoint=events",
+        type: 'get',
+        success: function(data) {
+            eventItems = JSON.parse(data).result;
+
+            eventItems.forEach(function(item){
+                var value = div.childNodes[0].nodeValue;
+                if (item.ename == value) {
+                    id = item.eid;
+                }
+            });
+            postData.endpoint = "events/delete";
+            postData.id = id;
+
+            $.ajax({
+                url:"requests.php?endpoint=events/delete",
+                data: {postData},
+                type: 'post',
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        }
+    });
+
+    div.remove();
 }
 
 function isEmpty(obj) {
@@ -220,6 +264,7 @@ function addEvent() {
 
     var inputText = document.getElementsByName('eventName')[0].value;
     displayPopUpBox("none");
+
     var div = document.createElement("div");
     div.innerHTML = inputText;
     div.style.background = "black";

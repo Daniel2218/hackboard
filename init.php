@@ -9,11 +9,11 @@
     spl_autoload_register(function($class) {
     	include_once "classes/$class.php";
     });
-    
-    if (isset($_SESSION["email"]) == false) {
-        header('location: /myHackathon/login.html');
-    }
-    else {
+
+    // if (isset($_SESSION["email"]) == false) {
+    //     header('location: /myHackathon/login.html');
+    // }
+    // else {
 
         $manager = new PageManager();
         $page = $manager->findPage(basename($_SERVER['PHP_SELF']));
@@ -24,5 +24,5 @@
         $tableHeaders = $page->getTableHeaders();
         $iconName = $page->iconName;
         $previousPage = $page->previousPage;
-    }
+    // }
  ?>

@@ -25,7 +25,6 @@
             );
             echo postRequest($endpoint, http_build_query($fields));
         } else if ($endpoint == "users/edit") {
-            echo "hello";
             $fields = array (
                 "uid" => $postData["values"][0],
                 "fname" => $postData["values"][1],
@@ -36,7 +35,12 @@
                 "password" => $postData["values"][6]
             );
             echo postRequest($endpoint, http_build_query($fields));
-        }else {
+        } else if ($endpoint == "events/delete") {
+            $fields = array (
+                "id" => $postData["id"]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else {
             unset($postData["endpoint"]);
             var_dump($postData["values"]);
             echo postRequest($endpoint, $postData["values"]);
