@@ -166,7 +166,7 @@ function deleteEvent(eventItem) {
                 data: {postData},
                 type: 'post',
                 success: function(data) {
-                    alert(data);
+                    // alert(data);
                 }
             });
         }
@@ -258,7 +258,9 @@ function addEvent() {
         data: {postData},
         type: 'post',
         success: function(data) {
-            alert(data);
+            // alert(data);
+            location.reload();
+            location.reload();
         }
     });
 
