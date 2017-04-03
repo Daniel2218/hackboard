@@ -39,6 +39,7 @@
                         onkeydown='if(event.keyCode == 13) {
                             searchByEmail(document.getElementsByName(\"email\")[0].value);
                         }'>";
+                echo "<button onclick=\"getSortedApplicants()\"> Sort by Hacks </button>";
             }
         ?>
     </div>
@@ -53,6 +54,56 @@
             }
         });
     }
+
+    function getSortedApplicants() {
+        $.ajax({
+            url:  "api/applications/sort?sorting=hacks",
+            type: 'get',
+            success: function(data) {
+                $('tr.tr-color').remove();
+                var table = document.getElementsByTagName("table")[0];
+                
+                data.result.forEach(function(item) {
+                     console.log(item);
+                    var tr = document.createElement("tr");
+                    tr.setAttribute("class", "tr-color");
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.setAttribute("onclick", "getApplicant(this)");
+                    a.innerHTML = item.aid;
+                    td.appendChild(a);
+                    tr.appendChild(td);
+
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.setAttribute("onclick", "getApplicant(this)");
+                    a.innerHTML = item.firstname;
+                    td.appendChild(a);
+                    tr.appendChild(td);
+
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.setAttribute("onclick", "getApplicant(this)");
+                    a.innerHTML = item.lastname;
+                    td.appendChild(a);
+                    tr.appendChild(td);
+
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.setAttribute("onclick", "getApplicant(this)");
+                    a.innerHTML = item.status;
+                    td.appendChild(a);
+                    tr.appendChild(td);
+                    table.appendChild(tr);
+                });
+            }
+        });
+    }
+
     </script>
     <table>
         <tr>
