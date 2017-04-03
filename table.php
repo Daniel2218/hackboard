@@ -62,9 +62,8 @@
             success: function(data) {
                 $('tr.tr-color').remove();
                 var table = document.getElementsByTagName("table")[0];
-                
+
                 data.result.forEach(function(item) {
-                     console.log(item);
                     var tr = document.createElement("tr");
                     tr.setAttribute("class", "tr-color");
                     var td = document.createElement("td");
@@ -88,6 +87,14 @@
                     a.href = "#";
                     a.setAttribute("onclick", "getApplicant(this)");
                     a.innerHTML = item.lastname;
+                    td.appendChild(a);
+                    tr.appendChild(td);
+
+                    var td = document.createElement("td");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.setAttribute("onclick", "getApplicant(this)");
+                    a.innerHTML = item.hacks;
                     td.appendChild(a);
                     tr.appendChild(td);
 

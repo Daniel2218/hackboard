@@ -6,7 +6,7 @@ $myapp = new REST\app('localhost','hackboard','root','');
 
 $myapp->get("/applications", function(REST\Request $req, REST\Response $res, REST\App $myapp) {
     // $sql = "SELECT aid, firstname, lastname, fname, lname, status FROM applications LEFT OUTER JOIN users ON applications.uid=users.uid"; //Gathers all information of applicants
-    $sql = "SELECT aid, firstname, lastname, status FROM applications";
+    $sql = "SELECT aid, firstname, lastname, hacks, status FROM applications";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
@@ -264,7 +264,7 @@ $myapp->get("/applications/skipped", function(REST\Request $req, REST\Response $
 
 
 $myapp->get("/applications/sort", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT * FROM applications ORDER BY {$req->body['sorting']}"; //Sort applications by # of hacks
+    $sql = "SELECT * FROM applications ORDER BY {$req->body['sorting']} DESC"; //Sort applications by # of hacks
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];

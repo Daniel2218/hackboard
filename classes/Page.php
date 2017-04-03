@@ -21,7 +21,7 @@
         function getTableHeaders(){
             switch($this->strippedName) {
                 case "Applications":
-                    return array("Applicant ID", "First Name", "Last Name", "Status");
+                    return array("Applicant ID", "First Name", "Last Name","Hacks", "Status");
                 case "Users":
                     return array("ID", "First Name", "Last Name", "Email", "Phone", "Position", "Password");
                 case "Sponsors":
