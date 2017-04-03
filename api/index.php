@@ -291,7 +291,7 @@ CREATE FUNCTION TO FOR SQL WITH PARAMS GIVEN
 /*(
 ADDING new elements to the following tables: sponsors, prizes, judges, events, users.
 */
-$myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/sponsor/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql = "SELECT * FROM sponsors WHERE fname = '{$req->body['fname']}' and lname = '{$req->body['lname']}'";
     $result = $myapp->getQuery($sql);
     $json = array();
@@ -321,7 +321,7 @@ $myapp->post("/sponsors/add", function(REST\Request $req, REST\Response $res, RE
 
 $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     // var_dump($req->body[3]);
-    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body[3]}' and lname = '{$req->body[4]}'";
+    $sql = "SELECT sid FROM sponsors WHERE fname = '{$req->body["fname"]}' and lname = '{$req->body["lname"]}'";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['string'] = $result['string'];
@@ -330,6 +330,7 @@ $myapp->post("/prizes/add", function(REST\Request $req, REST\Response $res, REST
         $json['status'] = false;
         $json['message'] = "Failure. Sponsor does not exist.";
     }else{
+        var_dump($req->body);
         array_pop($req->body);
         array_pop($req->body);
         $var = implode("','", $req->body);
@@ -413,7 +414,7 @@ DELETING TABLES:
 
 
 */
-$myapp->post("/sponsors/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/sponsor/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="DELETE FROM sponsors WHERE sid = {$req->body['id']}"; //adds a new sponsor with all corresponding values to the database
     $json = array();
     $result = $myapp->postQuery($sql);

@@ -68,13 +68,14 @@ function displayPopUpBox(displayType) {
 }
 
 function insertRequest(postData) {
-    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4) + "/add";
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-5) + "/add";
+    console.log(postData.endpoint);
     $.ajax({
         url:"requests.php",
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
+            alert(data);
         }
     });
 }
@@ -83,16 +84,16 @@ function deleteRow(row) {
     var tr = row.parentElement.parentElement.parentElement;
     var id = tr.childNodes[0].childNodes[0].innerHTML;
     var postData = new Object();
-    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-4) + "/delete";
+    postData.endpoint = document.URL.replace(/^.*[\\\/]/, '').slice(0,-5) + "/delete";
     postData.id = id;
-    tr.remove();
-
+    console.log(postData.endpoint);
     $.ajax({
         url:"requests.php",
         data: {postData},
         type: 'post',
         success: function(data) {
-            // alert(data);
+            alert(data);
+            tr.remove();
         }
     });
 }

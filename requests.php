@@ -40,6 +40,50 @@
                 "id" => $postData["id"]
             );
             echo postRequest($endpoint, http_build_query($fields));
+        } else if($endpoint == "prizes/add") {
+            $fields = array (
+                "pname" => $postData[0],
+                "desc" => $postData[1],
+                "obtain" => $postData[2],
+                "fname" => $postData[3],
+                "lname" => $postData[4],
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else if($endpoint == "prizes/delete") {
+            $fields = array (
+                "id" => $postData["id"]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else if($endpoint == "sponsor/add") {
+            $fields = array (
+                "fname" => $postData[1],
+                "lname" => $postData[2],
+                "email" => $postData[3],
+                "phone" => $postData[4],
+                "amount" => $postData[5],
+                "rec" => $postData[6]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else if($endpoint == "sponsor/delete") {
+            $fields = array (
+                "id" => $postData["id"]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        }  else if($endpoint == "users/add") {
+            $fields = array (
+                "fname" => $postData[1],
+                "lname" => $postData[2],
+                "email" => $postData[3],
+                "phone" => $postData[4],
+                "pos" => $postData[5],
+                "pass" => $postData[6]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
+        } else if($endpoint == "users/delete") {
+            $fields = array (
+                "id" => $postData["id"]
+            );
+            echo postRequest($endpoint, http_build_query($fields));
         } else {
             unset($postData["endpoint"]);
             var_dump($postData["values"]);
