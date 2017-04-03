@@ -164,7 +164,7 @@ $myapp->get("/applications/searchEmail", function(REST\Request $req, REST\Respon
 });
 
 $myapp->get("/applications/total", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
-    $sql = "SELECT count(aid) as overallApplicants FROM applications GROUP BY aid";
+    $sql = "SELECT count(aid) as overallApplicants FROM applications";
     $result = $myapp->getQuery($sql);
     $json = array();
     $json['result'] = $result['result'];
