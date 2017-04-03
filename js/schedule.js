@@ -84,35 +84,37 @@ function createSced(month, year) {
         var event1 = getEvent(days[i]);
         // console.log(event1);
         if(!isEmpty(event1)) {
-            // console.log(event1);
-            var inputText = event1.ename;
-            var itag = document.createElement("i");
-            itag.setAttribute("class", "fa fa-times");
-            itag.setAttribute("aria-hidden", "true");
-            itag.setAttribute("onclick", "deleteEvent(this)");
-            itag.style.float= "right";
-            itag.style.cursor= "pointer";
+            // console.log(event1)
+            event1.forEach(function(e){
+                var inputText = e.ename;
+                var itag = document.createElement("i");
+                itag.setAttribute("class", "fa fa-times");
+                itag.setAttribute("aria-hidden", "true");
+                itag.setAttribute("onclick", "deleteEvent(this)");
+                itag.style.float= "right";
+                itag.style.cursor= "pointer";
 
-            var div = document.createElement("div");
-            div.innerHTML = inputText;
-            div.style.color = "white";
-            div.style.fontSize = "12px";
-            div.style.fontFamily = "Open Sans, sans-serif";
-            div.style.background = "#fb7a2c";
-            div.style.fontSize = "12px";
-            div.style.display = "block";
-            div.style.width = "95%";
-            div.style.padding = "6px 4px";
-            div.style.marginTop = "2px";
-            div.style.marginLeft = "0";
-            div.style.marginBottom = "0";
-            div.style.textAlign = "left";
-            div.style.fontWeight = "normal";
-            div.draggable = "true";
-            div.addEventListener('dragstart', function() {drag(event)}, false);
-            div.id = "drag1";
-            div.appendChild(itag);
-            td.appendChild(div);
+                var div = document.createElement("div");
+                div.innerHTML = inputText;
+                div.style.color = "white";
+                div.style.fontSize = "12px";
+                div.style.fontFamily = "Open Sans, sans-serif";
+                div.style.background = "#fb7a2c";
+                div.style.fontSize = "12px";
+                div.style.display = "block";
+                div.style.width = "95%";
+                div.style.padding = "6px 4px";
+                div.style.marginTop = "2px";
+                div.style.marginLeft = "0";
+                div.style.marginBottom = "0";
+                div.style.textAlign = "left";
+                div.style.fontWeight = "normal";
+                div.draggable = "true";
+                div.addEventListener('dragstart', function() {drag(event)}, false);
+                div.id = "drag1";
+                div.appendChild(itag);
+                td.appendChild(div);
+            });
         }
 
         if((i + 1) % 7 == 0) {
@@ -126,15 +128,15 @@ function createSced(month, year) {
 }
 
 function getEvent(date) {
-    var e = {};
+    var e = [];
     events.forEach(function(event1){
         var timeStart = event1.timestart;
         var eventDate = new Date(timeStart);
 
         if (date.getDate() == eventDate.getDate() && date.getFullYear() == eventDate.getFullYear()
                 && date.getMonth() == eventDate.getMonth()) {
-                    // console.log(event);
-            e = event1;
+
+            e.push(event1);
         }
     });
     return e;
