@@ -69,7 +69,7 @@
                 "id" => $postData["id"]
             );
             echo postRequest($endpoint, http_build_query($fields));
-        }  else if($endpoint == "users/add") {
+        }  else if($endpoint == "user/add") {
             $fields = array (
                 "fname" => $postData[1],
                 "lname" => $postData[2],
@@ -79,7 +79,7 @@
                 "pass" => $postData[6]
             );
             echo postRequest($endpoint, http_build_query($fields));
-        } else if($endpoint == "users/delete") {
+        } else if($endpoint == "user/delete") {
             $fields = array (
                 "id" => $postData["id"]
             );

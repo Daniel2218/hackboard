@@ -75,7 +75,8 @@ function insertRequest(postData) {
         data: {postData},
         type: 'post',
         success: function(data) {
-            alert(data);
+            // alert(data);
+            location.reload();
         }
     });
 }
@@ -92,8 +93,9 @@ function deleteRow(row) {
         data: {postData},
         type: 'post',
         success: function(data) {
-            alert(data);
-            tr.remove();
+            // alert(data);
+            // tr.remove();
+            location.reload();
         }
     });
 }
@@ -150,8 +152,8 @@ function updateRowInBackEnd() {
         type: 'post',
         success: function(data) {
             // alert(data);
+            location.reload();
+            location.reload();
         }
     });
-
-    location.reload();
 }

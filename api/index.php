@@ -390,7 +390,7 @@ $myapp->post("/events/add", function(REST\Request $req, REST\Response $res, REST
     $res->json($json);
 });
 
-$myapp->post("/users/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/user/add", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $var = implode("','", $req->body);
     $var = "'" . $var . "'";
     $sql ="INSERT INTO users(uid,fname,lname,email,phone,position,password) VALUES (NULL, {$var})"; //adds a new user with all corresponding values to the database
@@ -482,7 +482,7 @@ $myapp->post("/events/delete", function(REST\Request $req, REST\Response $res, R
     $res->json($json);
 });
 
-$myapp->post("/users/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
+$myapp->post("/user/delete", function(REST\Request $req, REST\Response $res, REST\ App $myapp) {
     $sql ="SET foreign_key_checks = 0";
     $result = $myapp->postQuery($sql);
     $sql ="DELETE FROM users WHERE uid = {$req->body['id']}"; //adds a new user with all corresponding values to the database
