@@ -12,8 +12,10 @@ function setSize() {
     var length = document.getElementsByTagName("td").length;
     for (var i = 0; i < length; i++){
         var td = document.getElementsByTagName("td")[i];
-        var width = td.offsetWidth;
-        td.style.height = width;
+        var height = td.offsetHeight;
+        console.log(height);
+        // var width = td.offsetWidth;
+        td.style.width = height;
     }
 }
 var currentDate = new Date();
@@ -170,7 +172,6 @@ function deleteEvent(eventItem) {
             });
         }
     });
-
     div.remove();
 }
 
@@ -264,7 +265,11 @@ function addEvent() {
 
     var inputText = document.getElementsByName('eventName')[0].value;
     displayPopUpBox("none");
-
+    var itag = document.createElement("i");
+    itag.setAttribute("class", "fa fa-times");
+    itag.setAttribute("aria-hidden", "true");
+    itag.style.float= "right";
+    itag.style.marginLeft = "5px";
     var div = document.createElement("div");
     div.innerHTML = inputText;
     div.style.background = "black";
@@ -279,6 +284,7 @@ function addEvent() {
     div.draggable = "true";
     div.addEventListener('dragstart', function() {drag(event)}, false);
     div.id = "drag1";
+    div.appendChild(itag);
     document.getElementById("eventContainer").appendChild(div);
 }
 function allowDrop(ev) {
