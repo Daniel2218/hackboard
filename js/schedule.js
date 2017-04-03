@@ -2,6 +2,7 @@ addLoadEvent(function () {
     var date = new Date();
 	var month = date.getMonth();
 	var year = date.getFullYear();
+
     createSced(month, year);
     setSize();
 });
@@ -22,15 +23,13 @@ var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
 var events = [];
 
-$.ajax({
-    url:"requests.php?endpoint=events",
-    type: 'get',
-    success: function(data) {
-        events = JSON.parse(data).result;
-    }
-});
-
 function createSced(month, year) {
+    $.ajax({
+        url:"requests.php?endpoint=events",
+        type: 'get',
+        success: function(data) {
+            events = JSON.parse(data).result;
+
     var date = new Date();
     var d = date.getDate();
 	var m = date.getMonth();
@@ -124,6 +123,9 @@ function createSced(month, year) {
     table.appendChild(tr);
     var scheduleContainer = document.getElementById("scheduleContainer");
     scheduleContainer.appendChild(table);
+    setSize();
+    }
+    });
 }
 
 function getEvent(date) {
@@ -167,7 +169,7 @@ function deleteEvent(eventItem) {
                 data: {postData},
                 type: 'post',
                 success: function(data) {
-                    // alert(data);
+                    alert(data);
                 }
             });
         }
@@ -260,7 +262,6 @@ function addEvent() {
         type: 'post',
         success: function(data) {
             alert(data);
-            location.reload();
             location.reload();
         }
     });
