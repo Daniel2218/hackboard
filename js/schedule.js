@@ -82,8 +82,9 @@ function createSced(month, year) {
         tr.appendChild(td);
 
         var event1 = getEvent(days[i]);
-
+        // console.log(event1);
         if(!isEmpty(event1)) {
+            // console.log(event1);
             var inputText = event1.ename;
             var itag = document.createElement("i");
             itag.setAttribute("class", "fa fa-times");
@@ -91,8 +92,6 @@ function createSced(month, year) {
             itag.setAttribute("onclick", "deleteEvent(this)");
             itag.style.float= "right";
             itag.style.cursor= "pointer";
-
-            // console.log(i);
 
             var div = document.createElement("div");
             div.innerHTML = inputText;
@@ -128,14 +127,14 @@ function createSced(month, year) {
 
 function getEvent(date) {
     var e = {};
-    events.forEach(function(event){
-        var timeStart = event.timestart;
+    events.forEach(function(event1){
+        var timeStart = event1.timestart;
         var eventDate = new Date(timeStart);
 
         if (date.getDate() == eventDate.getDate() && date.getFullYear() == eventDate.getFullYear()
                 && date.getMonth() == eventDate.getMonth()) {
                     // console.log(event);
-            e = event;
+            e = event1;
         }
     });
     return e;
