@@ -1,0 +1,98 @@
+html { height: 100%; }
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
+}
+#left-justify {
+    padding: 12px;
+    text-align: left;
+    border-left: 1px solid #cdcdcd;
+    border-right: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    color: #777777;
+    font-size: 12px;
+    text-shadow: 0 1px 0 #ffffff;
+    font-weight: bold;
+}
+#tableHeader > button { display: inline; }
+#tableHeader > h5 { display: inline; }
+#eventContainer {
+    height: 25px;
+    padding: 12px;
+    background-color: white;
+    overflow-y: auto;
+    border-left: 1px solid #cdcdcd;
+    border-right: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+}
+#scheduleContainer {
+    background-color: #f9f9f9;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+    border-bottom: 1px solid #D5D5D5;
+}
+#viewPanel {
+    text-align: right;
+    font-size: 12px;
+    color: #797979;
+    cursor: pointer;
+    position: relative;
+}
+#viewPanel > div > p {
+    display: inline-block;
+    padding: 14px 14px;
+}
+#viewPanel > div {
+    display: inline-block;
+    border-left: 1px solid #D5D5D5;
+    border-bottom: 1px solid #D5D5D5;
+}
+#viewPanel > div:last-child { border-right: 1px solid #D5D5D5; }
+#line {
+    display: inline-block;
+    width: calc(100% - 178px);
+    position: absolute;;
+    left: 0px;
+    bottom: 0px;
+    border-bottom: 1px solid #D5D5D5;
+}
+#noBottomBorder { border-bottom: none !important; }
+#scheduleNav {
+    text-align: center;
+    padding: 20px;
+    font-size: 13.5px;
+    color: #666;
+    border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+    border-bottom: 1px solid #D5D5D5;
+    font-weight: bold;
+}
+th, table {
+    border: none;
+    border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+}
+th {
+    padding: 5px;
+    width: 100px;
+}
+th, td {
+    color: #666;
+    font-size: 12px;
+}
+td {
+    height: 160px;
+    text-align: right;
+    padding: 6px 4px;
+}
+#i-left { float:left; }
+#i-right { float:right; }
+.clickSpace {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: inline-block;
+}

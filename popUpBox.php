@@ -1,19 +1,57 @@
+<!--
+    @var
+        All defined at the beginning of the file they are called from
+        $name: the name of the file with .php stripped
+        $shortName: the name of the file with .php stripped and 's' character stripped
+        $tableHeaders: the headings for the html table of each page
+-->
+<div id ="pop-up-box" tabindex="1" onkeydown="if(event.keyCode == 27) displayPopUpBox('none');">
+    <div id = "top">
+        <p id = "makeInline"> Add a new
+            <?php
+                if($shortName == "schedule") {
+                    echo "evemt";
+                } else {
+                    echo $shortName;
+                }
+            ?>
+        </p>
+        <i onclick="displayPopUpBox('none')" id = "floatRight" class="fa fa-times fa-lg" aria-hidden="true"></i>
+    </div>
+    <div id  = "middle">
+        <?php
+            if ($name == 'Schedule') {
+                $onclickFunc = "addEvent();";
+            } else {
+                $onclickFunc = "addTableEntry();";
+            }
+
+            $first = true;
+            foreach ($tableHeaders as $header) {
+                $inputName = lcfirst(str_replace(' ', '', $header));
+                // if($header != "ID") {
+                    echo "<div>";
+                    echo "<p> Enter " . $header . ": </p>";
+                    echo "<input autofocus='$first' name='$inputName' class = 'pop-up-input' type='text'
+                                 onkeydown='if(event.keyCode == 13) $onclickFunc'>";
+                    echo "</div>";
+                    $first = false;
+                // }
+            }
+        ?>
+    </div>
+    <div id = "bottom">
+        <div id = "positionLeft">
+            <a class="pop-up-a" id = "add-event-btn" onclick= <?php echo $onclickFunc; ?> href="#">
+                Add <?php
+                    if($fullName == "schedule.php") {
+                        echo " event";
+                    } else {
+                        echo $shortName;
+                    }?>
+            </a>
+            <a class="pop-up-a" id = "cancel-btn" onclick="displayPopUpBox('none')" href="#"> Cancel </a>
+        </div>
+    </div>
 </div>
-</div>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/popUpBox.css">
-    </head>
-        <body>
-            <div class="grandParentContaniner">
-                <div class="parentContainer">
-                    <h1> New User </h1>
-                    <input type="text" name="fname" placeholder="First Name"><br>
-                    <input type="text" name="lname" placeholder="Last Name"><br>
-                    <input type="text" name="email" placeholder="Email"><br>
-                    <input type="text" name="amount" placeholder="Amount"><br>
-                    <input type="submit" class ="hv-grow" value="Add">
-                </div>
-            </dvi>
-    </body>
-</html>
+<div onclick="displayPopUpBox('none')"id ="screen"> </div>
