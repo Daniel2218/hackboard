@@ -85,8 +85,9 @@
             }
         }
         addLoadEvent(function () {
-            var fileName = location.pathname.replace("/myHackathon/", "");
+            var fileName = location.pathname.replace("/hackboard/", "");
             fileName = fileName.replace(".php", "");
+            console.log(fileName);
             var li = document.getElementById(fileName);
             li.id = "makeVisted";
         });

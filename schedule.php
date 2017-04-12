@@ -23,8 +23,8 @@
                 <h5> Schedule </h5>
                 <button onclick="displayPopUpBox('block')"> <i class="fa fa-plus" aria-hidden="true"></i> Add new event </button>
             </div>
-            <!-- <div id = "left-justify"> Drag Events to the calender </div>
-            <div id = "eventContainer"> </div> -->
+            <div id = "left-justify"> Drag Events to the calender </div>
+            <div id = "eventContainer"> </div>
 
             <div id = "scheduleContainer">
                 <div id = "viewPanel">
