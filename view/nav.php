@@ -1,14 +1,8 @@
-<?php
-    header("Cache-Control: no-cache, must-revalidate");
-    include_once "init.php";
-    session_start();
-?>
-
 <html>
     <head>
         <script src="https://use.fontawesome.com/8de37c3432.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/reset.css">
-        <link rel="stylesheet" type="text/css" href="css/navStyle.css">
+        <link rel="stylesheet" type="text/css" href="view/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="view/css/navStyle.css">
         <title>Dashboard</title>
     </head>
 
@@ -16,7 +10,7 @@
         <ul id = "header">
             <div id="top-half">
                 <div id="inner-top-half">
-                    <a target="_blank" href="http://qhacks.io/"><img src="img/logo.png" alt="myHackathon logo" class="hvr-grow" ></a>
+                    <a target="_blank" href="http://qhacks.io/"><img src="view/img/logo.png" alt="myHackathon logo" class="hvr-grow" ></a>
                     Qhacks<span style = "font-weight:bold"> Admin </span>
                 </div>
             </div>
@@ -49,27 +43,49 @@
                      <i class="fa fa-home" id = "i-space-1" aria-hidden="true"></i> Home
                  </a>
                  <?php
-                    if($previousPage != "") {
-                        echo '<i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>';
-                        echo "<a href='sponsors.php'> $previousPage </a>";
-                    }
+                    // if($previousPage != "") {
+                    //     echo '<i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>';
+                    //     echo "<a href='sponsors.php'> $previousPage </a>";
+                    // }
                  ?>
-                 <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i>
-                 <a href="sponsors.php"> <?php echo $name; ?> </a>
+                 <!-- <i class="fa fa-angle-right" id ="i-space-2" saria-hidden="true"></i> -->
+                 <!-- <a href="sponsors.php"> <?php //echo $name; ?> </a> -->
             </div>
         </ul>
-    </body>
         <div id = "nav">
             <ul>
+                <li id="applications">
+                    <a href="applications.php">
+                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                        <span>Applications</span></a></li><li id="prizes"><a href="prizes.php">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <span>Prizes</span>
+                        </a>
+                    </li>
+                    <li id="schedule"><a href="schedule.php">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span>Schedule</span>
+                    </a></li>
+                    <li id="makeVisted"><a href="sponsors.php">
+                        <i class="fa fa-university" aria-hidden="true"></i>
+                        <span>Sponsors</span></a>
+                    </li>
+                    <li id="users"><a href="users.php">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span>Users</span>
+                    </a></li>
+            </ul>
                 <?php
-                    foreach ($manager->pages as $doc) {
-                        if($doc->fullName != "applicant.php") {
-                            echo "<li id='$doc->lowerName'><a href='$doc->fullName'><i class='fa fa-$doc->iconName' aria-hidden='true'></i><span>$doc->strippedName</span></a></li>";
-                        }
-                    }
+                    // foreach ($manager->pages as $doc) {
+                    //     if($doc->fullName != "applicant.php") {
+                    //         echo "<li id='$doc->lowerName'><a href='$doc->fullName'><i class='fa fa-$doc->iconName' aria-hidden='true'></i><span>$doc->strippedName</span></a></li>";
+                    //     }
+                    // }
                  ?>
             </ul>
         </div>
+    </body>
+
     <script>
         function addLoadEvent(func) {
             var oldonload = window.onload;
@@ -92,6 +108,7 @@
             li.id = "makeVisted";
         });
     </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/table.js"></script>
 </html>

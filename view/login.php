@@ -1,18 +1,4 @@
 <?php
-    //include_once dirname(__FILE__) . "/requests.php";
-
-    /*$postData .= "email" . "=" . $_POST["email"] . "&" . "password" . "=" . $_POST["password"];
-    $response = json_decode(postRequest("loginCheck", $postData), true);
-    if ($response->status == true) {
-        session_start();
-        $_SESSION["email"] = $_POST["email"];
-        $_SESSION["password"] = $_POST["password"];
-        header("Location: " . dirname(__FILE__) . "/applications.php");
-    } else {
-        echo $response->message;
-    }*/
-
-
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://localhost/myHackathon/api/users/loginCheck?email=" . $_POST['email'] . "&password=" . $_POST['password']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

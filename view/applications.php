@@ -1,27 +1,21 @@
 <?php
+    // include_once "../controller/Page.php";
+    // session_start();
     header("Cache-Control: no-cache, must-revalidate");
     include_once "nav.php";
-    include_once "init.php";
-    include_once dirname(__FILE__) . "/requests.php";
-
-    $total = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
-    $accepted = json_decode(getRequest("applications/accepted"), true)["result"]["total"];
-    $declined = json_decode(getRequest("applications/declined"), true)["result"]["total"];
-    $skipped = json_decode(getRequest("applications/skipped"), true)["result"]["total"];
-    // $schools = json_decode(getRequest("applications/total"), true)["result"][0]["overallApplicants"];
 ?>
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/reset.css">
-        <link rel="stylesheet" type="text/css" href="css/application.css">
-        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="view/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="view/css/application.css">
+        <meta charset="UTF-8">
         <meta name=viewport content='width=600'>
         <meta name="description" content="A dashboard for hackathons to help executive with logictics and planning. Currently, it only has an application review system."/>
         <meta name="keywords" content="Application Review System, Hackathon, Dashboard"/>
-        <meta name="author" content="Daniel Lucia" />
-        <meta name="copyright" content="Daniel Lucia" />
-        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta name="author" content="Daniel Lucia">
+        <meta name="copyright" content="Daniel Lucia">
+        <meta http-equiv="cache-control" content="no-cache">
     </head>
 
     <body>
